@@ -1,15 +1,16 @@
 /**common base variable & function */
-@bgcolor:#ffffff;
-
-
+@bgcolor:#000;
+@color:#ffffff;
 
 
 /**common base style */
 body{
     margin:0;padding:0;font-family: "Microsoft YaHei"; 
     background-color: @bgcolor;
-    font-size: 14px;
-    
+    min-width: 1200px;
+    font-family: arial,'Hiragino Sans GB','Microsoft Yahei','微软雅黑','宋体',\5b8b\4f53,Tahoma,Arial,Helvetica,STHeiti;
+    color: @color;
+     font-size: 14px;
 }
 p, h1, h2, h3{
     margin:0;
@@ -20,8 +21,11 @@ html,body{
     height: 100%;
 }
 a{
+   border: none;
    text-decoration: none;
+   outline-style:none;
 }
+img{ border: none;}
 input{outline:none;border:none;}
 .clrfix{zoom:1;}
 .clrfix:after{ content: "";display: block;clear: both; }
