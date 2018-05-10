@@ -4,8 +4,8 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const Seba = (resolve) => {
-  import('commponents/seba/seba').then((module) => {
+const Index = (resolve) => {
+  import('components/index/index').then((module) => {
     resolve(module)
   })
 }
@@ -14,11 +14,11 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/seba'
+      redirect: '/index'
     },
     {
-      path: '/seba',
-      component: Seba
+      path: '/index',
+      component: Index
     }
   ]
 })
