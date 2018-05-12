@@ -18,7 +18,7 @@
                 <div class="choose-skateimg choose-skateimg1"></div>
                 <div class="choose-skatename choose-skatename1"></div>            
                 <div class="choose-btn-box choose-btn-box1">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']"  @click="selectSkate()"></div>
                     HIGH CARBON
                 </div>
           </div>
@@ -28,7 +28,7 @@
                 <div class="choose-skateimg choose-skateimg2"></div>
                 <div class="choose-skatename choose-skatename2"></div>            
                 <div class="choose-btn-box choose-btn-box2">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate()"></div>
                     TRIX
                 </div>
           </div>
@@ -38,7 +38,7 @@
                 <div class="choose-skateimg choose-skateimg3"></div>
                 <div class="choose-skatename choose-skatename3"></div>            
                 <div class="choose-btn-box choose-btn-box3">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']"  @click="selectSkate()"></div>
                     IGOR
                 </div>
           </div>
@@ -48,13 +48,15 @@
                 <div class="choose-skateimg choose-skateimg4"></div>
                 <div class="choose-skatename choose-skatename4"></div>            
                 <div class="choose-btn-box choose-btn-box4">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']"  @click="selectSkate()"></div>
                     WFSC
                 </div>
           </div>
       </div>
       <footer class="foot clrfix">
-            <a href="http://www.sebaskates.com/">版权所有 Copyright © 2014 SEBASKATES - All Rights Reserved</a>
+          <div class="reserve">
+            <a  href="http://www.sebaskates.com/">版权所有 Copyright © 2014 SEBASKATES - All Rights Reserved</a>
+          </div>
           <div class="homelinks">
               <a class="fb" href="https://www.facebook.com/SebaSkates" ></a>
               <a class="tw" href="https://twitter.com/sebaskates"></a>
@@ -250,14 +252,19 @@ export default {
     width: 960px;
     left: 50%;
     margin-left: -480px;
-    line-height: 40px;
 }
-.foot > div{display: inline-block; color: @color;}
-.reserve {   
+.foot > div{
+    display: inline-block;
+    vertical-align: middle;
+ }
+.reserve { 
     font-size: 10px;
-    -webkit-transform: scale(0.83); 
+    -webkit-transform: scale(0.83);
 }
-.reserve > a{ color: @color; }
+.reserve > a{
+    color: @color;  
+    line-height: 40px; 
+}
 .homelinks > a {
     display: inline-block;
     width: 40px;
