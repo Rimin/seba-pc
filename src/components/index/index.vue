@@ -18,7 +18,7 @@
                 <div class="choose-skateimg choose-skateimg1"></div>
                 <div class="choose-skatename choose-skatename1"></div>            
                 <div class="choose-btn-box choose-btn-box1">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']"  @click="selectSkate()"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate('high')"></div>
                     HIGH CARBON
                 </div>
           </div>
@@ -28,7 +28,7 @@
                 <div class="choose-skateimg choose-skateimg2"></div>
                 <div class="choose-skatename choose-skatename2"></div>            
                 <div class="choose-btn-box choose-btn-box2">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate()"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate('trix')"></div>
                     TRIX
                 </div>
           </div>
@@ -38,7 +38,7 @@
                 <div class="choose-skateimg choose-skateimg3"></div>
                 <div class="choose-skatename choose-skatename3"></div>            
                 <div class="choose-btn-box choose-btn-box3">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']"  @click="selectSkate()"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate('igor')"></div>
                     IGOR
                 </div>
           </div>
@@ -48,7 +48,7 @@
                 <div class="choose-skateimg choose-skateimg4"></div>
                 <div class="choose-skatename choose-skatename4"></div>            
                 <div class="choose-btn-box choose-btn-box4">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']"  @click="selectSkate()"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate('wfsc')"></div>
                     WFSC
                 </div>
           </div>
@@ -80,6 +80,7 @@ export default {
     },
     created() {
         this.lang = this.$i18n.locale
+        console.log(this.$bus.style)
     },
     methods: {
         changeLang(lang){
@@ -102,6 +103,10 @@ export default {
              arr.forEach((i) => {
                 document.getElementsByClassName('choose-box')[i-1].style.width = NOMAL_WIDTH 
             } )
+       },
+       selectSkate(style){
+            this.$bus.style = style
+            this.$router.push({ path: `/rollerskate/edit`})
        }
     }
 }
@@ -157,7 +162,6 @@ export default {
     transition: width .15s ease-out;
 }
 .choose-box:hover{
-   // width: 30%;
     .bg(@url: url('@{bgimgurl}/index/home_sel_bg.png') ; @size: auto 100% ; @repeat: repeat-x); 
 }
 .choose-box1:hover .choose-skateimg1{
@@ -227,6 +231,7 @@ export default {
     line-height: 40px;
 }
 .choose-btn{
+    cursor: pointer;
     margin: 0 auto;
     height: 32px;
     width: 162px;

@@ -5,7 +5,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueI18n from 'vue-i18n'
-
+import bus from './bus/bus'
 import 'common/less/base.less'
 
 Vue.config.productionTip = false
@@ -18,6 +18,8 @@ const i18n = new VueI18n({
     'en-US': require('./common/lang/en')
   }
 })
+
+Vue.prototype.$bus = bus
 
 /* eslint-disable no-new */
 new Vue({
