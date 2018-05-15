@@ -121,7 +121,6 @@ export default {
     left: 0; right: 0;
     margin:  auto;
 }
-
 .seba{
     height: 100%;
     min-width: 1110px;  
