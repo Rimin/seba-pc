@@ -1,7 +1,15 @@
 <template>
-  <div>lalalal</div>
+  <div class="order mainbg">
+      <div class="headbg">
+
+      </div>
+      <div class="order-main main">
+          <div class="content">
+
+          </div>
+      </div>
+  </div>
 </template>
-<<<<<<< HEAD
 
 <script>
 export default {
@@ -11,7 +19,11 @@ export default {
 
 
 <style lang="less" scoped>
+@import url('../../common/less/base.less');
+@import url('../../common/less/common.less');
+.order-main{
+    width: 1140px;
+    height: 970px;
+}
 
 </style>
-=======
->>>>>>> a65a9e6446e42de795e41a0ed48263d9f88e33f9

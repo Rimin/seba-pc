@@ -80,7 +80,6 @@ export default {
     },
     created() {
         this.lang = this.$i18n.locale
-        console.log(this.$bus.style)
     },
     methods: {
         changeLang(lang){
@@ -126,7 +125,8 @@ export default {
     min-width: 1110px;  
     position: relative;
     background-color: @bgcolor2;
-    .bg(@url: url("@{bgimgurl}index/home_bg.png") ; @size: auto 100% ; @repeat: repeat-x);
+    background: url("@{bgimgurl}index/home_bg.png") repeat-x;
+    background-size: auto 100%;
     overflow: hidden;
 }
 .head{
@@ -139,8 +139,6 @@ export default {
     text-align: center;
     overflow: hidden;
 }
-.fl{float: left; }
-.fr{float: right;}
 .fl > a{color: @color;}
 .logo{
     height: 60px;
@@ -148,10 +146,10 @@ export default {
     .ab_hor_center();
 }
 .logo_en{
-    .bg(@url: url("@{bgimgurl}index/index_en/home_logo.png") ; @size: auto; @repeat: no-repeat);
+    background:  url("@{bgimgurl}index/index_en/home_logo.png") no-repeat;
 }
 .logo_zh{
-    .bg(@url: url("@{bgimgurl}index/index_zh/home_logo.png") ; @size: auto; @repeat: no-repeat);
+    background:  url("@{bgimgurl}index/index_zh/home_logo.png") no-repeat;
 }
 .choose-box{
     width: 25%;
@@ -161,7 +159,8 @@ export default {
     transition: width .15s ease-out;
 }
 .choose-box:hover{
-    .bg(@url: url('@{bgimgurl}/index/home_sel_bg.png') ; @size: auto 100% ; @repeat: repeat-x); 
+    background: url('@{bgimgurl}/index/home_sel_bg.png') repeat-x;
+    background-size: auto 100%;
 }
 .choose-box1:hover .choose-skateimg1{
     background: url('@{bgimgurl}/index/sprite_home_ture_color.png') -320px 0 no-repeat;

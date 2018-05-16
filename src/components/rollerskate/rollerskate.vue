@@ -36,15 +36,24 @@
                 </div>
             </div> 
         </footer>
+        <div class="fix-btn">
+            <a class="contact-mail" href="http://www.sebaskates.com/en/contact.php"></a>
+            <a class="print" href="javascript:window.print();"></a>
+        </div>
     </div>
 </template>
 
 
 <script>
 export default {
-  created () {
-     // console.log(this.$bus.style)
-  },
+  data() {
+        return {
+            lang:'en-US'
+        } 
+    },
+    created() {
+        this.lang = this.$i18n.locale
+    },
   methods: {
         changeLang(lang){
                 if ( this.lang === lang ) return
@@ -92,8 +101,6 @@ export default {
     text-decoration: none;
     padding: 0 15px; 
  }
-.fl{float: left; }
-.fr{float: right;}
 .nav-edit{
     width: 580px;
     margin-left: 80px;
@@ -155,5 +162,30 @@ export default {
     color: @ligtcolor;
     .smallFontSize();
     padding: 0 15px; 
+}
+.fix-btn{
+    position: fixed;
+    top: 50%;
+    right: 0;
+    height: 90px;
+    width: 40px;
+    margin-top: -50px;
+}
+.fix-btn > a{
+    height: 40px;
+    width: 40px;
+    display: block; 
+}
+.contact-mail{
+    background: url('@{bgimgurl}/common/common_btn_mail_nor.png');
+}
+.print{
+    background: url('@{bgimgurl}/common/common_btn_print_nor.png');
+}
+.contact-mail:hover{
+    background: url('@{bgimgurl}/common/common_btn_mail_pre.png');
+}
+.print:hover{
+    background: url('@{bgimgurl}/common/common_btn_print_pre.png');
 }
 </style>
