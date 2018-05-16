@@ -262,8 +262,7 @@ export default {
     vertical-align: middle;
  }
 .reserve { 
-    font-size: 10px;
-    -webkit-transform: scale(0.83);
+   .smallFontSize();
 }
 .reserve > a{
     color: @color;  

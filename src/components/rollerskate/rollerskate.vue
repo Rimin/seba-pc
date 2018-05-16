@@ -1,7 +1,7 @@
 <template>
     <div class="rollerskate">
         <header class="head">
-            <div class="head-contain clrfix">
+            <div class="contain clrfix">
                 <router-link to="/index" class="logo fl">
                     <img src="../../common/img/common/logo.png">
                 </router-link>
@@ -20,7 +20,21 @@
         </header>
         <router-view></router-view>
         <footer div class="foot">
-
+            <div class="contain clrfix">
+                <div class="reserve fl">版权所有 Copyright © 2014 SEBASKATES - All Rights Reserved</div>
+                <div class="foot-links fl">
+                    <a class="fb" href="https://www.facebook.com/SebaSkates" ></a>
+                    <a class="tw" href="https://twitter.com/sebaskates"></a>
+                    <a class="vim" href="https://vimeo.com/user5009810" ></a>
+                    <a class="ins" href="http://instagram.com/sebaskates"></a>
+                </div>
+                 <div class="aboutus fr">
+                    <a href="http://www.sebaskates.com/en/sebaskates.php" >{{$t('m.about')}}</a>
+                    |
+                    <a href="http://www.sebaskates.com/en/contact.php">{{$t('m.contact')}}</a>
+                    <img src="../../common/img/common/common_bottom_logo.png">
+                </div>
+            </div> 
         </footer>
     </div>
 </template>
@@ -46,6 +60,7 @@ export default {
 
 <style lang="less" scoped>
 @import url('../../common/less/base.less');
+@middlewidth: 1080px;
 @bordercolor: #c2282c;
 .rollerskate{
     height: 100%;
@@ -57,9 +72,11 @@ export default {
     border-bottom: @bordercolor solid 1px;
     color: #fff;
 }
-.head-contain{
-    width: 1080px;
+.contain{
+    width: @middlewidth;
+    height: 100%;
     margin: 0 auto;
+    position: relative;
 }
 .logo{
     width: 200px;
@@ -108,7 +125,35 @@ export default {
     background: #fff;
     border-top: @bordercolor solid 1px;
     height: 69px;
-    color: @ligtcolor; 
+    color: @ligtcolor;
 }
+.reserve{
+  .smallFontSize();
+   padding-top: 28px;
+}
+.foot-links{
+   position: absolute;
+   left: 366px;
+   margin-top: 15px;
 
+}
+.foot-links > a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.fb{background: url('@{bgimgurl}/common/common_bottom_ico_1.png');}
+.tw{background: url('@{bgimgurl}/common/common_bottom_ico_2.png')}
+.vim{background: url('@{bgimgurl}/common/common_bottom_ico_3.png') }
+.ins{background: url('@{bgimgurl}/common/common_bottom_ico_4.png')}
+.aboutus{
+    margin-top: 26px;
+}
+.aboutus > a{
+    color: @ligtcolor;
+    .smallFontSize();
+    padding: 0 15px; 
+}
 </style>
