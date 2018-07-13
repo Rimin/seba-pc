@@ -92,5 +92,12 @@ export const m = {
     'THA': 'THA',
     'MAS': 'MAS',
     'Other': 'Other',
+  },
+
+  'Cloth': {  // 面料纹理名称
+    'a': '仿碳纤维',
+    'b': '菱形网格',
+    'c': '蜂窝网格',
+    'e': '方形网格',
   }
 }
