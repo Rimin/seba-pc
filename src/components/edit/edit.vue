@@ -1,7 +1,7 @@
 <template>
   <div class="edit mainbg">
     <div class="edit-tab headbg">
-
+        
     </div>
     <div class="edit-main main">
         <div class="content">

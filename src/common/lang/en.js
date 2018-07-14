@@ -30,7 +30,7 @@ export const m = {
     'Wheels': 'Wheels',
   },
  
-  'RIX': {     // RIX 品牌的部件名
+  'TRIX': {     // RIX 品牌的部件名
     'Collar': 'Collar(PU)',
     'Tongue': 'Tongue(PU)',
     'Collar_Strap': 'Collar strap (Lower)',

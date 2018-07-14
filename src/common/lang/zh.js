@@ -30,7 +30,7 @@ export const m = {
     'Wheels': '轮子',
   },
 
-  'RIX': {     // RIX 品牌的部件名
+  'TRIX': {     // RIX 品牌的部件名
     'Collar': '鞋帮',
     'Tongue': '鞋舌',
     'Collar_Strap': '鞋帮能量带下片',
