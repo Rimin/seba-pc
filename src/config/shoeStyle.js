@@ -1,4 +1,4 @@
-const shoeStyle = [
+const shoeStyle = [   // 品牌集合
   {
     name: 'HIGH_CARBON',    // 品牌名称
     id: 1         // 品牌 id
@@ -8,6 +8,18 @@ const shoeStyle = [
     id: 2         // 品牌 id
   },
 ]
+
+
+
+
+
+
+
+
+
+
+
+
 
 function getStyleById(id){
   if(id<=0){
@@ -29,7 +41,7 @@ function getStyleNameById(id){
 
 
 export default {
-  shoeStyle: shoeStyle,
+  shoeStyles: shoeStyle,
   getStyleById: getStyleById,
   getStyleNameById: getStyleNameById,
 }
