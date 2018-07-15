@@ -1,35 +1,27 @@
-const shoeStyle = [   // 品牌集合
-  {
-    name: 'HIGH_CARBON',    // 品牌名称
-    id: 1         // 品牌 id
-  },
-  {
-    name: 'TRIX',    // 品牌名称
-    id: 2         // 品牌 id
-  },
-]
+ 
+ 
+// var shoeStyle = 
 
-
-
-
-
-
-
-
-
-
-
-
-
-function getStyleById(id){
+export const getShoeStyle = function(){
+  return [   // 品牌集合
+    {
+      name: 'HIGH_CARBON',    // 品牌名称
+      id: 1         // 品牌 id
+    },
+    {
+      name: 'TRIX',    // 品牌名称
+      id: 2         // 品牌 id
+    },
+  ]
+}
+export const getStyleById = function(id){
   if(id<=0){
     throw Error('the id to getStyleById is illegal');
     return false;
   }
-  return shoeStyle[id - 1];
+  return getShoeStyle()[id - 1];
 }
-
-function getStyleNameById(id){
+export const getStyleNameById = function(id){
   if(id<=0){
     throw Error('the id to getStyleNameById is illegal');
     return false;
@@ -40,8 +32,3 @@ function getStyleNameById(id){
 
 
 
-export default {
-  shoeStyles: shoeStyle,
-  getStyleById: getStyleById,
-  getStyleNameById: getStyleNameById,
-}
