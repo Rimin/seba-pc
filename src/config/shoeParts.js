@@ -53,7 +53,20 @@ const shoeParts = [
     material: 0,   // 使用材料的 id 
   },
   {
-
+    shoeStyle: shoeStyle[0],   // 该部件所属品牌
+    partType: partTypes[0],    // 部件类型： 布件或胶件
+    id: 'b',     // 部件 id，用于识别是哪个部位的部件
+    zhName: '鞋头/大身饰花/上包铮',  // 中文名称
+    enName: '',   // 英文名称
+    material: 0,   // 使用材料的 id 
+  },
+  {
+    shoeStyle: shoeStyle[0],   // 该部件所属品牌
+    partType: partTypes[0],    // 部件类型： 布件或胶件
+    id: 'c',     // 部件 id，用于识别是哪个部位的部件
+    zhName: '前能量带',  // 中文名称
+    enName: '',   // 英文名称
+    material: 0,   // 使用材料的 id 
   }
 ]
 
