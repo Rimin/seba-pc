@@ -1,7 +1,9 @@
 <template>
   <div class="edit mainbg">
     <div class="edit-tab headbg">
-      <select-part></select-part>
+      <div class="content">
+        <select-part></select-part>
+      </div>
     </div>
     <div class="edit-main main">
       <div class="content">
@@ -29,6 +31,13 @@ export default {
   width: 1140px;
   height: 653px;
    
+}
+
+.content {
+  width: 1080px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
 }
 
 
