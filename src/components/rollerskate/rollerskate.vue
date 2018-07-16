@@ -6,10 +6,10 @@
                     <img src="../../common/img/common/logo.png">
                 </router-link>
                 <div class="nav-edit clrfix"> 
-                    <li class="nav-item nav-item-high"></li>
-                    <li class="nav-item nav-item-rix"></li>
-                    <li class="nav-item nav-item-igor"></li>
-                    <li class="nav-item nav-item-wfsc"></li>
+                    <li :class="'nav-item nav-item-1 '+(id===1?'nav-item-1-active':'')"  @click="selectSkate(1)"></li>
+                    <li :class="'nav-item nav-item-2 '+(id===2?'nav-item-2-active':'')" @click="selectSkate(2)"></li>
+                    <li :class="'nav-item nav-item-3 '+(id===3?'nav-item-3-active':'')" @click="selectSkate(3)"></li>
+                    <li :class="'nav-item nav-item-4 '+(id===4?'nav-item-4-active':'')" @click="selectSkate(4)"></li>
                 </div>
                 <div class="lang fr">
                     <a @click="changeLang('zh-CN')">中文</a>
@@ -45,10 +45,13 @@
 
 
 <script>
+const IMGPATH = '../../common/img/common'
+import { initShoe } from '@/config/createShoe'
 export default {
   data() {
         return {
-            lang:'en-US'
+            lang:'en-US',
+            id: 1
         } 
     },
     created() {
@@ -62,6 +65,12 @@ export default {
                     this.$i18n.locale = this.lang
                 } 
         },
+        selectSkate(id){
+            this.id = id
+            this.$bus.shoe = initShoe(id)
+            console.log(this.$bus.shoe)
+        }
+
   }
 }
 </script>
@@ -116,18 +125,30 @@ export default {
     background-repeat: no-repeat;
     cursor: pointer;
 }
-.nav-item-high{
-    background: url("@{bgimgurl}/common/common_head_shd_nor.png");
+.nav-item-1{
+    background: url("@{bgimgurl}/common/common_head_1_nor.png");
 }
-.nav-item-rix{
-    background: url("@{bgimgurl}/common/common_head_trix_nor.png");
+.nav-item-1-active{
+    background: url("@{bgimgurl}/common/common_head_1.png");
 }
-.nav-item-igor{
-    background: url("@{bgimgurl}/common/common_head_igor_nor.png");
+.nav-item-2{
+    background: url("@{bgimgurl}/common/common_head_2_nor.png");
 }
-.nav-item-wfsc{
-    background: url("@{bgimgurl}/common/common_head_wfsc_nor.png");
+.nav-item-2-active{
+    background: url("@{bgimgurl}/common/common_head_2.png");
+} 
+.nav-item-3{
+    background: url("@{bgimgurl}/common/common_head_3_nor.png");
 }
+.nav-item-3-active{
+    background: url("@{bgimgurl}/common/common_head_3.png");
+} 
+.nav-item-4{
+    background: url("@{bgimgurl}/common/common_head_4_nor.png");
+}
+.nav-item-4-active{
+    background: url("@{bgimgurl}/common/common_head_4.png");
+} 
 .foot{
     background: #fff;
     border-top: @bordercolor solid 1px;

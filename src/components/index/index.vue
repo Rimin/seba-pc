@@ -18,7 +18,7 @@
                 <div class="choose-skateimg choose-skateimg1"></div>
                 <div class="choose-skatename choose-skatename1"></div>            
                 <div class="choose-btn-box choose-btn-box1">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate('high')"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate(1)"></div>
                     HIGH CARBON
                 </div>
           </div>
@@ -28,7 +28,7 @@
                 <div class="choose-skateimg choose-skateimg2"></div>
                 <div class="choose-skatename choose-skatename2"></div>            
                 <div class="choose-btn-box choose-btn-box2">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate('trix')"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate(2)"></div>
                     TRIX
                 </div>
           </div>
@@ -38,7 +38,7 @@
                 <div class="choose-skateimg choose-skateimg3"></div>
                 <div class="choose-skatename choose-skatename3"></div>            
                 <div class="choose-btn-box choose-btn-box3">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate('igor')"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate(3)"></div>
                     IGOR
                 </div>
           </div>
@@ -48,7 +48,7 @@
                 <div class="choose-skateimg choose-skateimg4"></div>
                 <div class="choose-skatename choose-skatename4"></div>            
                 <div class="choose-btn-box choose-btn-box4">
-                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate('wfsc')"></div>
+                    <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate(4)"></div>
                     WFSC
                 </div>
           </div>
@@ -72,6 +72,7 @@
 const NOMAL_WIDTH = "25%"
 const HOVER_WIDTH = "30%"
 const SMALL_WIDTH = "23.3%"
+import { initShoe } from '@/config/createShoe'
 export default {
     data() {
         return {
@@ -95,7 +96,7 @@ export default {
            document.getElementsByClassName('choose-box')[num-1].style.width = HOVER_WIDTH  
            arr.forEach((i) => {
               document.getElementsByClassName('choose-box')[i-1].style.width = SMALL_WIDTH 
-           } )
+            })
        },
        mouseOut(num){
              let arr = [1,2,3,4]
@@ -103,8 +104,8 @@ export default {
                 document.getElementsByClassName('choose-box')[i-1].style.width = NOMAL_WIDTH 
             } )
        },
-       selectSkate(style){
-            this.$bus.style = style
+       selectSkate(id){
+            this.$bus.shoe = initShoe(id)
             this.$router.push({ path: `/rollerskate/edit`})
        }
     }

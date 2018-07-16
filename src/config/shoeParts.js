@@ -24,13 +24,15 @@ export const getPartTypes = function () {
       name: 'glue', // 部件类型名称
       type: 2, // 部件类型
       detail: 3, // 部件细节 : 刀架
-      id: 4 // 该部件 id
+      id: 4, // 该部件 id
+      hide: 0 // 0为显示，1为隐藏（单上鞋）
     },
     {
       name: 'glue', // 部件类型名称
       type: 2, // 部件类型
       detail: 4, // 部件细节 : 轮子
-      id: 5 // 该部件 id
+      id: 5, // 该部件 id
+      hide: 0 // 0为显示，1为隐藏（单上鞋）
     }
   ]
 }
