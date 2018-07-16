@@ -191,7 +191,5 @@ export default {
     bottom: 5px;
   }
 }
-
-
 </style>
 
