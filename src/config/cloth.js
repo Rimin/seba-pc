@@ -381,7 +381,7 @@ export const getClothesByTextureId = function (id) {
   if (id < 0) {
     throw Error('the id to getClothesByTextureId is illegal')
   }
-  return getClothes().filter((e)=>{
+  return getClothes().filter((e) => {
     return e.texture.id === id
   })
 }

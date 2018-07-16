@@ -16,10 +16,15 @@
 
 <script>
 import SelectPart from '@/components/selectPart/selectPart'
-
 export default {
   components: {
     SelectPart
+  },
+  created() {
+    // console.log(this.$bus.shoe)
+  },
+  methods: {
+    
   }
 }
 </script>

@@ -1,33 +1,31 @@
 import { getShoeStyle } from './shoeStyle'
 import { getPartsByShoeStyleId } from './shoeParts'
 
+function HIGH_CARBON () {
+  var t = this
+  var parts = getPartsByShoeStyleId(1)
 
-function HIGH_CARBON(){
-  var t = this;
-  var parts = getPartsByShoeStyleId(1);
-
-  t.shoeStyle = getShoeStyle()[0];
-  parts.forEach((e)=>{
-    t[e.id] = e;
+  t.shoeStyle = getShoeStyle()[0]
+  parts.forEach((e) => {
+    t[e.id] = e
   })
 }
 
-function TRIX(){
-  var t = this;
-  var parts = getPartsByShoeStyleId(2);
+function TRIX () {
+  var t = this
+  var parts = getPartsByShoeStyleId(2)
 
   t.shoeStyle = getShoeStyle()[1]
-  parts.forEach((e)=>{
-    t[e.id] = e;
+  parts.forEach((e) => {
+    t[e.id] = e
   })
 }
 
-
-export const initShoe = function(styleId){
-  switch(styleId){
-    case 1: return new HIGH_CARBON();
-    case 2: return new TRIX();
-    default: return false;
+export const initShoe = function (styleId) {
+  switch (styleId) {
+    case 1: return new HIGH_CARBON()
+    case 2: return new TRIX()
+    default: return false
   }
 }
 
