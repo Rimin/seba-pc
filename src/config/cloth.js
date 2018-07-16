@@ -384,7 +384,7 @@ export const getClothesByTextureId = function(id){
     return;
   }
   return getClothes().filter((e)=>{
-    e.texture.id === id
+    return e.texture.id === id
   })
 }
 

@@ -25,7 +25,7 @@ export const getPartTypes = function(){
       name: 'glue',  // 部件类型名称
       type: 2,       // 部件类型
       detail: 3,     // 部件细节 : 刀架
-      id: 4          // 该部件 id
+      id: 4,          // 该部件 id
     },
     {
       name: 'glue',  // 部件类型名称
@@ -345,5 +345,12 @@ export const getPartsByShoeStyleId = function(shoeStyleId){
   var shoeParts = getShoeParts();
   return shoeParts.filter((e)=>{
     return e.shoeStyle.id === shoeStyleId;
+  })
+}
+
+export const getPartsByStyleIdAndPartType = function(shoeStyleId,partTypeType){  // 区分品牌部件和胶件
+  var shoeParts = getShoeParts();
+  return shoeParts.filter((e)=>{
+    return e.shoeStyle.id === shoeStyleId && e.partType.type === partTypeType;
   })
 }
