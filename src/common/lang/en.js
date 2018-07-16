@@ -17,6 +17,7 @@ export const m = {
     'd': 'Eyelet Part(PU)',
     'e': 'Tongue(PU)',
     'f': 'Collar(PU)',
+
     'g': 'Toe Cap',
     'h': 'Abrasive Pad',
     'i': 'Side Window',
@@ -38,6 +39,7 @@ export const m = {
     'f': 'Toe Strap(PU)',
     'g': 'Toe Part(PU)',
     'h': 'Main Upper(PU)',
+    
     'i': 'Double Strap',
     'j': 'Spider Buckle',
     'k': 'Abrasive Pad',

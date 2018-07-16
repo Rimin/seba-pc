@@ -1,20 +1,24 @@
 <template>
   <div class="edit mainbg">
     <div class="edit-tab headbg">
-        
+      <select-part></select-part>
     </div>
     <div class="edit-main main">
-        <div class="content">
-            <router-link to="/rollerskate/order">lalala</router-link>
-        </div>
+      <div class="content">
+        <router-link to="/rollerskate/order">lalala</router-link>
+      </div>
     </div>
   </div>
 </template>
 
 
 <script>
+import SelectPart from '@/components/selectPart/selectPart'
+
 export default {
-  
+  components: {
+    SelectPart
+  }
 }
 </script>
 
@@ -22,8 +26,8 @@ export default {
 @import url('../../common/less/base.less');
 @import url('../../common/less/common.less');
 .edit-main{
-    width: 1140px;
-    height: 653px;
+  width: 1140px;
+  height: 653px;
    
 }
 
