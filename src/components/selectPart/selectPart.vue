@@ -70,7 +70,7 @@ export default {
   },
   created(){
     var t = this;
-    t.shoe = initShoe(1)
+    t.shoe = initShoe(2)
     console.log(t.shoe)
   },
   mounted(){
