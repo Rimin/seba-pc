@@ -6,9 +6,10 @@
     ></span>
     <div class="select-list" ref="select-list" @click="selectPart">
       <div :class="'list-item '+ (onlyShoe?(item.noImgUrl?'':'list-item-click'):'list-item-click')"
-        v-for="item in parts[curIndex]" 
+        v-for="(item,index) in parts[curIndex]" 
         :style="'width:'+itemWidth+'px;'"
         :shoe-part="item.id"
+        :key="index"
       >
         <div :class="{'list-icon': true, 'active': curPart === item.id}">
           <img :src="onlyShoe?(item.noImgUrl||item.imgUrl):item.imgUrl">
