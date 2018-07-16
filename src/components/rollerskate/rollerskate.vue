@@ -49,28 +49,28 @@ const IMGPATH = '../../common/img/common'
 import { initShoe } from '@/config/createShoe'
 export default {
   data() {
-        return {
-            lang:'en-US',
-            id: 1
-        } 
-    },
-    created() {
-        this.lang = this.$i18n.locale
-    },
+    return {
+          lang:'en-US',
+          id: 1
+    } 
+  },
+  created() {
+      this.lang = this.$i18n.locale
+      this.id = this.$bus.shoe.shoeStyle.id
+  },
   methods: {
-        changeLang(lang){
-                if ( this.lang === lang ) return
-                else {
-                    this.lang = lang
-                    this.$i18n.locale = this.lang
-                } 
-        },
-        selectSkate(id){
-            this.id = id
-            this.$bus.shoe = initShoe(id)
-            console.log(this.$bus.shoe)
-        }
-
+      changeLang(lang){
+              if ( this.lang === lang ) return
+              else {
+                  this.lang = lang
+                  this.$i18n.locale = this.lang
+              } 
+      },
+      selectSkate(id){
+          this.id = id
+          this.$bus.shoe = initShoe(id)
+          console.log(this.$bus.shoe)
+      }
   }
 }
 </script>
