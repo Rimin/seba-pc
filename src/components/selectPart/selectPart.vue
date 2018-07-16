@@ -48,7 +48,6 @@ const ZH = 'zh-CN';  // 中文
 export default {
   data(){
     return {
-      shoe: null,
       itemWidth: 0,
       curIndex: 0,
       curPart: '',
@@ -56,8 +55,11 @@ export default {
     }
   },
   computed: {
+    shoe(){
+      return this.$bus.shoe
+    },
     parts(){
-      var t = this;
+      var t = this
       if(!t.shoe||!t.shoe.shoeStyle||!t.shoe.shoeStyle.id) return[[],[]]
       var clothes = []
       var glue = []
@@ -71,13 +73,14 @@ export default {
       return this.$i18n.locale
     },
     onlyShoe(){
-      return 1
+      return 0
     }
   },
   created(){
-    var t = this
-    t.shoe = initShoe(2)
-    console.log(t.shoe)
+    // var t = this
+    // if(!t.$bus.shoe) return
+    // t.shoe = t.$bus.shoe
+    // console.log(t.shoe)
   },
   mounted(){
     var t = this
@@ -87,8 +90,11 @@ export default {
   },
   watch: {
     curIndex(v){
-      var t = this
-      t.init()
+      this.init()
+    },
+    shoe(){
+      this.curIndex = 0 // 换鞋会改变部件排数，自动初始化
+      this.curPart = ''
     }
   },
   methods: {
@@ -98,7 +104,7 @@ export default {
       // console.log([t.listDemo]);
       t.boxWidth = t.listDemo.clientWidth
       var count = t.parts[t.curIndex].length>0?t.parts[t.curIndex].length:1
-      t.itemWidth =  (t.boxWidth / count) | 0
+      t.itemWidth =  (t.boxWidth / count) | 0 
     },
     toNext(){
       var t = this
@@ -145,6 +151,7 @@ export default {
   height: 100%;
   position: relative;
   padding: 0 @btn-width;
+  overflow: hidden;
 }
 
 .last-btn {
