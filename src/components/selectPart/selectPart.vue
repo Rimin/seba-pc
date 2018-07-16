@@ -116,13 +116,10 @@ export default {
       for(var i=0; i<path.length; i++){
         var item = path[i]
         if(/list-item-click/g.test(item.className)){
-          var attrs = item.attributes
-          for(var j = 0; j<attrs.length; j++){
-            if(attrs[j].name === 'shoe-part') {
-              t.curPart = attrs[j].value;
-              return
-            }
-          }
+          var attr = item.getAttribute('shoe-part');
+          if(attr){
+            return t.curPart = attr
+          } 
         }
       }
     }
