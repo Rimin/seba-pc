@@ -15,14 +15,12 @@ export const getShoeStyle = function () {
 export const getStyleById = function (id) {
   if (id <= 0) {
     throw Error('the id to getStyleById is illegal')
-    return false
   }
   return getShoeStyle()[id - 1]
 }
 export const getStyleNameById = function (id) {
   if (id <= 0) {
     throw Error('the id to getStyleNameById is illegal')
-    return false
   }
   return getStyleById(id).name
 }

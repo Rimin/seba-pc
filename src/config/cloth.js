@@ -376,15 +376,13 @@ export const getClothesByTextureId = function (id) {
     id = id - ''
     if (typeof id !== 'number') {
       throw Error('the id to getClothesByTextureId is not a number')
-      
     }
   }
   if (id < 0) {
     throw Error('the id to getClothesByTextureId is illegal')
-    
   }
   return getClothes().filter((e) => {
-    e.texture.id === id
+    return e.texture.id === id
   })
 }
 
@@ -393,12 +391,10 @@ export const getClothById = function (id) {
     id = id - ''
     if (typeof id !== 'number') {
       throw Error('the id to getClothById is not a number')
-      
     }
   }
   if (id < 0) {
     throw Error('the id to getClothById is illegal')
-    
   }
   var cloth = getClothes()
   for (var i = 0; i < cloth.length; i++) {
