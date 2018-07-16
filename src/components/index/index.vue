@@ -142,7 +142,7 @@ export default {
 .fl > a{color: @color;}
 .logo{
     height: 60px;
-    width: 246px;
+    width: 264px;
     .ab_hor_center();
 }
 .logo_en{
