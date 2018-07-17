@@ -7,7 +7,7 @@
     </div>
     <div class="edit-main main">
       <div class="content">
-        
+        <show-shoe></show-shoe>
       </div>
     </div>
   </div>
@@ -16,9 +16,11 @@
 
 <script>
 import SelectPart from '@/components/selectPart/selectPart'
+import ShowShoe from '@/components/showShoe/showShoe'
 export default {
   components: {
-    SelectPart
+    SelectPart,
+    ShowShoe
   },
   created() {
     // console.log(this.$bus.shoe)
