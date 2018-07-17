@@ -4,7 +4,8 @@ const bus = new Vue({
     return {
       shoe: {},
       personal: {},
-      curSelectPart: 'a'
+      curSelectPart: 'a',
+      material: 0
     }
   },
   methods: {
