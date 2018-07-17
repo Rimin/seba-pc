@@ -4,7 +4,7 @@ export const getPartTypes = function () {
   return [ // 部件类型集合
     {
       name: 'cloth', // 部件类型名称
-      type: 1, // 部件类型
+      type: 1, // 部件类型，面料：1，胶件：2
       detail: 1, // 部件细节
       id: 1 // 该部件 id
     },

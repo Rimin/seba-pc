@@ -1,0 +1,241 @@
+<template>
+  <div class="select-material-box">
+    <h1 class="title-1"><i class="title-icon"></i>Main Upper(PU)</h1>
+    <div v-show="partType === 1">
+      <div class="tip-1">MATERIAL</div>
+      <div class="cloth-material" ref="cloth-material-box" @click="selectTexture">
+        <div v-for="(item,i) in texture" 
+          :key="i"
+          :style="'width:'+ clothItemWidth +'px;'"
+          :texture-id="item.id"
+          :class="'material '+ (curTexture === item.id?'active':'')"
+        >
+          <img :src="item.imgUrl" alt="">
+        </div>
+      </div>
+      <div class="tip-2" v-show="curTexture !== 0">COLOR</div>
+      <div class="tip-3" v-show="curTexture === 0">PLEASE SELECT COLOR</div>
+      <div class="cloth-color-box" @click="selectColor">
+        <div v-for="(list,i) in allClothes" 
+          :key="i"
+          v-show="curTexture + '' === i"
+          :texture-id="i"
+        >
+          <div class="color-icon"
+            v-for="(cloth,j) in list"
+            :key="j"
+            :color-id="cloth.id"
+            :class="'item-color '+ (cloth.id === curColorId?'active':'')"
+          >
+            <img :src="cloth.imgUrl" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-show="partType === 2">
+
+    </div>
+  </div>
+</template>
+
+<script>
+import { getTexture, getClothes } from '../../config/cloth'
+
+const BASE_URL = '../../../static/selectMaterial'
+class Texture{
+  constructor(e){
+    this.name = e.name
+    this.type = e.type
+    this.detail = e.detail
+    this.id = e.id
+    this.imgUrl = BASE_URL + '/cloth-type/material_' + e.id + '.png'
+  }
+}
+class Cloth{
+  constructor(e){
+    this.id = e.id
+    this.imgUrl = BASE_URL + '/cloth-color/'+ e.id + '.png'
+  }
+}
+export default {
+  data(){
+    return {
+      texture: [],
+      clothItemWidth: 0,
+      clothBoxWidth: 0,
+      clothBoxDom: null,
+      curTexture: 0, // 当前纹理
+      allClothes: {}, // 所有面料颜色 {1:[],2:[],...}
+      curColorId: 0, // 当前颜色
+      partType: 1, // 当前部件类型
+
+    }
+  },
+  computed: {
+    shoe(){
+      return this.$bus.shoe
+    },
+    curPart(){
+      return this.$bus.curSelectPart
+    },
+  },
+  watch: {
+    curPart(v){
+      this.curTexture = 0
+      this.partType = this.getPartType(v)
+    }
+  },
+  created(){
+    var t = this
+    t.texture = getTexture().slice(1).map((e)=>{ // 拿到所有布料类型
+    t.allClothes[e.id + ''] = [] // 初始化 allClothes = {1:[],2:[],...}
+      return new Texture(e)
+    })
+    getClothes().slice(1).forEach((e)=>{
+      t.allClothes[e.texture.id+''].push(new Cloth(e))
+    })
+    // getShoeParts()
+  },
+  mounted(){
+    var t = this
+    setTimeout(()=>{
+      t.init()
+    },200)
+  },
+  methods: {
+    init(){
+      var t = this
+      if(!t.clothBoxDom) t.clothBoxDom = t.$refs['cloth-material-box']
+      t.clothBoxWidth = t.clothBoxDom.clientWidth
+      var count = t.texture.length
+      t.clothItemWidth = (t.clothBoxWidth / count) | 0
+    },
+    selectTexture(e){
+      var t = this
+      // console.log(e)
+      var path = e.path
+      for(var i=0; i<path.length; i++){
+        var item = path[i]
+        if(/material/g.test(item.className)){
+          var attr = item.getAttribute('texture-id') - '';
+          if(attr&&attr!==t.curTexture){
+            return t.curTexture = attr
+          }else {
+            return t.curTexture = 0
+          }
+        }
+      }
+    },
+    selectColor(e){
+      var t = this
+      // console.log(e)
+      var path = e.path
+      for(var i=0; i<path.length; i++){
+        var item = path[i]
+        if(/color-icon/g.test(item.className)){
+          var attr = item.getAttribute('color-id') - '';
+          console.log(attr)
+          if(attr&&attr!==t.curColorId){
+            return t.curColorId = attr
+          }else {
+            return t.curColorId = 0
+          }
+        }
+      }
+    },
+    getPartType(partId){
+      return this.shoe[partId].partType.type
+    }
+  }
+}
+</script>
+
+
+<style lang="less" scoped>
+@BaseUrl: '../../../static/selectMaterial';
+.select-material-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.title-1 {
+  margin: 5px 0;
+  font-size: 24px;
+  font-weight: 100;
+  color: black;
+}
+
+.title-icon {
+  height: 20px;
+  width: 9px;
+  margin-right: 12px;
+  display: inline-block;
+  background: url("@{BaseUrl}/title_icon.png") 50% 50% no-repeat;
+}
+
+.tip-1 {
+  color: black;
+  font-size: 13px;
+  font-weight: thin;
+  margin: 10px 0 5px 23px; 
+}
+
+.cloth-material {
+  margin-left: 20px;
+  &>.material {
+    height: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+    &:hover {
+      background: url("@{BaseUrl}/cloth-type/material_active.png");
+      background-size: 100% 100%;
+    }
+    &.active {
+      background: url("@{BaseUrl}/cloth-type/material_active.png");
+      background-size: 100% 100%;
+    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+  }
+}
+
+.cloth-color-box {
+  min-height: 30px;
+  margin-left: 23px;
+}
+
+.tip-2 {
+  margin: 5px 0 5px 23px;
+  color: rgb(95, 93, 93);
+  font-size: 13px;
+  font-weight: thin;
+}
+
+.tip-3 {
+  margin: 5px 0 5px 23px;
+  color: red;
+  font-size: 13px;
+  font-weight: thin;
+}
+
+.color-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 4px 4px 4px 0;
+  cursor: pointer;
+  &.active {
+    background: url("@{BaseUrl}/cloth-color/active.png");
+    background-size: 100% 100%;
+  }
+}
+</style>
+

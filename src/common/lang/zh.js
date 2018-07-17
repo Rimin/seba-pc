@@ -1,16 +1,16 @@
 export const m = {
   about: '关于我们',
   contact: '联系我们',
-  "Order": '更多定制',
+  'Order': '更多定制',
   'Order_Title': '您的订单信息',
   'SelectColor': '颜色选择',
-  
+
   'Continue': '下一步',
   'Back': '返回',
   'Confirm': '确认下单',
   'Upload_Images': '上传图片',
-  
-  'HIGH_CARBON': {    // HIGH CARBON 品牌的部件名
+
+  'HIGH_CARBON': { // HIGH CARBON 品牌的部件名
     'a': '大身内外/下包铮',
     'b': '鞋头/大身饰花/上包铮',
     'c': '前能量带',
@@ -27,10 +27,10 @@ export const m = {
     'm': '后铮CUFF',
     'n': '鞋带',
     'o': '刀架',
-    'p': '轮子',
+    'p': '轮子'
   },
 
-  'TRIX': {     // RIX 品牌的部件名
+  'TRIX': { // RIX 品牌的部件名
     'a': '鞋帮',
     'b': '鞋舌',
     'c': '鞋帮能量带下片',
@@ -39,37 +39,37 @@ export const m = {
     'f': '前能量带',
     'g': '鞋头',
     'h': '大身',
-    
+
     'i': '脚背能量带',
     'j': '脚背能量带芭扣',
     'k': '防磨片',
     'l': '三角CUFF',
     'm': '鞋带',
     'n': '刀架',
-    'o': '轮子',
+    'o': '轮子'
   },
 
-  'Produce': {   // 订单产品规格
+  'Produce': { // 订单产品规格
     'Title': 'DETAILS',
     'Left_Size': '左脚码数',
     'Right_Size': '右脚码数',
     'Frame_Size': '刀架尺寸',
-    'Wheel_Size': 'SI轮子尺寸',
+    'Wheel_Size': 'SI轮子尺寸'
   },
 
-  'Customised_Logo': {   // 自定义刺绣
+  'Customised_Logo': { // 自定义刺绣
     'Title': '自定义刺绣',
-    'Please_Input': '点击添加文字',
+    'Please_Input': '点击添加文字'
   },
 
-  'Font_Family': {   // 字体
+  'Font_Family': { // 字体
     'arial': 'Arial',
     'cambria': 'Cambria',
     'calibra': 'Calibra',
     'century': 'Century'
   },
 
-  'Personal_Information': {     // 订单个人信息
+  'Personal_Information': { // 订单个人信息
     'Title': '个人信息',
     'First_Name': '名',
     'Last_Name': '姓',
@@ -79,10 +79,10 @@ export const m = {
     'Address': '地址',
     'Please_Perfect_Address': '请完善地址',
     'SEBA_Store': 'SEBA专卖店及地址',
-    'Special_Requests': '特殊要求',
+    'Special_Requests': '特殊要求'
   },
 
-  'Area': {   // 区域
+  'Area': { // 区域
     'CHN': '中国',
     'HK': '香港',
     'TWN': '台湾',
@@ -92,13 +92,13 @@ export const m = {
     'SG': '新加坡',
     'THA': '泰国',
     'MAS': '马来西亚',
-    'Other': '其他',
+    'Other': '其他'
   },
 
-  'Cloth': {   // 面料纹理名称
+  'Cloth': { // 面料纹理名称
     'a': '仿碳纤维',
     'b': '菱形网格',
     'c': '蜂窝网格',
-    'e': '方形网格',
+    'e': '方形网格'
   }
 }
