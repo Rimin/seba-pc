@@ -1,17 +1,19 @@
 <template>
-    <div class="showshoe fl">
-
+    <div class="showshoe">
+			<ul ></ul>
     </div>
 </template>
+
+<script>
+export default {
+	
+}
+</script>
+
 
 <style lang="less" scoped>
 @import url('../../common/less/base.less');
 .showshoe{
-  margin-top: 26px;
-  width: 636px;
-  height: 588px;
-  border: #e5e5e5 solid 1px;
-  position: relative;
-  overflow: hidden; 
+ 
 }
 </style>
