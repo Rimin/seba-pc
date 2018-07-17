@@ -6,8 +6,9 @@
     ></span>
     <div class="select-list" ref="select-list">
       <div class="list-item"
-        v-for="item in parts[curIndex]" 
+        v-for="(item,index) in parts[curIndex]" 
         :style="'width:'+itemWidth+'px;'"
+        :key="index"
       >
         <div class="list-icon">
           <img :src="item.imgUrl" alt="">
