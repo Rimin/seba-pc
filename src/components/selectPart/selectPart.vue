@@ -105,9 +105,6 @@ export default {
     },200)
   },
   watch: {
-    curIndex(v){
-      this.init()
-    },
     shoe(){
       this.curIndex = 0 // 换鞋会改变部件排数，自动初始化
       this.curPart = ''
