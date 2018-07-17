@@ -5,16 +5,31 @@
       @click="toLast"
     ></span>
     <div class="select-list" ref="select-list" @click="selectPart">
-      <div :class="'list-item '+ (onlyShoe?(item.noImgUrl?'':'list-item-click'):'list-item-click')"
-        v-for="(item,index) in parts[curIndex]" 
-        :style="'width:'+itemWidth+'px;'"
-        :shoe-part="item.id"
-        :key="index"
-      >
-        <div :class="{'list-icon': true, 'active': curPart === item.id}">
-          <img :src="onlyShoe?(item.noImgUrl||item.imgUrl):item.imgUrl">
-        </div>
-        <span>{{lang === 'en-US'? item.enName: item.zhName}}</span>
+      <div v-show="curIndex===0">
+        <div :class="'list-item '+ (onlyShoe?(item.noImgUrl?'':'list-item-click'):'list-item-click')"
+          v-for="(item,i) in parts[0]" 
+          :style="'width:'+itemWidth_first+'px;'"
+          :shoe-part="item.id"
+          :key="i"
+        >
+          <div :class="{'list-icon': true, 'active': curPart === item.id}">
+            <img :src="onlyShoe?(item.noImgUrl||item.imgUrl):item.imgUrl">
+          </div>
+          <span>{{lang === 'en-US'? item.enName: item.zhName}}</span>
+        </div>  
+      </div>
+      <div v-show="curIndex===1">
+        <div :class="'list-item '+ (onlyShoe?(item.noImgUrl?'':'list-item-click'):'list-item-click')"
+          v-for="(item,j) in parts[1]" 
+          :style="'width:'+itemWidth_second+'px;'"
+          :shoe-part="item.id"
+          :key="j"
+        >
+          <div :class="{'list-icon': true, 'active': curPart === item.id}">
+            <img :src="onlyShoe?(item.noImgUrl||item.imgUrl):item.imgUrl">
+          </div>
+          <span>{{lang === 'en-US'? item.enName: item.zhName}}</span>
+        </div>  
       </div>
     </div>
     <span class="next-btn" 
@@ -48,7 +63,8 @@ const ZH = 'zh-CN';  // 中文
 export default {
   data(){
     return {
-      itemWidth: 0,
+      itemWidth_first: 0,
+      itemWidth_second: 0,
       curIndex: 0,
       curPart: '',
       boxWidth: 0, 
@@ -95,6 +111,7 @@ export default {
     shoe(){
       this.curIndex = 0 // 换鞋会改变部件排数，自动初始化
       this.curPart = ''
+      this.init()
     }
   },
   methods: {
@@ -103,8 +120,10 @@ export default {
       if(!t.listDemo) t.listDemo = t.$refs['select-list']
       // console.log([t.listDemo]);
       t.boxWidth = t.listDemo.clientWidth
-      var count = t.parts[t.curIndex].length>0?t.parts[t.curIndex].length:1
-      t.itemWidth =  (t.boxWidth / count) | 0 
+      var count_1 = t.parts[0].length>0?t.parts[0].length:1
+      t.itemWidth_first =  (t.boxWidth / count_1) | 0 
+      var count_2 = t.parts[1].length>0?t.parts[1].length:1
+      t.itemWidth_second =  (t.boxWidth / count_2) | 0 
     },
     toNext(){
       var t = this
@@ -179,6 +198,10 @@ export default {
   height: 100%;
   width: 100%;
   padding: 0;
+  &>div {
+    width: 100%;
+    height: 100%;
+  }
 }
 .list-item {
   display: inline-block;
