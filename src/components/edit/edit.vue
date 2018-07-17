@@ -11,7 +11,9 @@
           <show-shoe></show-shoe>
         </div>
         <div class="eidit-side fr">
-          <div class="material-pick"></div>
+          <div class="material-pick">
+            <select-material></select-material>
+          </div>
           <div class="personal-edit"></div>
         </div>
       </div>
@@ -23,10 +25,12 @@
 <script>
 import SelectPart from '@/components/selectPart/selectPart'
 import ShowShoe from '@/components/showShoe/showShoe'
+import SelectMaterial from '@/components/selectMaterial/selectMaterial'
 export default {
   components: {
     SelectPart,
-    ShowShoe
+    ShowShoe,
+    SelectMaterial
   },
   created() {
     // console.log(this.$bus.shoe)

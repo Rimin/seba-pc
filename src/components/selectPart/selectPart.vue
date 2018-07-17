@@ -107,8 +107,11 @@ export default {
   watch: {
     shoe(){
       this.curIndex = 0 // 换鞋会改变部件排数，自动初始化
-      this.curPart = ''
+      this.curPart = 'a'
       this.init()
+    },
+    curPart(v){
+      this.$bus.curSelectPart = v
     }
   },
   methods: {
@@ -121,6 +124,7 @@ export default {
       t.itemWidth_first =  (t.boxWidth / count_1) | 0 
       var count_2 = t.parts[1].length>0?t.parts[1].length:1
       t.itemWidth_second =  (t.boxWidth / count_2) | 0 
+      t.curPart = 'a'
     },
     toNext(){
       var t = this
