@@ -53,7 +53,7 @@ export const getClothes = function () {
       id: 0, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
-      enColor: 'black', // 英文颜色名
+      enColor: 'Black', // 英文颜色名
       code: '#000' // 颜色编码
     },
     {
@@ -61,7 +61,7 @@ export const getClothes = function () {
       id: 1, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
-      enColor: 'black', // 英文颜色名
+      enColor: 'Black', // 英文颜色名
       code: '#000' // 颜色编码
     },
     {
@@ -69,7 +69,7 @@ export const getClothes = function () {
       id: 2, // 布料号码
       color: '白色', // 颜色
       zhColor: '白', // 中文颜色名
-      enColor: 'white', // 英文颜色名
+      enColor: 'White', // 英文颜色名
       code: '#fff' // 颜色编码
     },
     {
@@ -77,7 +77,7 @@ export const getClothes = function () {
       id: 3, // 布料号码
       color: '187C红', // 颜色
       zhColor: '红', // 中文颜色名
-      enColor: 'red', // 英文颜色名
+      enColor: 'Red', // 英文颜色名
       code: '#ab192d' // 颜色编码
     },
     {
@@ -85,7 +85,7 @@ export const getClothes = function () {
       id: 4, // 布料号码
       color: '299C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
-      enColor: 'blue', // 英文颜色名
+      enColor: 'Blue', // 英文颜色名
       code: '#00a1e0' // 颜色编码
     },
     {
@@ -93,7 +93,7 @@ export const getClothes = function () {
       id: 5, // 布料号码
       color: '165C橙', // 颜色
       zhColor: '橙', // 中文颜色名
-      enColor: 'orange', // 英文颜色名
+      enColor: 'Orange', // 英文颜色名
       code: '#ff681d' // 颜色编码
     },
     {
@@ -101,7 +101,7 @@ export const getClothes = function () {
       id: 6, // 布料号码
       color: '540C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
-      enColor: 'blue', // 英文颜色名
+      enColor: 'Blue', // 英文颜色名
       code: '#003057' // 颜色编码
     },
     {
@@ -109,7 +109,7 @@ export const getClothes = function () {
       id: 7, // 布料号码
       color: '554C绿', // 颜色
       zhColor: '绿', // 中文颜色名
-      enColor: 'green', // 英文颜色名
+      enColor: 'Green', // 英文颜色名
       code: '#205b41' // 颜色编码
     },
     {
@@ -117,7 +117,7 @@ export const getClothes = function () {
       id: 8, // 布料号码
       color: '519C紫', // 颜色
       zhColor: '紫', // 中文颜色名
-      enColor: 'purple', // 英文颜色名
+      enColor: 'Purple', // 英文颜色名
       code: '#5b325f' // 颜色编码
     },
     {
@@ -125,7 +125,7 @@ export const getClothes = function () {
       id: 9, // 布料号码
       color: '7685C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
-      enColor: 'blue', // 英文颜色名
+      enColor: 'Blue', // 英文颜色名
       code: '#2c5697' // 颜色编码
     },
     {
@@ -133,7 +133,7 @@ export const getClothes = function () {
       id: 10, // 布料号码
       color: '877C银', // 颜色
       zhColor: '银', // 中文颜色名
-      enColor: 'silver', // 英文颜色名
+      enColor: 'Silver', // 英文颜色名
       code: '#8a8d8e' // 颜色编码
     },
     {
@@ -141,7 +141,7 @@ export const getClothes = function () {
       id: 11, // 布料号码
       color: '116C黃', // 颜色
       zhColor: '黃', // 中文颜色名
-      enColor: 'yellow', // 英文颜色名
+      enColor: 'Yellow', // 英文颜色名
       code: '#ffce00' // 颜色编码
     },
     {
@@ -149,7 +149,7 @@ export const getClothes = function () {
       id: 58, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
-      enColor: 'black', // 英文颜色名
+      enColor: 'Black', // 英文颜色名
       code: '#000' // 颜色编码
     },
     {
@@ -157,7 +157,7 @@ export const getClothes = function () {
       id: 59, // 布料号码
       color: '白色', // 颜色
       zhColor: '白', // 中文颜色名
-      enColor: 'white', // 英文颜色名
+      enColor: 'White', // 英文颜色名
       code: '#fff' // 颜色编码
     },
     {
@@ -165,7 +165,7 @@ export const getClothes = function () {
       id: 60, // 布料号码
       color: '186C红', // 颜色
       zhColor: '红', // 中文颜色名
-      enColor: 'red', // 英文颜色名
+      enColor: 'Red', // 英文颜色名
       code: '#cf102d' // 颜色编码
     },
     {
@@ -173,7 +173,7 @@ export const getClothes = function () {
       id: 61, // 布料号码
       color: '247C紫', // 颜色
       zhColor: '紫', // 中文颜色名
-      enColor: 'purple', // 英文颜色名
+      enColor: 'Purple', // 英文颜色名
       code: '#c018a2' // 颜色编码
     },
     {
@@ -181,7 +181,7 @@ export const getClothes = function () {
       id: 62, // 布料号码
       color: '102C黄', // 颜色
       zhColor: '黄', // 中文颜色名
-      enColor: 'yellow', // 英文颜色名
+      enColor: 'Yellow', // 英文颜色名
       code: '#fde300' // 颜色编码
     },
     {
@@ -189,7 +189,7 @@ export const getClothes = function () {
       id: 63, // 布料号码
       color: '355C绿', // 颜色
       zhColor: '绿', // 中文颜色名
-      enColor: 'green', // 英文颜色名
+      enColor: 'Green', // 英文颜色名
       code: '#00953b' // 颜色编码
     },
     {
@@ -197,7 +197,7 @@ export const getClothes = function () {
       id: 64, // 布料号码
       color: '151C橙', // 颜色
       zhColor: '橙', // 中文颜色名
-      enColor: 'orange', // 英文颜色名
+      enColor: 'Orange', // 英文颜色名
       code: '#ff8400' // 颜色编码
     },
     {
@@ -205,7 +205,7 @@ export const getClothes = function () {
       id: 65, // 布料号码
       color: '702C红', // 颜色
       zhColor: '红', // 中文颜色名
-      enColor: 'red', // 英文颜色名
+      enColor: 'Red', // 英文颜色名
       code: '#d75d73' // 颜色编码
     },
     {
@@ -213,7 +213,7 @@ export const getClothes = function () {
       id: 66, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
-      enColor: 'black', // 英文颜色名
+      enColor: 'Black', // 英文颜色名
       code: '#000' // 颜色编码
     },
     {
@@ -221,7 +221,7 @@ export const getClothes = function () {
       id: 67, // 布料号码
       color: '白色', // 颜色
       zhColor: '白', // 中文颜色名
-      enColor: 'white', // 英文颜色名
+      enColor: 'White', // 英文颜色名
       code: '#fff' // 颜色编码
     },
     {
@@ -229,7 +229,7 @@ export const getClothes = function () {
       id: 68, // 布料号码
       color: '199C红', // 颜色
       zhColor: '红', // 中文颜色名
-      enColor: 'red', // 英文颜色名
+      enColor: 'Red', // 英文颜色名
       code: '#dc0032' // 颜色编码
     },
     {
@@ -237,7 +237,7 @@ export const getClothes = function () {
       id: 69, // 布料号码
       color: '2069C紫', // 颜色
       zhColor: '紫', // 中文颜色名
-      enColor: 'purple', // 英文颜色名
+      enColor: 'Purple', // 英文颜色名
       code: '#a438a8' // 颜色编码
     },
     {
@@ -245,7 +245,7 @@ export const getClothes = function () {
       id: 70, // 布料号码
       color: '108C黃', // 颜色
       zhColor: '黃', // 中文颜色名
-      enColor: 'yellow', // 英文颜色名
+      enColor: 'Yellow', // 英文颜色名
       code: '#ffdb00' // 颜色编码
     },
     {
@@ -253,7 +253,7 @@ export const getClothes = function () {
       id: 71, // 布料号码
       color: '367C绿', // 颜色
       zhColor: '绿', // 中文颜色名
-      enColor: 'green', // 英文颜色名
+      enColor: 'Green', // 英文颜色名
       code: '#a3d55f' // 颜色编码
     },
     {
@@ -261,7 +261,7 @@ export const getClothes = function () {
       id: 72, // 布料号码
       color: '877C银', // 颜色
       zhColor: '银', // 中文颜色名
-      enColor: 'silver', // 英文颜色名
+      enColor: 'Silver', // 英文颜色名
       code: '#8a8d8e' // 颜色编码
     },
     {
@@ -269,7 +269,7 @@ export const getClothes = function () {
       id: 73, // 布料号码
       color: '2174C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
-      enColor: 'blue', // 英文颜色名
+      enColor: 'Blue', // 英文颜色名
       code: '#0076ce' // 颜色编码
     },
     {
@@ -277,7 +277,7 @@ export const getClothes = function () {
       id: 74, // 布料号码
       color: '103C黃', // 颜色
       zhColor: '黃', // 中文颜色名
-      enColor: 'yellow', // 英文颜色名
+      enColor: 'Yellow', // 英文颜色名
       code: '#c6aa00' // 颜色编码
     },
     {
@@ -285,7 +285,7 @@ export const getClothes = function () {
       id: 75, // 布料号码
       color: '2046C红', // 颜色
       zhColor: '红', // 中文颜色名
-      enColor: 'red', // 英文颜色名
+      enColor: 'Red', // 英文颜色名
       code: '#cf578a' // 颜色编码
     },
     {
@@ -293,7 +293,7 @@ export const getClothes = function () {
       id: 76, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
-      enColor: 'black', // 英文颜色名
+      enColor: 'Black', // 英文颜色名
       code: '#000' // 颜色编码
     },
     {
@@ -301,7 +301,7 @@ export const getClothes = function () {
       id: 77, // 布料号码
       color: '白色', // 颜色
       zhColor: '白', // 中文颜色名
-      enColor: 'white', // 英文颜色名
+      enColor: 'White', // 英文颜色名
       code: '#fff' // 颜色编码
     },
     {
@@ -309,7 +309,7 @@ export const getClothes = function () {
       id: 81, // 布料号码
       color: '2290C绿', // 颜色
       zhColor: '绿', // 中文颜色名
-      enColor: 'green', // 英文颜色名
+      enColor: 'Green', // 英文颜色名
       code: '#aadb1e' // 颜色编码
     },
     {
@@ -317,7 +317,7 @@ export const getClothes = function () {
       id: 82, // 布料号码
       color: '877C银', // 颜色
       zhColor: '银', // 中文颜色名
-      enColor: 'silver', // 英文颜色名
+      enColor: 'Silver', // 英文颜色名
       code: '#8a8d8e' // 颜色编码
     },
     {
@@ -325,7 +325,7 @@ export const getClothes = function () {
       id: 83, // 布料号码
       color: '3005C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
-      enColor: 'blue', // 英文颜色名
+      enColor: 'Blue', // 英文颜色名
       code: '#0075c9' // 颜色编码
     },
     {
@@ -333,7 +333,7 @@ export const getClothes = function () {
       id: 78, // 布料号码
       color: '亮红', // 颜色
       zhColor: '亮红', // 中文颜色名
-      enColor: 'red', // 英文颜色名
+      enColor: 'Red', // 英文颜色名
       code: '#ff3c1f' // 颜色编码
     },
     {
@@ -341,7 +341,7 @@ export const getClothes = function () {
       id: 79, // 布料号码
       color: '中紫', // 颜色
       zhColor: '中紫', // 中文颜色名
-      enColor: 'purple', // 英文颜色名
+      enColor: 'Purple', // 英文颜色名
       code: '#4d008c' // 颜色编码
     },
     {
@@ -349,7 +349,7 @@ export const getClothes = function () {
       id: 80, // 布料号码
       color: '012C黄', // 颜色
       zhColor: '黄', // 中文颜色名
-      enColor: 'yellow', // 英文颜色名
+      enColor: 'Yellow', // 英文颜色名
       code: '#ffd700' // 颜色编码
     },
     {
@@ -357,7 +357,7 @@ export const getClothes = function () {
       id: 84, // 布料号码
       color: '117C黃', // 颜色
       zhColor: '黄', // 中文颜色名
-      enColor: 'yellow', // 英文颜色名
+      enColor: 'Yellow', // 英文颜色名
       code: '#cc9800' // 颜色编码
     },
     {
@@ -365,7 +365,7 @@ export const getClothes = function () {
       id: 85, // 布料号码
       color: '11C灰', // 颜色
       zhColor: '灰', // 中文颜色名
-      enColor: 'gray', // 英文颜色名
+      enColor: 'Gray', // 英文颜色名
       code: '#54565b' // 颜色编码
     }
   ]

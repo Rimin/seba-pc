@@ -4,14 +4,15 @@
       v-show="curIndex !== 0"
       @click="toLast"
     ></span>
-    <div class="select-list" ref="select-list">
-      <div class="list-item"
+    <div class="select-list" ref="select-list" @click="selectPart">
+      <div :class="'list-item '+ (onlyShoe?(item.noImgUrl?'':'list-item-click'):'list-item-click')"
         v-for="(item,index) in parts[curIndex]" 
         :style="'width:'+itemWidth+'px;'"
+        :shoe-part="item.id"
         :key="index"
       >
-        <div class="list-icon">
-          <img :src="item.imgUrl" alt="">
+        <div :class="{'list-icon': true, 'active': curPart === item.id}">
+          <img :src="onlyShoe?(item.noImgUrl||item.imgUrl):item.imgUrl">
         </div>
         <span>{{lang === 'en-US'? item.enName: item.zhName}}</span>
       </div>
@@ -47,63 +48,87 @@ const ZH = 'zh-CN';  // 中文
 export default {
   data(){
     return {
-      shoe: null,
       itemWidth: 0,
       curIndex: 0,
+      curPart: '',
       boxWidth: 0, 
     }
   },
   computed: {
+    shoe(){
+      return this.$bus.shoe
+    },
     parts(){
-      var t = this;
-      if(!t.shoe||!t.shoe.shoeStyle||!t.shoe.shoeStyle.id) return[[],[]];
-      var clothes = [];
-      var glue = [];
+      var t = this
+      if(!t.shoe||!t.shoe.shoeStyle||!t.shoe.shoeStyle.id) return[[],[]]
+      var clothes = []
+      var glue = []
       getPartsByShoeStyleId(t.shoe.shoeStyle.id).forEach((e,i)=>{
-        if(e.partType.type === 1) return clothes.push(new Part(e));
-        else return glue.push(new Part(e));
+        if(e.partType.type === 1) return clothes.push(new Part(e))
+        else return glue.push(new Part(e))
       })
       return [clothes,glue]
     },
     lang(){
       return this.$i18n.locale
+    },
+    onlyShoe(){
+      return 0
     }
   },
   created(){
-    var t = this;
-    t.shoe = initShoe(1)
-    console.log(t.shoe)
+    // var t = this
+    // if(!t.$bus.shoe) return
+    // t.shoe = t.$bus.shoe
+    // console.log(t.shoe)
   },
   mounted(){
-    var t = this;
+    var t = this
     setTimeout(()=>{
-      t.init();
+      t.init()
     },200)
   },
   watch: {
     curIndex(v){
-      var t = this;
-      t.init()
+      this.init()
+    },
+    shoe(){
+      this.curIndex = 0 // 换鞋会改变部件排数，自动初始化
+      this.curPart = ''
     }
   },
   methods: {
     init(){
       var t = this;
-      if(!t.listDemo) t.listDemo = t.$refs['select-list'];
+      if(!t.listDemo) t.listDemo = t.$refs['select-list']
       // console.log([t.listDemo]);
-      t.boxWidth = t.listDemo.clientWidth;
-      var count = t.parts[t.curIndex].length>0?t.parts[t.curIndex].length:1;
-      t.itemWidth =  (t.boxWidth / count) | 0;
+      t.boxWidth = t.listDemo.clientWidth
+      var count = t.parts[t.curIndex].length>0?t.parts[t.curIndex].length:1
+      t.itemWidth =  (t.boxWidth / count) | 0 
     },
     toNext(){
-      var t = this;
-      var i = t.curIndex + 1, max = t.parts.length - 1;
-      t.curIndex =  i > max ? max : i;
+      var t = this
+      var i = t.curIndex + 1, max = t.parts.length - 1
+      t.curIndex =  i > max ? max : i
     },
     toLast(){
-      var t = this;
-      var i = t.curIndex - 1;
-      t.curIndex =  i < 0 ? 0 : i;
+      var t = this
+      var i = t.curIndex - 1
+      t.curIndex =  i < 0 ? 0 : i
+    },
+    selectPart(e){
+      var t = this
+      // console.log(e)
+      var path = e.path
+      for(var i=0; i<path.length; i++){
+        var item = path[i]
+        if(/list-item-click/g.test(item.className)){
+          var attr = item.getAttribute('shoe-part');
+          if(attr){
+            return t.curPart = attr
+          } 
+        }
+      }
     }
   }
 } 
@@ -126,6 +151,7 @@ export default {
   height: 100%;
   position: relative;
   padding: 0 @btn-width;
+  overflow: hidden;
 }
 
 .last-btn {
@@ -153,7 +179,6 @@ export default {
   height: 100%;
   width: 100%;
   padding: 0;
-  cursor: pointer;
 }
 .list-item {
   display: inline-block;
@@ -170,26 +195,32 @@ export default {
     left: 50%;
     transform: translate(-50%,-50%);
     transition: 0.2s;
-    &.active {
-      background: url(../../../static/selectPart/part_selbox.png);
-    };
     img {
       width: 100%;
       height: 100%;
       display: block;
     }
   }
-  &:hover {
-    .list-icon {
-      background: url(../../../static/selectPart/part_selbox.png);
-    }
-  }
+  
   span {
     display: block;
     width: 100%;
     text-align: center;
     position: absolute;
     bottom: 5px;
+  }
+}
+.list-item-click {
+  cursor: pointer;
+  .list-icon {
+    &.active {
+      background: url(../../../static/selectPart/part_selbox.png);
+    };
+  }
+  &:hover {
+    .list-icon {
+      background: url(../../../static/selectPart/part_selbox.png);
+    }
   }
 }
 </style>
