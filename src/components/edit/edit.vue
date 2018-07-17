@@ -5,9 +5,15 @@
         <select-part></select-part>
       </div>
     </div>
-    <div class="edit-main main">
-      <div class="content">
-        <show-shoe></show-shoe>
+    <div class="edit-main main clrfix">
+      <div class="contain clrfix">
+        <div class="show-area fl">
+          <show-shoe></show-shoe>
+        </div>
+        <div class="eidit-side fr">
+          <div class="material-pick"></div>
+          <div class="personal-edit"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -44,5 +50,31 @@ export default {
   height: 150px;
   margin: 0 auto;
   position: relative;
-} 
+}
+.contain{
+  width: 1080px;
+  margin: 0 auto;
+  position: relative;
+}
+.show-area{
+  margin-top: 26px;
+  width: 636px;
+  height: 588px;
+  border: #e5e5e5 solid 1px;
+  position: relative;
+  overflow: hidden; 
+}
+.eidit-side{
+  margin: 26px 0;
+  width: 410px;
+  height: 588px; // 后面去掉
+}
+.material-pick{
+  width: 100%;
+  height: 50%;
+}
+.personal-edit{
+  width: 100%;
+  height: 40%;
+}
 </style>
