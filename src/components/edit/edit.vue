@@ -7,7 +7,7 @@
     </div>
     <div class="edit-main main">
       <div class="content">
-        <router-link to="/rollerskate/order">lalala</router-link>
+        
       </div>
     </div>
   </div>
@@ -37,14 +37,10 @@ export default {
   height: 653px;
    
 }
-
 .content {
   width: 1080px;
   height: 150px;
   margin: 0 auto;
   position: relative;
-}
-
-
-
+} 
 </style>
