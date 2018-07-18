@@ -8,7 +8,7 @@
 					<li class="logo-list img-list">
 					</li>
 					<li class="path-list img-list" v-for="(item, index) in part" :key="index">
-						<img  onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
+						<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
 					</li>
 					<li class="nowheel img-list" v-show="nowheel">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
@@ -21,7 +21,7 @@
 					<li class="logo-list img-list">
 					</li>
 					<li class="path-list img-list" v-for="(item, index) in part" :key="index">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
+						<img onerror="this.src='../../../static/showShoe/error.png'"   :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
 					</li>
 					<li class="nowheel img-list" v-show="nowheel">
 						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
@@ -34,7 +34,7 @@
 					<li class="logo-list img-list">
 					</li>
 					<li class="path-list img-list" v-for="(item, index) in part" :key="index">
-						<img  onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
+						<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
 					</li>
 					<li class="nowheel img-list" v-show="nowheel">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
@@ -43,11 +43,11 @@
 				<div class="stylename">
 					<img :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/stylename.png'">
 				</div>
-				<div :class="'operate_btn '+(currentAngle==='side'?'btn_side-active':'btn_side')" @click="changAngle('side')"></div>
-				<div :class="'operate_btn '+(currentAngle==='front'?'btn_front-active':'btn_front')" @click="changAngle('front')"></div>
-				<div :class="'operate_btn '+(currentAngle==='45'?'btn_45-active':'btn_45')" @click="changAngle('45')"></div>
-				<div :class="'operate_btn '+(preview?'btn_view-active':'btn_view')" @click="preview = !preview"></div>
-				<div :class="'operate_btn '+(nowheel?'btn_nowheel-active':'btn_nowheel')" @click="onlyShoeBody"></div>
+				<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='side'?'btn_side-active':'btn_side')" @click="changAngle('side')"></div>
+				<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='front'?'btn_front-active':'btn_front')" @click="changAngle('front')"></div>
+				<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='45'?'btn_45-active':'btn_45')" @click="changAngle('45')"></div>
+				<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(preview?'btn_view-active':'btn_view')" @click="preview = !preview"></div>
+				<div style="height:53px;" :class="[{'operate_en_btn btn_en_nowheel-active': lang==='en-US'&&nowheel},{'operate_en_btn btn_en_nowheel': lang==='en-US'&&!nowheel},{'operate_zh_btn-active btn_zh_nowheel': lang==='zh-CN'&&nowheel},{'operate_zh_btn btn_zh_nowheel': lang==='zh-CN'&&!nowheel} ]"  @click="onlyShoeBody"></div>
 			</div>
 			<div class="viewAll-area" v-if="edit" v-show="preview" @click.stop="viewAll($event)">
 				<div class="content clrfix" id="view-contain">
@@ -59,7 +59,7 @@
 							<li class="logo-list img-list">
 							</li>
 							<li class="path-list img-list" v-for="(item, index) in part" :key="index">
-								<img  onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
+								<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
 							</li>
 							<li class="nowheel img-list" v-show="nowheel">
 									<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
@@ -103,7 +103,7 @@
 </template>
 
 <script>
-// const IMG_PATH = '../../../static/';
+// const IMG_PATH = '../../../static/'
 import { hasDom } from 'common/js/dom'
 export default {
 	props: {
@@ -182,9 +182,12 @@ export default {
 	},
 	watch:{
 		curChangeMaterial(newChange) {
-			console.log(newChange)
 			if(this.shoe[this.curChangePart].partType.id !== 1) return
 			else this.addPart(newChange)
+		},
+		shoe(newshoe) {
+			if(newshoe === this.shoe) return 
+			this.getPathArr(newshoe)
 		}
 	}
 }
@@ -210,12 +213,20 @@ export default {
   top: 24px;
   left: 21px;
 }
-.operate_btn{
+.operate_zh_btn{
 	position: absolute;
 	right: 19px;
 	width: 40px;
 	height: 40px;
-	background: url("@{staticimg}/showShoe/btn.png") no-repeat;
+	background: url("@{staticimg}/showShoe/btn_zh.png") no-repeat;
+	cursor: pointer;
+}
+.operate_en_btn{
+	position: absolute;
+	right: 19px;
+	width: 40px;
+	height: 40px;
+	background: url("@{staticimg}/showShoe/btn_en.png") no-repeat;
 	cursor: pointer;
 }
 .btn_side{ 
@@ -263,16 +274,36 @@ export default {
 	top: 171px;
 	background-position: -246px -42px;
 }
-.btn_nowheel{
+.btn_zh_nowheel{
 	top: 216px;
 	background-position: -64px -98px;
 }
-.btn_nowheel:hover{
+.btn_zh_nowheel:hover{
 	background-position: -106px -98px;
 }
-.btn_nowheel-active{
+.btn_zh_nowheel-active{
 	top: 216px;
 	background-position: -106px -98px;
+}
+.btn_en_nowheel{
+	width: 55px;
+	padding: 0 10px;
+	right: 11px;
+	top: 216px;
+	background-position: -40px -98px;
+}
+.btn_en_nowheel:hover{
+	right: 11px;
+	width: 55px;
+	padding: 0 10px;
+	background-position: -93px -98px;
+}
+.btn_en_nowheel-active{
+	width: 55px;
+	padding: 0 10px;
+	right: 11px;
+	top: 216px;
+	background-position: -93px -98px;
 }
 .viewAll-area{
 	position: fixed;

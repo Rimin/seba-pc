@@ -17,6 +17,7 @@
           <div class="personal-edit">
             <embroidery></embroidery>
           </div>
+          <router-link to="/rollerskate/order" :class="lang==='en-US'?'next_en':'next_zh'"></router-link>
         </div>
       </div>
     </div>
@@ -37,16 +38,15 @@ export default {
     SelectMaterial,
     Embroidery
   },
-  created() {
-    // console.log(this.$bus.shoe)
-  },
   data() {
     return {
       editshow: true
     }
   },
-  methods: {
-    
+  computed: {
+    lang() {
+      return this.$i18n.locale
+    }
   }
 }
 </script>
@@ -90,5 +90,25 @@ export default {
 .personal-edit{
   width: 100%;
   height: 45%;
+}
+.next_zh{
+  width: 220px;
+  height: 32px;
+  cursor: pointer;
+  display: block;
+  background: url("@{bgimgurl}/edit/next_zh_btn.png") no-repeat;
+}
+.next_zh:hover{
+   background: url("@{bgimgurl}/edit/next_zh_active_btn.png") no-repeat;
+}
+.next_en{
+  width: 220px;
+  height: 32px;
+  cursor: pointer;
+  display: block;
+  background: url("@{bgimgurl}/edit/next_en_btn.png") no-repeat;
+}
+.next_en:hover{
+  background: url("@{bgimgurl}/edit/next_en_active_btn.png") no-repeat;
 }
 </style>
