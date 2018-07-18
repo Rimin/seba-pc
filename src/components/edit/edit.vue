@@ -8,7 +8,7 @@
     <div class="edit-main main clrfix">
       <div class="contain clrfix">
         <div class="show-area fl">
-          <show-shoe></show-shoe>
+          <show-shoe :edit="editshow"></show-shoe>
         </div>
         <div class="eidit-side fr">
           <div class="material-pick">
@@ -34,6 +34,11 @@ export default {
   },
   created() {
     // console.log(this.$bus.shoe)
+  },
+  data() {
+    return {
+      editshow: true
+    }
   },
   methods: {
     

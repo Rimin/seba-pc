@@ -144,7 +144,7 @@ export const getShoeParts = function () {
       id: 'g', // 部件 id，用于识别是哪个部位的部件
       zhName: '鞋头壳', // 中文名称
       enName: 'Toe Cap', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[0], // 该部件所属品牌
@@ -152,7 +152,7 @@ export const getShoeParts = function () {
       id: 'h', // 部件 id，用于识别是哪个部位的部件
       zhName: '防磨片', // 中文名称
       enName: 'Abrasive Pad', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[0], // 该部件所属品牌
@@ -160,7 +160,7 @@ export const getShoeParts = function () {
       id: 'i', // 部件 id，用于识别是哪个部位的部件
       zhName: '透气窗', // 中文名称
       enName: 'Side Window', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[0], // 该部件所属品牌
@@ -168,7 +168,7 @@ export const getShoeParts = function () {
       id: 'j', // 部件 id，用于识别是哪个部位的部件
       zhName: '脚背护带/能量带', // 中文名称
       enName: 'Double Strap', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[0], // 该部件所属品牌
@@ -176,7 +176,7 @@ export const getShoeParts = function () {
       id: 'k', // 部件 id，用于识别是哪个部位的部件
       zhName: '脚背护带芭扣', // 中文名称
       enName: 'Spider Buckle', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[0], // 该部件所属品牌
@@ -184,7 +184,7 @@ export const getShoeParts = function () {
       id: 'l', // 部件 id，用于识别是哪个部位的部件
       zhName: '穿钉冬茹头', // 中文名称
       enName: 'Cuff Button', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 8 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[0], // 该部件所属品牌
@@ -192,7 +192,7 @@ export const getShoeParts = function () {
       id: 'm', // 部件 id，用于识别是哪个部位的部件
       zhName: '后铮CUFF', // 中文名称
       enName: 'CUFF', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[0], // 该部件所属品牌
@@ -200,7 +200,7 @@ export const getShoeParts = function () {
       id: 'n', // 部件 id，用于识别是哪个部位的部件
       zhName: '鞋带', // 中文名称
       enName: 'Lace', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[0], // 该部件所属品牌
@@ -208,7 +208,7 @@ export const getShoeParts = function () {
       id: 'o', // 部件 id，用于识别是哪个部位的部件
       zhName: '刀架', // 中文名称
       enName: 'Flat Frame', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 12 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[0], // 该部件所属品牌
@@ -216,7 +216,7 @@ export const getShoeParts = function () {
       id: 'p', // 部件 id，用于识别是哪个部位的部件
       zhName: '轮子', // 中文名称
       enName: 'Wheels', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 17 // 使用材料的 id
     },
 
     {
@@ -289,7 +289,7 @@ export const getShoeParts = function () {
       id: 'i', // 部件 id，用于识别是哪个部位的部件
       zhName: '脚背能量带', // 中文名称
       enName: 'Double Strap', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[1], // 该部件所属品牌
@@ -297,7 +297,7 @@ export const getShoeParts = function () {
       id: 'j', // 部件 id，用于识别是哪个部位的部件
       zhName: '脚背能量带芭扣', // 中文名称
       enName: 'Spider Buckle', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[1], // 该部件所属品牌
@@ -305,7 +305,7 @@ export const getShoeParts = function () {
       id: 'k', // 部件 id，用于识别是哪个部位的部件
       zhName: '防磨片', // 中文名称
       enName: 'Abrasive Pad', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[1], // 该部件所属品牌
@@ -313,7 +313,7 @@ export const getShoeParts = function () {
       id: 'l', // 部件 id，用于识别是哪个部位的部件
       zhName: '三角CUFF', // 中文名称
       enName: 'CUFF', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[1], // 该部件所属品牌
@@ -321,7 +321,7 @@ export const getShoeParts = function () {
       id: 'm', // 部件 id，用于识别是哪个部位的部件
       zhName: '鞋带', // 中文名称
       enName: 'Lace', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 1 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[1], // 该部件所属品牌
@@ -329,7 +329,7 @@ export const getShoeParts = function () {
       id: 'n', // 部件 id，用于识别是哪个部位的部件
       zhName: '刀架', // 中文名称
       enName: 'Flat Frame', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 12 // 使用材料的 id
     },
     {
       shoeStyle: shoeStyles[1], // 该部件所属品牌
@@ -337,7 +337,7 @@ export const getShoeParts = function () {
       id: 'o', // 部件 id，用于识别是哪个部位的部件
       zhName: '轮子', // 中文名称
       enName: 'Wheels', // 英文名称
-      material: 0 // 使用材料的 id
+      material: 17 // 使用材料的 id
     }
   ]
 }

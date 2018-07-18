@@ -6,10 +6,10 @@
                     <img src="../../common/img/common/logo.png">
                 </router-link>
                 <div class="nav-edit clrfix"> 
-                    <li :class="'nav-item nav-item-1 '+(id===1?'nav-item-1-active':'')"  @click="selectSkate(1)"></li>
-                    <li :class="'nav-item nav-item-2 '+(id===2?'nav-item-2-active':'')" @click="selectSkate(2)"></li>
-                    <li :class="'nav-item nav-item-3 '+(id===3?'nav-item-3-active':'')" @click="selectSkate(3)"></li>
-                    <li :class="'nav-item nav-item-4 '+(id===4?'nav-item-4-active':'')" @click="selectSkate(4)"></li>
+                    <li :class="'nav-item nav-item-1 '+(shoeId===1?'nav-item-1-active':'')"  @click="selectSkate(1)"></li>
+                    <li :class="'nav-item nav-item-2 '+(shoeId===2?'nav-item-2-active':'')" @click="selectSkate(2)"></li>
+                    <li :class="'nav-item nav-item-3 '+(shoeId===3?'nav-item-3-active':'')" @click="selectSkate(3)"></li>
+                    <li :class="'nav-item nav-item-4 '+(shoeId===4?'nav-item-4-active':'')" @click="selectSkate(4)"></li>
                 </div>
                 <div class="lang fr">
                     <a @click="changeLang('zh-CN')">中文</a>
@@ -50,28 +50,31 @@ import { initShoe } from '@/config/createShoe'
 export default {
   data() {
     return {
-          lang:'en-US',
-          id: 1
+        lang:'en-US'
     } 
   },
   created() {
-      this.lang = this.$i18n.locale
-      this.id = this.$bus.shoe.shoeStyle.id
+    this.lang = this.$i18n.locale
   },
   methods: {
-      changeLang(lang){
-              if ( this.lang === lang ) return
-              else {
-                  this.lang = lang
-                  this.$i18n.locale = this.lang
-              } 
-      },
-      selectSkate(id){
-          this.id = id
-          this.$bus.shoe = initShoe(id)
-          console.log(this.$bus.shoe)
-      }
+    changeLang(lang){
+    if ( this.lang === lang ) return
+    else {
+        this.lang = lang
+        this.$i18n.locale = this.lang
+    } 
+    },
+    selectSkate(id){
+        this.$bus.shoe = initShoe(id)
+        console.log(this.$bus.shoe)
+    }
+  },
+  computed:{
+    shoeId (){
+        return this.$bus.shoe.shoeStyle.id
+    }
   }
+
 }
 </script>
 
