@@ -11,11 +11,15 @@
           :key="i"
           :epart-index="i"
           :style="'width:'+ partBtnWidth +'px;'"
+          :title="lang==='en-US'?shoe[item.partId].enName:shoe[item.partId].zhName"
         >{{lang==='en-US'?shoe[item.partId].enName:shoe[item.partId].zhName}}</div>
       </div>
       <div class="input-box">
         <span v-show="textIn.length === 0">{{$t('m.Customised_Logo.Please_Input')}}</span>
-        <input type="text" v-model="textIn" :class="'text-'+curFF">
+        <input type="text" v-model="textIn" 
+          :class="'text-'+curFF" 
+          :style="'color:'+curColorCode+';'+(curColor === 3?'background-color:black;':'')"
+        >
       </div>
       <div class="select-type">
         <select class="select-font-family" v-model="curFF">
@@ -26,12 +30,22 @@
         </select>
         <div class="upload-photo">上传图片</div>
       </div>
+      <div class="tip-1">{{$t('m.SelectColor')}}</div>
+      <div class="font-color-box" @click="selectColor">
+        <div v-for="(c,k) in allColor"
+          :key="k"
+          :color-id="c.id"
+          :class="'color-btn '+ (c.id === curColor?'active':'')"
+        >
+          <img :src="c.imgUrl" alt="">
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { getEmbroideryByShoeStyleId, getFontFamily } from '../../config/embroidery'
+import { getEmbroideryByShoeStyleId, getFontFamily, getFontColor, getFontColorById } from '../../config/embroidery'
 // class EPart{ 
 //   constructor(e){
 //     this.partId = e.partId
@@ -41,6 +55,17 @@ import { getEmbroideryByShoeStyleId, getFontFamily } from '../../config/embroide
 //     this.photo = e.photo
 //   }
 // }
+const BASE_URL = '../../../static/embroidery/color'
+class FontColor{
+  constructor(e){
+    this.id = e.id
+    this.color = e.color
+    this.zhColor = e.zhColor
+    this.enColor= e.enColor
+    this.code = e.color
+    this.imgUrl = BASE_URL + '/' + e.id + '.png'
+  }
+}
 export default {
   data(){
     return {
@@ -49,13 +74,14 @@ export default {
       boxDom: null, // 内容器dom
       eParts: [], // 可加刺绣的部件 [{},{},...]
       allFF: [], // 所有字体
-
+      allColor: [], // 所有颜色
 
       textIn: '', // 当前文字刺绣内容
       curFF: '',  // 当前字体
       curPhoto: '', // 当前图片
       curPartIndex: 0, // 当前刺绣部件序号
-      curColor: 1 // 当前文字颜色
+      curColor: 0, // 当前文字颜色 id
+      curColorCode: '' // 当前文字颜色编码
     }
   },
   computed: {
@@ -78,6 +104,10 @@ export default {
     },
     curFF(v){
       this.eParts[this.curPartIndex].fontFamily = v
+    },
+    curColor(v){
+      this.curColorCode = getFontColorById(v).code
+      this.eParts[this.curPartIndex].fontColor = v
     }
   },
   created(){
@@ -92,6 +122,9 @@ export default {
     init(){ // 获取可上刺绣的部件
       this.eParts = getEmbroideryByShoeStyleId(this.shoe.shoeStyle.id)
       this.allFF = getFontFamily()
+      this.allColor = getFontColor().map((e) => {
+        return new FontColor(e)
+      })
       this.curPartIndex = 0
       this.setToPart(this.curPartIndex)
       var count = this.eParts.length || 1
@@ -121,6 +154,23 @@ export default {
       this.curColor = eParts[index].fontColor
       this.curPhoto = eParts[index].photo
       this.curFF = eParts[index].fontFamily
+    },
+    selectColor(e){
+      var t = this
+      console.log(e)
+      var path = e.path
+      for(var i=0; i<path.length; i++){
+        var item = path[i]
+        if(/color-btn/g.test(item.className)){
+          var index = item.getAttribute('color-id') - ''
+          console.log(index)
+          if(index!==t.curColor){
+            console.log(true)
+            t.curColor = index
+          }
+          break
+        }
+      }
     }
   }
 }
@@ -281,17 +331,34 @@ export default {
   }
 }
 
-.text-Cambria {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.font-color-box {
+  margin-top: 0;
 }
-.text-Arial {
-  font-family: Arial, Helvetica, sans-serif;
+
+.color-btn {
+  display: inline-block;
+  width: 36px;
+  height: 21px;
+  margin: 0 2px 3px 0;
+  cursor: pointer;
+  &:hover {
+    background: url("@{BaseUrl}/color/active.png");
+  };
+  &.active {
+    background: url("@{BaseUrl}/color/active.png");
+  }
+  >img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }
-.text-Calibra {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.text-Century {
-  font-family: Century;
+
+.tip-1 {
+  color: black;
+  font-size: 13px;
+  font-weight: thin;
+  margin: 10px 0 5px 0; 
 }
 
 </style>
