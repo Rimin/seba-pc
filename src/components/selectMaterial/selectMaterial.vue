@@ -9,7 +9,7 @@
       <div class="cloth-material" ref="cloth-material-box" @click="selectTexture">
         <div v-for="(item,i) in texture" 
           :key="i"
-          :style="'width:'+ clothItemWidth +'px;'"
+          
           :texture-id="item.id"
           :class="'material '+ (curTexture === item.id?'active':'')"
         >
@@ -131,18 +131,18 @@ export default {
   },
   mounted(){
     var t = this
-    setTimeout(()=>{
-      t.init()
-    },200)
+    // setTimeout(()=>{
+    //   t.init()
+    // },200)
   },
   methods: {
-    init(){ // 初始化 DOM
-      var t = this
-      if(!t.clothBoxDom) t.clothBoxDom = t.$refs['cloth-material-box']
-      t.clothBoxWidth = t.clothBoxDom.clientWidth
-      var count = t.texture.length
-      t.clothItemWidth = (t.clothBoxWidth / count) | 0
-    },
+    // init(){ // 初始化 DOM
+    //   var t = this
+    //   if(!t.clothBoxDom) t.clothBoxDom = t.$refs['cloth-material-box']
+    //   t.clothBoxWidth = t.clothBoxDom.clientWidth
+    //   var count = t.texture.length
+    //   t.clothItemWidth = (t.clothBoxWidth / count) | 0
+    // },
     selectTexture(e){
       var t = this
       // console.log(e)
@@ -248,6 +248,8 @@ export default {
   margin-left: 20px;
   &>.material {
     height: 30px;
+    width: 65px;
+    margin: 0;
     border-radius: 4px;
     overflow: hidden;
     display: inline-block;
