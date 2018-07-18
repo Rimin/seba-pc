@@ -14,7 +14,9 @@
           <div class="material-pick">
             <select-material></select-material>
           </div>
-          <div class="personal-edit"></div>
+          <div class="personal-edit">
+            <embroidery></embroidery>
+          </div>
         </div>
       </div>
     </div>
@@ -26,11 +28,14 @@
 import SelectPart from '@/components/selectPart/selectPart'
 import ShowShoe from '@/components/showShoe/showShoe'
 import SelectMaterial from '@/components/selectMaterial/selectMaterial'
+import Embroidery from '@/components/embroidery/embroidery'
+
 export default {
   components: {
     SelectPart,
     ShowShoe,
-    SelectMaterial
+    SelectMaterial,
+    Embroidery
   },
   created() {
     // console.log(this.$bus.shoe)

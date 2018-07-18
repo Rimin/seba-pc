@@ -279,7 +279,7 @@ export const getShoeParts = function () {
       shoeStyle: shoeStyles[1], // 该部件所属品牌
       partType: partTypes[0], // 部件类型： 布件或胶件
       id: 'h', // 部件 id，用于识别是哪个部位的部件
-      zhName: '大身', // 中文名称
+      zhName: '大身侧面', // 中文名称
       enName: 'Main Upper(PU)', // 英文名称
       material: 0 // 使用材料的 id
     },
