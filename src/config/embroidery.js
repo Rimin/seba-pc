@@ -1,30 +1,12 @@
 import { getShoeStyle } from './shoeStyle'
 
-export const getFontFamily = function () {
-  const base1 = '\''
-  const base2 = ',\'Hiragino Sans GB\',\'Microsoft Yahei\',\'微软雅黑\',\'宋体\',\\5b8b\\4f53,Tahoma,Arial,Helvetica,STHeiti;\''
-  return [
-    {
-      id: 1, // 字体id
-      name: 'Arial', // 字体名称
-      fontFamily: base1 + 'arial' + base2 // 字体样式
-    },
-    {
-      id: 2, // 字体id
-      name: 'Cambria', // 字体名称
-      fontFamily: base1 + 'cambria' + base2 // 字体样式
-    },
-    {
-      id: 3, // 字体id
-      name: 'Calibra', // 字体名称
-      fontFamily: base1 + 'calibra' + base2 // 字体样式
-    },
-    {
-      id: 4, // 字体id
-      name: 'Century', // 字体名称
-      fontFamily: base1 + 'century' + base2 // 字体样式
-    }
-  ]
+export const getFontFamily = function () { // 字体名，字体样式已经写在全局样式中，如：text-Arial
+  return ['Arial', 'Cambria', 'Calibra', 'Century']
+}
+export const getFontFamilyClass = function () {
+  return getFontFamily().filter((e) => {
+    return 'text-' + e
+  })
 }
 export const getFontColor = function () {
   return [
@@ -102,12 +84,13 @@ export const getFontColor = function () {
 }
 export const getEmbroidery = function () {
   var shoeStyles = getShoeStyle()
+  var f = getFontFamily()
   return [
     {
       shoeStyle: shoeStyles[0], // 鞋子品牌
       partId: 'c', // 部件id：前能量带
       content: '', // 文字内容
-      fontFamily: 1, // 字体 id
+      fontFamily: f[0], // 字体 id
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片
       angle: 'front' // 视角
@@ -116,7 +99,7 @@ export const getEmbroidery = function () {
       shoeStyle: shoeStyles[1], // 鞋子品牌
       partId: 'a', // 部件id：鞋帮
       content: '', // 文字内容
-      fontFamily: 1, // 字体 id
+      fontFamily: f[0], // 字体 id
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片
       angle: 'sider' // 视角
@@ -125,7 +108,7 @@ export const getEmbroidery = function () {
       shoeStyle: shoeStyles[1], // 鞋子品牌
       partId: 'f', // 部件id：前能量带
       content: '', // 文字内容
-      fontFamily: 1, // 字体 id
+      fontFamily: f[0], // 字体 id
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片
       angle: 'front' // 视角
@@ -134,7 +117,7 @@ export const getEmbroidery = function () {
       shoeStyle: shoeStyles[1], // 鞋子品牌
       partId: 'h', // 部件id：大身侧面
       content: '', // 文字内容
-      fontFamily: 1, // 字体 id
+      fontFamily: f[0], // 字体 id
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片
       angle: 'sider' // 视角
