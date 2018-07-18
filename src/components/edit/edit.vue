@@ -80,10 +80,10 @@ export default {
 }
 .material-pick{
   width: 100%;
-  height: 50%;
+  height: 45%;
 }
 .personal-edit{
   width: 100%;
-  height: 40%;
+  height: 45%;
 }
 </style>
