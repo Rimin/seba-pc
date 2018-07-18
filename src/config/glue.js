@@ -1,6 +1,6 @@
 import { getPartTypes } from './shoeParts'
 
-const getGlues = function () {
+export const getGlues = function () {
   let partTypes = getPartTypes()
   return [
     {
@@ -174,7 +174,7 @@ const getGlues = function () {
     {
       partType: partTypes[4],
       id: 23,
-		  color: '360C綠',
+		  color: '360C绿',
       zhColor: '绿',
       enColor: 'Green',
       code: '#6bc04b'

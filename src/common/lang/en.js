@@ -4,6 +4,8 @@ export const m = {
   'Order': 'MORE',
   'Order_Title': 'YOUR ORDER',
   'SelectColor': 'COLOR', // 颜色选择
+  'SelectMaterial': 'MATERIAL',
+  'PleaseSelectColor': 'PLEASE SELECT COLOR',
 
   'Continue': 'CONTINUE',
   'Back': 'BACK',

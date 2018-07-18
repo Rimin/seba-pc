@@ -1,8 +1,11 @@
 <template>
   <div class="select-material-box">
-    <h1 class="title-1"><i class="title-icon"></i>Main Upper(PU)</h1>
+    <h1 class="title-1">
+      <i class="title-icon"></i>
+      {{lang === 'en-US'?shoe[curPart].enName:shoe[curPart].zhName}}
+    </h1>
     <div v-show="partType === 1">
-      <div class="tip-1">MATERIAL</div>
+      <div class="tip-1">{{$t('m.SelectMaterial')}}</div>
       <div class="cloth-material" ref="cloth-material-box" @click="selectTexture">
         <div v-for="(item,i) in texture" 
           :key="i"
@@ -13,19 +16,18 @@
           <img :src="item.imgUrl" alt="">
         </div>
       </div>
-      <div class="tip-2" v-show="curTexture !== 0">COLOR</div>
-      <div class="tip-3" v-show="curTexture === 0">PLEASE SELECT COLOR</div>
+      <div class="tip-2" v-show="curTexture !== 0">{{$t('m.SelectColor')}}</div>
+      <div class="tip-3" v-show="curTexture === 0">{{$t('m.PleaseSelectColor')}}</div>
       <div class="cloth-color-box" @click="selectColor">
         <div v-for="(list,i) in allClothes" 
           :key="i"
           v-show="curTexture + '' === i"
           :texture-id="i"
         >
-          <div class="color-icon"
+          <div :class="'color-icon '+ (cloth.id === curColorId?'active':'')"
             v-for="(cloth,j) in list"
             :key="j"
             :color-id="cloth.id"
-            :class="'item-color '+ (cloth.id === curColorId?'active':'')"
           >
             <img :src="cloth.imgUrl" alt="">
           </div>
@@ -33,20 +35,33 @@
       </div>
     </div>
     <div v-show="partType === 2">
-
+      <div class="tip-2">{{$t('m.SelectColor')}}</div>
+      <div class="cloth-color-box" @click="selectColor">
+        <div v-for="(list,i) in allGlue"
+          :key="i"
+          :glue-detail="i"
+          v-show="glueDetail + '' === i"
+        >
+          <div :class="'color-icon '+ (glue.id === curColorId?'active':'')"
+            v-for="(glue,j) in list"
+            :key="j"
+            :color-id="glue.id"
+          >
+            <img :src="glue.imgUrl" alt="">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { getTexture, getClothes } from '../../config/cloth'
+import { getTexture, getClothes, getClothById } from '../../config/cloth'
+import { getGlues, getGlueById, getGlueByPartsType } from '../../config/glue'
 
 const BASE_URL = '../../../static/selectMaterial'
 class Texture{
   constructor(e){
-    this.name = e.name
-    this.type = e.type
-    this.detail = e.detail
     this.id = e.id
     this.imgUrl = BASE_URL + '/cloth-type/material_' + e.id + '.png'
   }
@@ -57,18 +72,26 @@ class Cloth{
     this.imgUrl = BASE_URL + '/cloth-color/'+ e.id + '.png'
   }
 }
+class Glue{
+  constructor(e){
+    this.id = e.id
+    this.imgUrl = BASE_URL + '/glue-color/' + e.id + '.png'
+  }
+}
 export default {
   data(){
     return {
-      texture: [],
+      texture: [], // 所有面料纹理
       clothItemWidth: 0,
       clothBoxWidth: 0,
       clothBoxDom: null,
       curTexture: 0, // 当前纹理
       allClothes: {}, // 所有面料颜色 {1:[],2:[],...}
-      curColorId: 0, // 当前颜色
+      curColorId: 0, // 当前面料或胶件的颜色
       partType: 1, // 当前部件类型
 
+      allGlue: {}, // 所有胶件材料
+      glueDetail: 1 // 当前胶件类型
     }
   },
   computed: {
@@ -78,13 +101,18 @@ export default {
     curPart(){
       return this.$bus.curSelectPart
     },
+    lang(){
+      return this.$i18n.locale
+    },
   },
   watch: {
     curPart(v){
-      this.curTexture = 0
-      this.partType = this.getPartType(v)
+      this.setPartData(v)
+    },
+    shoe(){
+      this.setPartData(this.curPart)
     }
-  },
+  },  
   created(){
     var t = this
     t.texture = getTexture().slice(1).map((e)=>{ // 拿到所有布料类型
@@ -94,7 +122,12 @@ export default {
     getClothes().slice(1).forEach((e)=>{
       t.allClothes[e.texture.id+''].push(new Cloth(e))
     })
-    // getShoeParts()
+    getGlues().forEach((e)=>{
+      var key = e.partType.detail + '';
+      if(!t.allGlue[key]) t.allGlue[key] = []
+      t.allGlue[key].push(new Glue(e))
+    })
+    t.setPartData(t.curPart)
   },
   mounted(){
     var t = this
@@ -103,7 +136,7 @@ export default {
     },200)
   },
   methods: {
-    init(){
+    init(){ // 初始化 DOM
       var t = this
       if(!t.clothBoxDom) t.clothBoxDom = t.$refs['cloth-material-box']
       t.clothBoxWidth = t.clothBoxDom.clientWidth
@@ -134,17 +167,46 @@ export default {
         var item = path[i]
         if(/color-icon/g.test(item.className)){
           var attr = item.getAttribute('color-id') - '';
-          console.log(attr)
+          // console.log(attr)
           if(attr&&attr!==t.curColorId){
-            return t.curColorId = attr
+            t.curColorId = attr
           }else {
-            return t.curColorId = 0
+            t.curColorId = 0
           }
+          break;
         }
       }
+      t.update()
     },
     getPartType(partId){
       return this.shoe[partId].partType.type
+    },
+    getGlueDetail(partId){
+      if(this.partType === 2) return this.shoe[partId].partType.detail
+      return this.glueDetail
+    },
+    update(){ // 更新全局数据
+      this.$bus.shoe[this.curPart].material = this.curColorId
+      this.$bus.material = this.curColorId
+      console.log(this.$bus.shoe)
+    },
+    setPartData(v){ // 根据全局$bus对象初始化部件数据
+      var shoe = this.shoe
+      this.partType = this.getPartType(v) // 获取该部件是面料还是胶件
+      if(this.partType === 1) { // 若为面料
+        var cloth = getClothById(shoe[v].material)
+        this.curTexture = cloth.texture.id // 获取面料纹理
+        this.curColorId = cloth.id // 获取面料颜色
+      }
+      if(this.partType === 2) { // 若为胶件
+        this.glueDetail = this.getGlueDetail(v) // 区分胶件类型
+        if(shoe[v].material > 0){
+          this.curColorId = getGlueById(shoe[v].material).id // 获取胶件颜色
+        }else { // 寻找胶件的默认值
+          this.curColorId = getGlueByPartsType(shoe[v].partType.id)[0].id
+          console.log(this.curColorId)
+        }
+      }
     }
   }
 }
