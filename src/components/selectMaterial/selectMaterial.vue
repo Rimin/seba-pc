@@ -205,6 +205,7 @@ export default {
         }else { // 寻找胶件的默认值
           this.curColorId = getGlueByPartsType(shoe[v].partType.id)[0].id
           console.log(this.curColorId)
+          this.update()
         }
       }
     }
