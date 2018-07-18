@@ -147,10 +147,10 @@ export default {
     .ab_hor_center();
 }
 .logo_en{
-    background:  url("@{bgimgurl}index/index_en/home_logo.png") no-repeat;
+    background: url("@{bgimgurl}index/index_en/home_logo.png") no-repeat;
 }
 .logo_zh{
-    background:  url("@{bgimgurl}index/index_zh/home_logo.png") no-repeat;
+    background: url("@{bgimgurl}index/index_zh/home_logo.png") no-repeat;
 }
 .choose-box{
     width: 25%;
