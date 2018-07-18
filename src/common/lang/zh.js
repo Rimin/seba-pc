@@ -5,7 +5,7 @@ export const m = {
   'Order_Title': '您的订单信息',
   'SelectColor': '颜色选择：',
   'SelectMaterial': '面料选择：',
-  'PleaseSelectColor': '请选择您喜爱的面料',
+  'PleaseSelectColor': '请选择您喜爱的颜色',
 
   'Continue': '下一步',
   'Back': '返回',
