@@ -559,6 +559,7 @@ export default {
       left: 0;
       width: 100%;
       >.btn {
+        border-radius: 3px;
         position: relative;
         width: 100%;
         height: 30px;
