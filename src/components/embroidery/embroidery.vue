@@ -232,9 +232,9 @@ export default {
       t.imgFlieDom.addEventListener('change',function(){
         var file = this.files[0]
         //console.log(file)
-        t.curPhoto = file.name
         imageFileToBase64(file).then((e)=>{
           t.imgBase64 = e
+          t.curPhoto = file.name
         }).catch((e) => {
           alert(e)
         })
