@@ -61,7 +61,7 @@
               {{$t('m.Select_Image')}}
               <input type="file" ref="image-file">
             </div>
-            <div class="btn btn-upl-img" @click="imageOk">OK</div>
+            <div class="btn btn-upl-img" @click="imageOk">{{$t('m.Confirm_Image')}}</div>
           </div>
         </div>
       </div>
