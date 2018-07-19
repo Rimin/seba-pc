@@ -225,6 +225,8 @@ export default {
         t.curPhoto = file.name
         imageFileToBase64(file).then((e)=>{
           t.imgBase64 = e
+        }).catch((e) => {
+          alert(e)
         })
       })
     },
