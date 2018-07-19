@@ -1,5 +1,5 @@
 import { getPartTypes } from './shoeParts'
-const getGlues = function () {
+export const getGlues = function () {
   let partTypes = getPartTypes()
   return [
     {
