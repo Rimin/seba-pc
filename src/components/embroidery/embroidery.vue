@@ -276,7 +276,6 @@ export default {
     },
     setAngle(){
       this.$bus.angle = this.eParts[this.curPartIndex].angle
-      this.$bus.hasChange = !this.$bus.hasChange
     }
   }
 }
