@@ -1,174 +1,190 @@
 <template>
     <div class="showshoe">
-			<div class="showEdit-area" v-if="edit">
-				<ul class="side" v-show="currentAngle==='side'">
-					<li class="base img-list">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_side.png'">
-					</li>
-					<li class="logo-list img-list">
-					</li>
-					<li class="path-list img-list" v-for="(item, index) in part" :key="index">
-						<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
-					</li>
-					<li class="nowheel img-list" v-show="nowheel">
-							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
-					</li>
-				</ul>
-				<ul class="45" v-show="currentAngle==='45'">
-					<li class="base img-list">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
-					</li>
-					<li class="logo-list img-list">
-					</li>
-					<li class="path-list img-list" v-for="(item, index) in part" :key="index">
-						<img onerror="this.src='../../../static/showShoe/error.png'"   :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
-					</li>
-					<li class="nowheel img-list" v-show="nowheel">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
-					</li>
-				</ul>
-				<ul class="front" v-show="currentAngle==='front'">
-					<li class="base img-list">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_front.png'">
-					</li>
-					<li class="logo-list img-list">
-					</li>
-					<li class="path-list img-list" v-for="(item, index) in part" :key="index">
-						<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
-					</li>
-					<li class="nowheel img-list" v-show="nowheel">
+		<div class="showEdit-area" v-if="edit">
+			<ul class="side" v-show="currentAngle==='side'">
+				<li class="base img-list">
+					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_side.png'">
+				</li>
+				<li class="logo-list img-list" v-for="(item,index) in logo" :key="index">
+					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/side/'+item.id+'.png'">
+				</li>
+				<li class="part-list img-list" v-for="item in part" :key="item.id">
+					<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
+				</li>
+				<li class="nowheel img-list" v-show="nowheel">
+					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
+				</li>
+				<li class="customised-logo">
+
+				</li>
+			</ul>
+			<ul class="45" v-show="currentAngle==='45'">
+				<li class="base img-list">
+					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
+				</li>
+				<li class="logo-list img-list" v-for="(item,index) in logo" :key="index">
+					<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/45/'+item.id+'.png'">
+				</li>
+				<li class="part-list img-list" v-for="item in part" :key="item.id">
+					<img onerror="this.src='../../../static/showShoe/error.png'"   :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
+				</li>
+				<li class="nowheel img-list" v-show="nowheel">
+					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
+				</li>
+			</ul>
+			<ul class="front" v-show="currentAngle==='front'">
+				<li class="base img-list">
+					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_front.png'">
+				</li>
+				<li class="logo-list img-list" v-for="(item,index) in logo" :key="index">
+					<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/front/'+item.id+'.png'">
+				</li>
+				<li class="part-list img-list" v-for="item in part" :key="item.id">
+					<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
+				</li>
+				<li class="nowheel img-list" v-show="nowheel">
+						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
+				</li>
+			</ul>
+			<div class="stylename">
+				<img :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/stylename.png'">
+			</div>
+			<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='side'?'btn_side-active':'btn_side')" @click="changAngle('side')"></div>
+			<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='front'?'btn_front-active':'btn_front')" @click="changAngle('front')"></div>
+			<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='45'?'btn_45-active':'btn_45')" @click="changAngle('45')"></div>
+			<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(preview?'btn_view-active':'btn_view')" @click="preview = !preview"></div>
+			<div style="height:53px;" :class="[{'operate_en_btn btn_en_nowheel-active': lang==='en-US'&&nowheel},{'operate_en_btn btn_en_nowheel': lang==='en-US'&&!nowheel},{'operate_zh_btn-active btn_zh_nowheel': lang==='zh-CN'&&nowheel},{'operate_zh_btn btn_zh_nowheel': lang==='zh-CN'&&!nowheel} ]"  @click="onlyShoeBody"></div>
+		</div>
+		<div class="viewAll-area" v-if="edit" v-show="preview" @click.stop="viewAll($event)">
+			<div class="content clrfix" id="view-contain">
+				<div class="view-box fl">
+					<ul class="front">
+						<li class="base img-list">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_front.png'">
+						</li>
+						<li class="logo-list img-list" v-for="(item,index) in logo" :key="index">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/front/'+item.id+'.png'">
+						</li>
+						<li class="part-list img-list" v-for="item in part" :key="item.id">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
+						</li>
+						<li class="nowheel img-list" v-show="nowheel">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
-					</li>
-				</ul>
-				<div class="stylename">
-					<img :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/stylename.png'">
+						</li>
+					</ul>
 				</div>
-				<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='side'?'btn_side-active':'btn_side')" @click="changAngle('side')"></div>
-				<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='front'?'btn_front-active':'btn_front')" @click="changAngle('front')"></div>
-				<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='45'?'btn_45-active':'btn_45')" @click="changAngle('45')"></div>
-				<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(preview?'btn_view-active':'btn_view')" @click="preview = !preview"></div>
-				<div style="height:53px;" :class="[{'operate_en_btn btn_en_nowheel-active': lang==='en-US'&&nowheel},{'operate_en_btn btn_en_nowheel': lang==='en-US'&&!nowheel},{'operate_zh_btn-active btn_zh_nowheel': lang==='zh-CN'&&nowheel},{'operate_zh_btn btn_zh_nowheel': lang==='zh-CN'&&!nowheel} ]"  @click="onlyShoeBody"></div>
-			</div>
-			<div class="viewAll-area" v-if="edit" v-show="preview" @click.stop="viewAll($event)">
-				<div class="content clrfix" id="view-contain">
-					<div class="view-box fl">
-						<ul class="front">
-							<li class="base img-list">
-								<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_front.png'">
-							</li>
-							<li class="logo-list img-list">
-							</li>
-							<li class="path-list img-list" v-for="(item, index) in part" :key="index">
-								<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
-							</li>
-							<li class="nowheel img-list" v-show="nowheel">
-									<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
-							</li>
-						</ul>
-					</div>
-					<div class="view-box fl">
-							<ul class="side">
-								<li class="base img-list">
-									<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_side.png'">
-								</li>
-								<li class="logo-list img-list">
-								</li>
-								<li class="path-list img-list" v-for="(item, index) in part" :key="index">
-									<img  onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
-								</li>
-								<li class="nowheel img-list" v-show="nowheel">
-										<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
-								</li>
-						</ul>
-					</div>
-					<div class="view-box fl">
-						<ul class="45">
-							<li class="base img-list">
-								<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
-							</li>
-							<li class="logo-list img-list">
-							</li>
-							<li class="path-list img-list" v-for="(item, index) in part" :key="index">
-								<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
-							</li>
-							<li class="nowheel img-list" v-show="nowheel">
-								<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
-							</li>
-						</ul>
-					</div>
-					<div id="close" @click="viewAll($event)"></div>
+				<div class="view-box fl">
+					<ul class="side">
+						<li class="base img-list">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_side.png'">
+						</li>
+						<li class="logo-list img-list" v-for="(item,index) in logo" :key="index">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/side/'+item.id+'.png'">
+						</li>
+						<li class="part-list img-list" v-for="item in part" :key="item.id">
+							<img  onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
+						</li>
+						<li class="nowheel img-list" v-show="nowheel">
+								<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
+						</li>
+					</ul>
 				</div>
+				<div class="view-box fl">
+					<ul class="45">
+						<li class="base img-list">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
+						</li>
+						<li class="logo-list img-list" v-for="(item,index) in logo" :key="index">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/45/'+item.id+'.png'">
+						</li>
+						<li class="part-list img-list" v-for="item in part" :key="item.id">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
+						</li>
+						<li class="nowheel img-list" v-show="nowheel">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
+						</li>
+					</ul>
+				</div>
+				<div id="close" @click="viewAll($event)"></div>
 			</div>
+		</div>
     </div>	
 </template>
 
 <script>
 // const IMG_PATH = '../../../static/'
 import { hasDom } from 'common/js/dom'
+import { getLogoByShoeId } from '@/config/logo'
 export default {
-	props: {
-		edit: {
-				type: Boolean,
-				default: true 
-		}
-	},
-	data() {
-		return {
-			IMG_PATH : '../../../static/',
-			currentAngle: 'side', // '45','side'
-			preview: false,
-			nowheel: false,
-			part: [],
-			logo: [],
-			glueindex: ''
-		}
-	},
-	created(){
-		this.getPathArr(this.shoe)
-	},
-	methods: {
-		getPathArr(shoe){
-			let p = []
-			let flag = false
-			for(let key in shoe){
-				if(shoe[key].material !== 0 && shoe[key].material){
-					p.push(shoe[key])
-				}
-			}
-			this.part = p
-		},
-		addPart(id){
-			let p = this.curChangePart
-			let flag = false
-			for(let i=0;i<this.part.length;i++){
-				if(this.part[i].id === p) {
-					return
-				}
-			}
-			this.part.push(this.shoe[p])
-		},
-		changAngle(angle){
-			if(angle === this.currentAngle) return
-			else {
-				this.currentAngle = angle
-			}
-		},
-		onlyShoeBody(){
-			this.nowheel = !this.nowheel
-		},
-		viewAll(event){
-			let e = window.event || event
-			let area = document.getElementById("view-contain")
-			let close = document.getElementById("close")
-			e.stopPropagation()
-		  if(area !== e.target && !hasDom(e.target, area) || e.target === close){
-				this.preview = !this.preview
+props: {
+	edit: {
+		type: Boolean,
+		default: true 
+	}
+},
+data() {
+	return {
+		IMG_PATH : '../../../static/',
+		currentAngle: 'side', // '45','side'
+		preview: false,
+		nowheel: false,
+		part: [],
+		logo: [],
+		customlogo_front: [],
+		customlogo_45: [],
+		customlogo_side: []
+	}
+},
+created(){
+	this.getPathArr(this.shoe)
+},
+methods: {
+	getPathArr(shoe){
+		let p = []
+		let flag = false
+		for(let key in shoe){
+			if(shoe[key].material !== 0 && shoe[key].material){
+				p.push(shoe[key])
 			}
 		}
+		this.part = p
+		console.log(shoe.shoeStyle.id)
+		this.logo = getLogoByShoeId(shoe.shoeStyle.id)
+		console.log(this.logo)
 	},
-	computed: {
+	addPart(id){
+		let p = this.curChangePart
+		let flag = false
+		for(let i=0;i<this.part.length;i++){
+			if(this.part[i].id === p) {
+				return
+			}
+		}
+		this.part.push(this.shoe[p])
+	},
+	changAngle(angle){
+		if(angle === this.currentAngle) return
+		else {
+			this.currentAngle = angle
+		}
+	},
+	onlyShoeBody(){
+		this.nowheel = !this.nowheel
+		this.$bus.nowheel = this.nowheel
+	},
+	viewAll(event){
+		let e = window.event || event
+		let area = document.getElementById("view-contain")
+		let close = document.getElementById("close")
+		e.stopPropagation()
+		if(area !== e.target && !hasDom(e.target, area) || e.target === close){
+			this.preview = !this.preview
+		}
+	}
+},
+computed: {
 		shoe() {
-      return this.$bus.shoe
+			return this.$bus.shoe
 		},
 		lang() {
 			return this.$i18n.locale
@@ -180,16 +196,15 @@ export default {
 			return this.$bus.curSelectPart
 		},
 	},
-	watch:{
-		curChangeMaterial(newChange) {
-			if(this.shoe[this.curChangePart].partType.id !== 1) return
-			else this.addPart(newChange)
-		},
-		shoe(newshoe) {
-			if(newshoe === this.shoe) return 
-			this.getPathArr(newshoe)
-		}
+watch:{
+	curChangeMaterial(newChange) {
+		if(this.shoe[this.curChangePart].partType.id !== 1) return
+		else this.addPart(newChange)
+	},
+	shoe(newshoe) {
+		this.getPathArr(newshoe)
 	}
+}
 }
 </script>
 
@@ -337,6 +352,42 @@ export default {
 	width: 20px;
 	height: 20px;
 	background: url("@{staticimg}/showShoe/close.png") no-repeat;
+}
+.custom-logo{
+	position: absolute;
+    color: #fff;
+    text-align: center;
+}
+.custom-logo_1_c{
+	top: 54%;
+    left: 43%;
+    width: 18%;
+    font-size: 19px;
+    line-height: 30px;
+    -webkit-transform: rotate(16deg);
+    -ms-transform: rotate(16deg);
+    transform: rotate(16deg);
+}
+.custom-logo_2_a{
+	top: 21%;
+    left: 16%;
+    width: 18%;
+    font-size: 19px;
+}
+.custom-logo_2_f{
+	top: 54.5%;
+    left: 40%;
+    width: 17%;
+    font-size: 20px;
+    line-height: 30px;
+    -webkit-transform: rotateZ(5deg);
+    transform: rotateZ(5deg);
+}
+.custom-logo_2_h{
+	top: 53%;
+    left: 42%;
+    width: 16%;
+    font-size: 23px;
 }
 </style>
 

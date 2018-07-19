@@ -57,7 +57,7 @@ export default {
 .edit-main{
   width: 1140px;
   height: 653px;
-   
+  margin: -80px auto 0;
 }
 .content {
   width: 1080px;
