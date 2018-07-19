@@ -3,11 +3,13 @@ import { getShoeStyle } from './shoeStyle'
 export const getFontFamily = function () { // 字体名，字体样式已经写在全局样式中，如：text-Arial
   return ['Arial', 'Cambria', 'Calibra', 'Century']
 }
+
 export const getFontFamilyClass = function () {
   return getFontFamily().filter((e) => {
     return 'text-' + e
   })
 }
+
 export const getFontColor = function () {
   return [
     {
@@ -82,6 +84,7 @@ export const getFontColor = function () {
     }
   ]
 }
+
 export const getEmbroidery = function () {
   var shoeStyles = getShoeStyle()
   var f = getFontFamily()
@@ -124,6 +127,7 @@ export const getEmbroidery = function () {
     }
   ]
 }
+
 export const getEmbroideryByShoeStyleId = function (id) {
   if (typeof id !== 'number') {
     id = id - ''
@@ -138,6 +142,7 @@ export const getEmbroideryByShoeStyleId = function (id) {
     return id === e.shoeStyle.id
   })
 }
+
 export const getFontColorById = function (id) {
   if (typeof id !== 'number') {
     id = id - ''
@@ -149,7 +154,8 @@ export const getFontColorById = function (id) {
     throw Error('the id to getEmbroideryByShoeStyleId is illegal')
   }
   var list = getFontColor()
-  for (var i; i < list.length; i++) {
+  for (var i = 0; i < list.length; i++) {
     if (list[i].id === id) return list[i]
   }
+  return {}
 }
