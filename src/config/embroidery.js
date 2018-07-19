@@ -107,7 +107,7 @@ export const getEmbroidery = function () {
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
-      angle: 'sider' // 视角
+      angle: 'side' // 视角
     },
     {
       shoeStyle: shoeStyles[1], // 鞋子品牌
@@ -127,7 +127,7 @@ export const getEmbroidery = function () {
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
-      angle: 'sider' // 视角
+      angle: 'side' // 视角
     }
   ]
 }
