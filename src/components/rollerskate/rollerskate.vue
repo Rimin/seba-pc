@@ -65,7 +65,12 @@ export default {
     } 
     },
     selectSkate(id){
-        this.$bus.shoe = initShoe(id)
+        if(this.$bus.shoe.shoeStyle.id !== id) {
+           this.$bus.shoe = initShoe(id)
+        }
+        if(this.$router.app._route.fullPath === '/rollerskate/order') {
+            this.$router.push('/rollerskate/edit')
+        }
         console.log(this.$bus.shoe)
     }
   },

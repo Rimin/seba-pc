@@ -165,7 +165,6 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
 };
-
 .select {
   width: 100%;
   height: 100%;

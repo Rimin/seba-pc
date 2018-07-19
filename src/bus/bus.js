@@ -3,7 +3,7 @@ const bus = new Vue({
   data () {
     return {
       shoe: {},
-      personal: {},
+      nowheel: false,
       curSelectPart: 'a',
       material: 0,
       embroidery: []
