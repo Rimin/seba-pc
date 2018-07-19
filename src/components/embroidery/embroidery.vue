@@ -131,6 +131,7 @@ export default {
     },
     curPartIndex(v){
       this.setToPart(v)
+      this.setAngle()
     },
     textIn(v){
       this.eParts[this.curPartIndex].content = v
@@ -164,6 +165,7 @@ export default {
         return new FontColor(e)
       })
       this.curPartIndex = 0
+      this.setAngle()
       this.photoEmbroidery = false
       this.setToPart(this.curPartIndex)
       var count = this.eParts.length || 1
@@ -260,6 +262,9 @@ export default {
     },
     update(){
       this.$bus.embroidery = Object.assign([],this.eParts)
+    },
+    setAngle(){
+      this.$bus.angle = this.eParts[this.curPartIndex].angle
     }
   }
 }
