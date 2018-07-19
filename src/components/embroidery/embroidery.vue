@@ -20,6 +20,10 @@
           :class="'text-'+curFF" 
           :style="'color:'+curColorCode+';'+(curColor === 3?'background-color:black;':'')"
         >
+        <div v-show="photoEmbroidery">
+          <span>{{curPhoto}}</span>
+          <i class="btn-close" @click="imageDelete"></i>
+        </div>
       </div>
       <div class="select-type">
         <select class="select-font-family" v-model="curFF">
@@ -28,7 +32,9 @@
             :value="f"
           >{{f}}</option>
         </select>
-        <div class="upload-photo">上传图片</div>
+        <div class="upload-photo" @click="changeOpenStatus">
+          <i class=""></i>{{$t('m.Upload_Images')}}
+        </div>
       </div>
       <div class="tip-1">{{$t('m.SelectColor')}}</div>
       <div class="font-color-box" @click="selectColor">
@@ -41,11 +47,31 @@
         </div>
       </div>
     </div>
+    <div class="fix-window" v-show="openStatus" @click="changeOpenStatus">
+      <div class="broad" @click.stop>
+        <h2>{{$t('m.Upload_Images')}}</h2>
+        <i class="btn-close" @click="changeOpenStatus"></i>
+        <div class="image-box">
+          <img :src="imgBase64" alt="">
+        </div>
+        <div class="inf">
+          <span>{{curPhoto}}</span>
+          <div>
+            <div class="btn btn-sel-img">
+              {{$t('m.Select_Image')}}
+              <input type="file" ref="image-file">
+            </div>
+            <div class="btn btn-upl-img" @click="imageOk">OK</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { getEmbroideryByShoeStyleId, getFontFamily, getFontColor, getFontColorById } from '../../config/embroidery'
+import { imageFileToBase64 } from '@/common/js/fn'
+import { getEmbroideryByShoeStyleId, getFontFamily, getFontColor, getFontColorById } from '@/config/embroidery'
 // class EPart{ 
 //   constructor(e){
 //     this.partId = e.partId
@@ -81,7 +107,13 @@ export default {
       curPhoto: '', // 当前图片
       curPartIndex: 0, // 当前刺绣部件序号
       curColor: 0, // 当前文字颜色 id
-      curColorCode: '' // 当前文字颜色编码
+      curColorCode: '', // 当前文字颜色编码
+
+      openStatus: false, // 弹窗开关
+      imgBase64: '',
+      imgFlieDom: null, 
+      
+      photoEmbroidery: false // 刺绣类型，false文字刺绣，true图片刺绣
     }
   },
   computed: {
@@ -95,27 +127,33 @@ export default {
   watch: {
     shoe(){
       this.init()
+      this.update()
     },
     curPartIndex(v){
       this.setToPart(v)
     },
     textIn(v){
       this.eParts[this.curPartIndex].content = v
+      this.update()
     },
     curFF(v){
       this.eParts[this.curPartIndex].fontFamily = v
+      this.update()
     },
     curColor(v){
       this.curColorCode = getFontColorById(v).code
       this.eParts[this.curPartIndex].fontColor = v
-    }
+      this.update()
+    },
   },
   created(){
     
   },
   mounted(){
+    var t = this
     setTimeout(() => {
-      this.init()
+      t.init()
+      t.addFileChange()
     },200)
   },
   methods: {
@@ -134,13 +172,13 @@ export default {
     },
     selectEPart(e){
       var t = this
-      // console.log(e)
+      // //console.log(e)
       var path = e.path
       for(var i=0; i<path.length; i++){
         var item = path[i]
         if(/div-part/g.test(item.className)){
           var index = item.getAttribute('epart-index') - ''
-          // console.log(attr)
+          // //console.log(attr)
           if(index!==t.curPartIndex){
             t.curPartIndex = index
           }
@@ -154,23 +192,71 @@ export default {
       this.curColor = eParts[index].fontColor
       this.curPhoto = eParts[index].photo
       this.curFF = eParts[index].fontFamily
+      this.imgBase64 = eParts[index].imgBase64
     },
     selectColor(e){
       var t = this
-      console.log(e)
+      //console.log(e)
       var path = e.path
       for(var i=0; i<path.length; i++){
         var item = path[i]
         if(/color-btn/g.test(item.className)){
           var index = item.getAttribute('color-id') - ''
-          console.log(index)
+          //console.log(index)
           if(index!==t.curColor){
-            console.log(true)
+            //console.log(true)
             t.curColor = index
           }
           break
         }
       }
+    },
+    changeOpenStatus(){ // 打开弹窗时，先读取图片
+      this.curPhoto = this.eParts[this.curPartIndex].photo
+      this.imgBase64 = this.eParts[this.curPartIndex].imgBase64
+      this.openStatus = !this.openStatus
+    },
+    addFileChange(){
+      var t = this
+      if(!t.imgFlieDom) t.imgFlieDom = t.$refs['image-file']
+      t.imgFlieDom.addEventListener('change',function(){
+        var file = this.files[0]
+        //console.log(file)
+        t.curPhoto = file.name
+        imageFileToBase64(file).then((e)=>{
+          t.imgBase64 = e
+        }).catch((e) => {
+          alert(e)
+        })
+      })
+    },
+    imageOk(){
+      var t = this
+      this.photoEmbroidery = true // 刺绣类型改为图片刺绣
+      this.eParts[this.curPartIndex].photo = this.curPhoto
+      this.eParts[this.curPartIndex].imgBase64 = this.imgBase64
+      this.eParts.forEach((e)=>{
+        e.content = '' // 删除文字刺绣
+        e.fontColor = 1 // 重置文字颜色
+        if(!e.photo || !e.imgBase64) { // 没图片的全部换上当前图片
+          e.photo = t.curPhoto
+          e.imgBase64 = t.imgBase64
+        }
+      })
+      this.openStatus = !this.openStatus
+      this.update()
+    },
+    imageDelete(){
+      var t = this
+      this.photoEmbroidery = false // 刺绣类型改为文字刺绣
+      this.eParts.forEach((e)=>{ // 删除所有图片
+        e.photo = ''
+        e.imgBase64 = ''
+      })
+      this.update()
+    },
+    update(){
+      this.$bus.embroidery = Object.assign([],this.eParts)
     }
   }
 }
@@ -209,6 +295,13 @@ export default {
 @BorderActiveColor: rgba(255, 0, 0, 0.5);
 @DefaultBorder: 1px @BorderDefaultColor solid;
 @ActiveBorder: 1px solid @BorderActiveColor;
+@center-middle: {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+};
+
 .embroidery-part {
   height: 35px;
   &>div {
@@ -251,10 +344,7 @@ export default {
   &>span {
     font-size: 15px;
     color: rgb(152, 152, 152);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    @center-middle();
     z-index: 0;
     &:hover +input {
       border: @ActiveBorder;
@@ -276,6 +366,29 @@ export default {
     &:hover {
       border: @ActiveBorder;
       background-color: transparent;
+    }
+  }
+  &>div {
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #000;
+    background: white;
+    &>span {
+      @center-middle();
+      white-space: pre;
+      overflow: hidden;
+      display: inline-block;
+      max-width: 70%;
+    }
+    &>.btn-close {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 20px;
     }
   }
 }
@@ -327,6 +440,8 @@ export default {
     cursor: pointer;
     &:hover {
       border: @ActiveBorder;
+      color: white;
+      background-color: @BorderActiveColor;
     }
   }
 }
@@ -361,5 +476,117 @@ export default {
   margin: 10px 0 5px 0; 
 }
 
+.fix-window {
+  position: fixed;
+  transition: 200ms;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  top: 0;
+  left: 0;
+  &>.broad {
+    padding: 20px;
+    border-radius: 4px;
+    min-width: 400px;
+    background-color: white;
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  h2 {
+    color: rgb(50, 50, 50);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .image-box {
+    border: @DefaultBorder;
+    display: inline-block;
+    width: 49%;
+    height: 200px;
+    background-color: rgb(245, 245, 245);
+    >img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+  .inf {
+    display: inline-block;
+    width: 49%;
+    position: relative;
+    height: 200px;
+    >span {
+      display: block;
+      color: black;
+      position: absolute;
+      font-size: 15px;
+      top: 0;
+      padding: 5px;
+    }
+    >div {
+      position: absolute;
+      padding: 0 5px;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      >.btn {
+        position: relative;
+        width: 100%;
+        height: 30px;
+        outline: none;
+        cursor: pointer;
+        margin-top: 5px;
+        text-align: center;
+        overflow: hidden;
+        border: @DefaultBorder;
+        line-height: 30px;
+        transition: 200ms;
+      }
+    }
+    .btn-upl-img {
+      background: #01ff0c;
+      color: white;
+      font-weight: 400;
+      font-size: 16px;
+      &:hover {
+        background: #11d619;
+      }
+    }
+    .btn-sel-img{
+      color: black;
+      background: #fbfbfb;
+      &:hover {
+        border: @ActiveBorder;
+      }
+      &>input {
+        display: block;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+      }
+    }
+  }
+  .btn-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+}
+.btn-close {
+  width: 18px;
+  height: 18px;
+  display: block;
+  background-image: url("@{BaseUrl}/close.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
 </style>
 

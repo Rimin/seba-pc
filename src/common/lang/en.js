@@ -11,6 +11,7 @@ export const m = {
   'Back': 'BACK',
   'Confirm': 'COMFIRM',
   'Upload_Images': 'UPLOAD IMAGES',
+  'Select_Image': 'Select Iamge',
 
   'HIGH_CARBON': { // HIGH CARBON 品牌的部件名
     'a': 'Main Upper(PU)',

@@ -89,7 +89,7 @@ export default {
       return this.$i18n.locale
     },
     onlyShoe(){
-      return 0
+      return this.$bus.nowheel
     }
   },
   created(){

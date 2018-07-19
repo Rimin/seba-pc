@@ -95,7 +95,8 @@ export const getEmbroidery = function () {
       content: '', // 文字内容
       fontFamily: f[0], // 字体 id
       fontColor: 1, // 字体颜色 id
-      photo: '', // 自定义图片
+      photo: '', // 自定义图片名字
+      imgBase64: '', // 图片字符串
       angle: 'front' // 视角
     },
     {
@@ -104,7 +105,8 @@ export const getEmbroidery = function () {
       content: '', // 文字内容
       fontFamily: f[0], // 字体 id
       fontColor: 1, // 字体颜色 id
-      photo: '', // 自定义图片
+      photo: '', // 自定义图片名字
+      imgBase64: '', // 图片字符串
       angle: 'sider' // 视角
     },
     {
@@ -113,7 +115,8 @@ export const getEmbroidery = function () {
       content: '', // 文字内容
       fontFamily: f[0], // 字体 id
       fontColor: 1, // 字体颜色 id
-      photo: '', // 自定义图片
+      photo: '', // 自定义图片名字
+      imgBase64: '', // 图片字符串
       angle: 'front' // 视角
     },
     {
@@ -122,7 +125,8 @@ export const getEmbroidery = function () {
       content: '', // 文字内容
       fontFamily: f[0], // 字体 id
       fontColor: 1, // 字体颜色 id
-      photo: '', // 自定义图片
+      photo: '', // 自定义图片名字
+      imgBase64: '', // 图片字符串
       angle: 'sider' // 视角
     }
   ]
