@@ -233,6 +233,12 @@ export default {
         })
       })
     },
+    addClickBox(){
+      if(!this.boxDom) this.boxDom = this.$refs['embroidery-edit']
+      this.boxDom.addEventListener('click',function(){
+        this.$bus.hasChange = !this.$bus.hasChange
+      })
+    },
     imageOk(){
       var t = this
       if(t.curPhoto) {
@@ -265,6 +271,7 @@ export default {
     },
     setAngle(){
       this.$bus.angle = this.eParts[this.curPartIndex].angle
+      this.$bus.hasChange = !this.$bus.hasChange
     }
   }
 }

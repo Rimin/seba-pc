@@ -7,7 +7,8 @@ const bus = new Vue({
       curSelectPart: 'a',
       material: 0,
       embroidery: [],
-      angle: 'side'
+      angle: 'side',
+      hasChange: true
     }
   },
   watch: {},
