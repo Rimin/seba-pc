@@ -11,6 +11,7 @@ export const m = {
   'Back': '返回',
   'Confirm': '确认下单',
   'Upload_Images': '上传图片',
+  'Select_Image': '选择图片',
 
   'HIGH_CARBON': { // HIGH CARBON 品牌的部件名
     'a': '大身内外/下包铮',

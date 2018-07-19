@@ -5,9 +5,11 @@ const bus = new Vue({
       shoe: {},
       personal: {},
       curSelectPart: 'a',
-      material: 0
+      material: 0,
+      embroidery: []
     }
   },
+  watch: {},
   methods: {
 
   }
