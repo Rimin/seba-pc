@@ -14,7 +14,7 @@
           :title="lang==='en-US'?shoe[item.partId].enName:shoe[item.partId].zhName"
         >{{lang==='en-US'?shoe[item.partId].enName:shoe[item.partId].zhName}}</div>
       </div>
-      <div class="input-box">
+      <div class="input-box" ref="input-box">
         <span v-show="textIn.length === 0">{{$t('m.Customised_Logo.Please_Input')}}</span>
         <input ref="text-in-dom" type="text" v-model="textIn" 
           :class="'text-'+curFF" 
@@ -99,6 +99,7 @@ export default {
       partBtnWidth: 0, // 刺绣按钮宽度
       boxDom: null, // 内容器dom
       textInDom: null,
+      inputBoxDom: null,
       eParts: [], // 可加刺绣的部件 [{},{},...]
       allFF: [], // 所有字体
       allColor: [], // 所有颜色
@@ -239,8 +240,11 @@ export default {
       var t = this
       if(!this.boxDom) this.boxDom = this.$refs['embroidery-edit']
       if(!this.textInDom) this.textInDom = this.$refs['text-in-dom']
+      if(!this.inputBoxDom) this.inputBoxDom = this.$refs['input-box']
       this.boxDom.addEventListener('click',function(){
         t.$bus.hasChange = !t.$bus.hasChange
+      })
+      this.inputBoxDom.addEventListener('click', function () {
         t.textInDom.focus()
       })
     },
@@ -537,6 +541,7 @@ export default {
     height: 200px;
     >span {
       display: block;
+      width: 100%;
       color: black;
       position: absolute;
       font-size: 15px;
@@ -564,12 +569,12 @@ export default {
       }
     }
     .btn-upl-img {
-      background: #01ff0c;
+      background: #d62329;
       color: white;
       font-weight: 400;
       font-size: 16px;
       &:hover {
-        background: #11d619;
+        background: #bd1e23;
       }
     }
     .btn-sel-img{
