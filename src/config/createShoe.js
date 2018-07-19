@@ -9,6 +9,7 @@ function HIGH_CARBON () {
   parts.forEach((e) => {
     t[e.id] = e
   })
+  t.embroidery = []
 }
 
 function TRIX () {
@@ -19,6 +20,7 @@ function TRIX () {
   parts.forEach((e) => {
     t[e.id] = e
   })
+  t.embroidery = []
 }
 
 export const initShoe = function (styleId) {

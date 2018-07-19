@@ -162,7 +162,11 @@ export default {
   },
   methods: {
     init(){ // 获取可上刺绣的部件
-      this.eParts = getEmbroideryByShoeStyleId(this.shoe.shoeStyle.id)
+      if(!this.$bus.shoe.embroidery || !this.$bus.shoe.embroidery.length){
+        this.eParts = getEmbroideryByShoeStyleId(this.shoe.shoeStyle.id)
+      }else {
+        this.eParts = this.$bus.shoe.embroidery
+      }
       this.allFF = getFontFamily()
       this.allColor = getFontColor().map((e) => {
         return new FontColor(e)
@@ -276,7 +280,7 @@ export default {
       this.update()
     },
     update(){
-      this.$bus.embroidery = Object.assign([],this.eParts)
+      this.$bus.shoe.embroidery = Object.assign([],this.eParts)
     },
     setAngle(){
       this.$bus.angle = this.eParts[this.curPartIndex].angle

@@ -6,7 +6,6 @@ const bus = new Vue({
       nowheel: false,
       curSelectPart: 'a',
       material: 0,
-      embroidery: [],
       angle: 'side',
       hasChange: true
     }
