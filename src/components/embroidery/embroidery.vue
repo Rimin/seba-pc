@@ -16,7 +16,7 @@
       </div>
       <div class="input-box">
         <span v-show="textIn.length === 0">{{$t('m.Customised_Logo.Please_Input')}}</span>
-        <input type="text" v-model="textIn" 
+        <input ref="text-in-dom" type="text" v-model="textIn" 
           :class="'text-'+curFF" 
           :style="'color:'+curColorCode+';'+(curColor === 3?'background-color:black;':'')"
         >
@@ -98,6 +98,7 @@ export default {
       boxWidth: 0, // 容器宽度
       partBtnWidth: 0, // 刺绣按钮宽度
       boxDom: null, // 内容器dom
+      textInDom: null,
       eParts: [], // 可加刺绣的部件 [{},{},...]
       allFF: [], // 所有字体
       allColor: [], // 所有颜色
@@ -155,6 +156,7 @@ export default {
     setTimeout(() => {
       t.init()
       t.addFileChange()
+      t.addClickBox()
     },200)
   },
   methods: {
@@ -234,9 +236,12 @@ export default {
       })
     },
     addClickBox(){
+      var t = this
       if(!this.boxDom) this.boxDom = this.$refs['embroidery-edit']
+      if(!this.textInDom) this.textInDom = this.$refs['text-in-dom']
       this.boxDom.addEventListener('click',function(){
-        this.$bus.hasChange = !this.$bus.hasChange
+        t.$bus.hasChange = !t.$bus.hasChange
+        t.textInDom.focus()
       })
     },
     imageOk(){
