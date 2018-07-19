@@ -542,6 +542,10 @@ export default {
     >span {
       display: block;
       width: 100%;
+      height: 50%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-all;
       color: black;
       position: absolute;
       font-size: 15px;
