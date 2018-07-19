@@ -53,7 +53,7 @@
 			<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='front'?'btn_front-active':'btn_front')" @click="changAngle('front')"></div>
 			<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(currentAngle==='45'?'btn_45-active':'btn_45')" @click="changAngle('45')"></div>
 			<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(preview?'btn_view-active':'btn_view')" @click="preview = !preview"></div>
-			<div style="height:53px;" :class="[{'operate_en_btn btn_en_nowheel-active': lang==='en-US'&&nowheel},{'operate_en_btn btn_en_nowheel': lang==='en-US'&&!nowheel},{'operate_zh_btn-active btn_zh_nowheel': lang==='zh-CN'&&nowheel},{'operate_zh_btn btn_zh_nowheel': lang==='zh-CN'&&!nowheel} ]"  @click="onlyShoeBody"></div>
+			<div style="height:53px;" :class="[{'operate_en_btn btn_en_nowheel-active': lang==='en-US'&&nowheel},{'operate_en_btn btn_en_nowheel': lang==='en-US'&&!nowheel},{'operate_zh_btn btn_zh_nowheel-active': lang==='zh-CN'&&nowheel},{'operate_zh_btn btn_zh_nowheel': lang==='zh-CN'&&!nowheel} ]"  @click="onlyShoeBody"></div>
 		</div>
 		<div class="viewAll-area" v-if="edit" v-show="preview" @click.stop="viewAll($event)">
 			<div class="content clrfix" id="view-contain">
