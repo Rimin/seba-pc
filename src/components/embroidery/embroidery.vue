@@ -164,6 +164,7 @@ export default {
         return new FontColor(e)
       })
       this.curPartIndex = 0
+      this.photoEmbroidery = false
       this.setToPart(this.curPartIndex)
       var count = this.eParts.length || 1
       if(!this.boxDom) this.boxDom = this.$refs['embroidery-edit']
@@ -232,19 +233,21 @@ export default {
     },
     imageOk(){
       var t = this
-      this.photoEmbroidery = true // 刺绣类型改为图片刺绣
-      this.eParts[this.curPartIndex].photo = this.curPhoto
-      this.eParts[this.curPartIndex].imgBase64 = this.imgBase64
-      this.eParts.forEach((e)=>{
-        e.content = '' // 删除文字刺绣
-        e.fontColor = 1 // 重置文字颜色
-        if(!e.photo || !e.imgBase64) { // 没图片的全部换上当前图片
-          e.photo = t.curPhoto
-          e.imgBase64 = t.imgBase64
-        }
-      })
+      if(t.curPhoto) {
+        this.photoEmbroidery = true // 刺绣类型改为图片刺绣
+        this.eParts[this.curPartIndex].photo = this.curPhoto
+        this.eParts[this.curPartIndex].imgBase64 = this.imgBase64
+        this.eParts.forEach((e)=>{
+          e.content = '' // 删除文字刺绣
+          e.fontColor = 1 // 重置文字颜色
+          if(!e.photo || !e.imgBase64) { // 没图片的全部换上当前图片
+            e.photo = t.curPhoto
+            e.imgBase64 = t.imgBase64
+          }
+        })
+        this.update()
+      }
       this.openStatus = !this.openStatus
-      this.update()
     },
     imageDelete(){
       var t = this
@@ -440,8 +443,6 @@ export default {
     cursor: pointer;
     &:hover {
       border: @ActiveBorder;
-      color: white;
-      background-color: @BorderActiveColor;
     }
   }
 }
@@ -558,6 +559,7 @@ export default {
     .btn-sel-img{
       color: black;
       background: #fbfbfb;
+      cursor: pointer;
       &:hover {
         border: @ActiveBorder;
       }
@@ -570,6 +572,7 @@ export default {
         top: 0;
         left: 0;
         cursor: pointer;
+        z-index: 10;
       }
     }
   }
