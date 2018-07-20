@@ -63,7 +63,9 @@ export const m = {
     'Left_Size': 'LEFT SIZE',
     'Right_Size': 'RIGHT SIZE',
     'Frame_Size': 'FRAME SIZE',
-    'Wheel_Size': 'WHEEL SIZE'
+    'Wheel_Size': 'WHEEL SIZE',
+    'Frame': 'Frame',
+    'Rockered_Frame': 'Rockered Frame'
   },
 
   'Customised_Logo': { // 自定义刺绣

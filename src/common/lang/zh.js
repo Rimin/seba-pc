@@ -60,11 +60,13 @@ export const m = {
   },
 
   'Produce': { // 订单产品规格
-    'Title': 'DETAILS',
+    'Title': '产品规格',
     'Left_Size': '左脚码数',
     'Right_Size': '右脚码数',
-    'Frame_Size': '刀架尺寸',
-    'Wheel_Size': 'SI轮子尺寸'
+    'Frame_Size': '底板尺寸',
+    'Wheel_Size': 'SI轮子尺寸',
+    'Frame': '普通平架',
+    'Rockered_Frame': '香蕉架'
   },
 
   'Customised_Logo': { // 自定义刺绣

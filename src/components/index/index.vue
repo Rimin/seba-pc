@@ -132,6 +132,7 @@ export default {
     overflow: hidden;
 }
 .head{
+    color: #ffffff;
     .ab_hor_center();
     top: 30px;
     z-index: 100;
@@ -141,7 +142,7 @@ export default {
     text-align: center;
     overflow: hidden;
 }
-.fl > a{color: @color;}
+.fl > a{color: #ffffff;}
 .logo{
     height: 60px;
     width: 264px;
@@ -227,7 +228,7 @@ export default {
     display: none;
     text-align: center;
     font-size: 12px;
-    color: @color;
+    color: #ffffff;
     line-height: 40px;
 }
 .choose-btn{
@@ -266,7 +267,7 @@ export default {
    .smallFontSize();
 }
 .reserve > a{
-    color: @color;  
+    color: #ffffff;  
     line-height: 40px; 
 }
 .homelinks > a {

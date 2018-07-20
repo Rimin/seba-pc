@@ -15,7 +15,9 @@
                     <div class="personal-message-box">
                         <personal-inf></personal-inf>
                     </div>
-                    
+                    <div class="product-config-box">  
+                        <product-config></product-config>
+                    </div>
                 </div>
             </div>
             <div class="order-btn-wrap">
@@ -30,6 +32,7 @@
 <script>
 import ShowShoe from '@/components/showShoe/showShoe'
 import PersonalInf from '@/components/personalInf/personalInf'
+import ProductConfig from '@/components/productConfig/productConfig'
 export default {
   computed: {
     lang() {
@@ -38,7 +41,8 @@ export default {
   },
   components:{
     ShowShoe,
-    PersonalInf
+    PersonalInf,
+    ProductConfig
   },
   data(){
       return {
@@ -127,5 +131,9 @@ export default {
 .personal-message-box {
     width: 100%;
     position: relative;
+}
+.product-config-box{
+    width: 100%;
+    
 }
 </style>
