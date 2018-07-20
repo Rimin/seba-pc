@@ -8,7 +8,8 @@ const getLogo = function () {
       logo: [
         {
           id: 1,
-          confict: 'c'
+          confict: 'c',
+          confictAngle: 'front'
         }
       ]
     },
@@ -17,15 +18,18 @@ const getLogo = function () {
       logo: [
         {
           id: 1,
-          confict: ''
+          confict: 'h',
+          confictAngle: 'side'
         },
         {
           id: 2,
-          confict: 'f'
+          confict: 'f',
+          confictAngle: 'front'
         },
         {
           id: 3,
-          confict: 'h'
+          confict: '',
+          confictAngle: ''
         }
       ]
     }
