@@ -22,7 +22,7 @@
         >
         <div v-show="photoEmbroidery">
           <a @click="browsePicture">{{curPhoto}}</a>
-          <i class="btn-close" @click="imageDelete"></i>
+          <i class="btn-close btn-close2" @click="imageDelete"></i>
         </div>
       </div>
       <div class="select-type">
@@ -53,7 +53,7 @@
     <div class="fix-window" v-show="openStatus" @click="changeOpenStatus">
       <div class="broad" @click.stop>
         <h2>{{$t('m.Upload_Images')}}</h2>
-        <i class="btn-close" @click="changeOpenStatus"></i>
+        <i class="btn-close btn-close1" @click="changeOpenStatus"></i>
         <div class="image-box">
           <img @click="browsePicture" :src="imgBase64" alt="">
         </div>
@@ -645,10 +645,15 @@ export default {
   width: 18px;
   height: 18px;
   display: block;
-  background-image: url("@{BaseUrl}/close.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   cursor: pointer;
+}
+.btn-close1{
+  background-image: url("@{BaseUrl}/close.png");
+}
+.btn-close2{
+  background-image: url("@{BaseUrl}/close2.png");
 }
 .browse-pictures {
   position: fixed;
