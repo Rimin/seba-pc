@@ -92,17 +92,9 @@ export default {
       return this.$bus.nowheel
     }
   },
-  created(){
-    // var t = this
-    // if(!t.$bus.shoe) return
-    // t.shoe = t.$bus.shoe
-    // console.log(t.shoe)
-  },
   mounted(){
     var t = this
-    setTimeout(()=>{
-      t.init()
-    },200)
+    t.init()
   },
   watch: {
     shoe(){
