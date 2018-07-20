@@ -8,7 +8,9 @@
       <div class="order-main main">
           <div class="content">
             <div class="order-contain clrfix">
-                <div class="shoe-preview fl"></div>
+                <div class="shoe-preview fl">
+                    <show-shoe :edit="editshow"></show-shoe>
+                </div>
                 <div class="order-form fl"></div>
             </div>
             <div class="order-btn-wrap">

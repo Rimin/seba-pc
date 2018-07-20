@@ -78,7 +78,7 @@
 							<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/front/'+item.id+'.png'">
 						</li>
 						<li class="customised-logo" v-for="(item, index) in customlogo['front'] " :key="item?'cutom'+index:'no3'">
-							<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
+							<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+'_pre '+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
 						</li>
 					</ul>
 				</div>
@@ -97,7 +97,7 @@
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/side/'+item.id+'.png'">
 						</li>
 						<li class="customised-logo" v-for="(item, index) in customlogo['side'] " :key="item?'cutom'+index:'no1'">
-							<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
+							<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+'_pre '+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
 						</li>
 					</ul>
 				</div>
@@ -116,18 +116,82 @@
 							<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/45/'+item.id+'.png'">
 						</li>
 						<li class="customised-logo" v-for="(item,index) in customlogo['45'] " :key="item?'cutom'+index:'no2'">
-							<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
+							<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+'_pre '+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
 						</li>
 					</ul>
 				</div>
 				<div id="close" @click="viewAll($event)"></div>
 			</div>
 		</div>
+		<div class="orderView-area" v-if="!edit">
+			<img src="../../../static/showShoe/order_shadow_45.png" class="shawdow45">
+			<img src="../../../static/showShoe/order_shadow_front.png" class="shawdowfront">
+			<img src="../../../static/showShoe/order_shadow_side.png" class="shawdowside">
+			<div class="stylename-order">
+				<img :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/stylename.png'">
+			</div>
+			<div class="order-shower-side fl">
+				<ul class="side">
+					<li class="base img-list">
+						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_side.png'">
+					</li>
+					<li class="part-list img-list" v-for="item in part" :key="item.id">
+						<img  onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
+					</li>
+					<li class="nowheel img-list" v-show="nowheel">
+						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
+					</li>
+					<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
+						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/side/'+item.id+'.png'">
+					</li>
+					<li class="customised-logo" v-for="(item, index) in customlogo['side'] " :key="item?'cutom'+index:'no1'">
+						<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+'_preo '+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
+					</li>
+				</ul>
+			</div>
+			<div class="order-shower-front fl">
+				<ul class="front order-shower">
+					<li class="base img-list">
+						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_front.png'">
+					</li>
+					<li class="part-list img-list" v-for="item in part" :key="item.id">
+						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
+					</li>
+					<li class="nowheel img-list" v-show="nowheel">
+						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
+					</li>
+					<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
+						<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/front/'+item.id+'.png'">
+					</li>
+					<li class="customised-logo" v-for="(item, index) in customlogo['front'] " :key="item?'cutom'+index:'no3'">
+						<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+'_preo '+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
+					</li>
+				</ul>
+			</div>
+			<div class="order-shower-45 fl">
+				<ul class="45 order-shower">
+					<li class="base img-list">
+						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
+					</li>
+					<li class="part-list img-list" v-for="item in part" :key="item.id">
+						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
+					</li>
+					<li class="nowheel img-list" v-show="nowheel">
+						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
+					</li>
+					<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
+						<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/45/'+item.id+'.png'">
+					</li>
+					<li class="customised-logo" v-for="(item,index) in customlogo['45'] " :key="item?'cutom'+index:'no2'">
+						<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+'_preo '+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
+					</li>
+				</ul>
+			</div>
+		</div>
     </div>	
 </template>
 
 <script>
-// const IMG_PATH = '../../../static/'
 import { hasDom } from 'common/js/dom'
 import { getLogoByShoeId } from '@/config/logo'
 import { getFontColorById } from '@/config/embroidery'  
@@ -153,10 +217,11 @@ data() {
 		}
 	}
 },
-created(){
-	this.initShoeShow(this.shoe)
-},
+// created(){
+// 	this.initShoeShow(this.shoe)
+// },
 mounted() {
+	this.initShoeShow(this.shoe)
 	setTimeout(() => {
 		console.log(this.customLogo)
 		this.getCustomLogo(this.customLogo)
@@ -445,6 +510,7 @@ computed: {
     color: #fff;
     text-align: center;
 }
+/**操作时*/
 .custom-logo_1_c{
 	top: 54%;
     left: 43%;
@@ -476,6 +542,71 @@ computed: {
     width: 16%;
     font-size: 23px;
 }
+/**操作预览时*/
+.custom-logo_1_c_pre{
+	top: 49%;
+    left: 43%;
+    width: 18%;
+    font-size: 12px;
+    line-height: 30px;
+    -webkit-transform: rotate(16deg);
+    -ms-transform: rotate(16deg);
+    transform: rotate(16deg);
+}
+.custom-logo_2_a_pre{
+	top: 21%;
+    left: 16%;
+    width: 18%;
+    font-size: 12px;
+}
+.custom-logo_2_f_pre{
+	top: 50%;
+    left: 40%;
+    width: 17%;
+    font-size: 12px;
+    line-height: 30px;
+    -webkit-transform: rotateZ(5deg);
+    transform: rotateZ(5deg);
+}
+.custom-logo_2_h_pre{
+	top: 51%;
+    left: 42%;
+    width: 16%;
+    font-size: 12px;
+}
+/**订单预览时*/
+.custom-logo_1_c_preo{
+	top: 55.7%;
+    left: 43%;
+    width: 18%;
+    font-size: 12px;
+    line-height: 30px;
+    -webkit-transform: rotate(16deg);
+    -ms-transform: rotate(16deg);
+    transform: rotate(16deg);
+}
+.custom-logo_2_a_preo{
+	top: 21%;
+    left: 16%;
+    width: 18%;
+    font-size: 14px;
+}
+.custom-logo_2_f_preo{
+	top: 56.5%;
+    left: 40%;
+    width: 17%;
+    font-size: 12px;
+    line-height: 30px;
+    -webkit-transform: rotateZ(5deg);
+    transform: rotateZ(5deg);
+}
+.custom-logo_2_h_preo{
+	top: 52%;
+    left: 42%;
+    width: 16%;
+    font-size: 14px;
+}
+
 .color_1{ color: #000; }
 .color_2{ color: #54565b;}
 .color_3{ color: #fff;}
@@ -486,6 +617,56 @@ computed: {
 .color_8{ color: #0056b8;}
 .color_9{ color: #7b2682;}
 .color_10{ color: #e60895;}
+
+.shawdow45{
+	position:absolute;
+	top: 662px;
+    left: 180px;
+}
+.shawdowfront{
+	position:absolute;
+	top: 702px;
+    left: 46px;
+}
+.shawdowside{
+	position:absolute;
+	top: 372px;
+    left: 20px;
+}
+.order-shower-side{
+	position: relative;
+	width: 100%;
+    height: 410px;
+}
+.stylename-order{
+	position: absolute;
+	top: 8px;
+	right: 43px;
+}
+.stylename-order > img{
+	width: 80px;
+	height: 30px;
+}
+.order-shower-front{
+	width: 150px;
+    height: 316px;
+    position: relative;
+    overflow: hidden;
+}
+.order-shower{
+	position: absolute;
+    height: 100%;
+    width: 359px;
+    left: 50%;
+    margin-left: -180px;
+    margin-top: -15px;
+}
+.order-shower-45{
+	width: 270px;
+    height: 316px;
+    position: relative;
+    overflow: hidden;
+}
 </style>
 
 
