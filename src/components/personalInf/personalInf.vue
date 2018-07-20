@@ -99,7 +99,19 @@ export default {
   },
   methods: {
     init(){
-      if(this.$bus.personalMessage) this.$bus.personalMessage = new PersonalMessage()
+      var ms = this.$bus.personalMessage
+      if(!ms) this.$bus.personalMessage = new PersonalMessage()
+      else {
+        this.firstName = ms.firstName
+        this.lastName = ms.lastName
+        this.phone = ms.phone
+        this.email = ms.email
+        this.postCode = ms.postCode
+        this.address = ms.address
+        this.SEBA_STORE_NAME = ms.SEBA_STORE_NAME
+        this.SEBA_STORE_ADDRESS = ms.SEBA_STORE_ADDRESS
+        this.areaId = ms.areaId
+      }
       this.areaList = getArea()
     },
     selectArea(e){
