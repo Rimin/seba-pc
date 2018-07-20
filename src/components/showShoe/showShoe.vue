@@ -207,7 +207,6 @@ data() {
 		IMG_PATH : '../../../static/',
 		currentAngle: 'side', // '45','side'
 		preview: false,
-		nowheel: false,
 		part: [],
 		logo: [],
 		customlogo: {
@@ -256,8 +255,7 @@ methods: {
 		}
 	},
 	onlyShoeBody(){
-		this.nowheel = !this.nowheel
-		this.$bus.nowheel = this.nowheel
+		this.$bus.nowheel = !this.nowheel
 	},
 	viewAll(event){
 		let e = window.event || event
@@ -318,6 +316,9 @@ computed: {
 		},
 		hasChange(){
 			return this.$bus.hasChange
+		},
+		nowheel(){
+			return this.$bus.nowheel
 		}
 	},
 	watch:{
@@ -662,7 +663,7 @@ computed: {
     margin-top: -15px;
 }
 .order-shower-45{
-	width: 270px;
+	width: 272px;
     height: 316px;
     position: relative;
     overflow: hidden;
