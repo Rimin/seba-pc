@@ -15,6 +15,9 @@
                     <div class="personal-message-box">
                         <personal-inf></personal-inf>
                     </div>
+                    <div class="product-config-box">  
+                        <product-config></product-config>
+                    </div>
                     <div class="CUSTOMISED_LOGO">
                         <check-logo></check-logo>
                     </div>
@@ -37,6 +40,7 @@ import ShowShoe from '@/components/showShoe/showShoe'
 import PersonalInf from '@/components/personalInf/personalInf'
 import SpecialRequest from '@/components/specialRequest/specialRequest'
 import CheckLogo from '@/components/checkLogo/checkLogo'
+import ProductConfig from '@/components/productConfig/productConfig'
 export default {
   computed: {
     lang() {
@@ -47,7 +51,8 @@ export default {
     ShowShoe,
     PersonalInf,
     SpecialRequest,
-    CheckLogo
+    CheckLogo,
+    ProductConfig,
   },
   data(){
       return {
@@ -145,5 +150,9 @@ export default {
     width: 100%;
     height: 100px;
     margin-top: 10px;
+}
+.product-config-box{
+    width: 100%;
+    
 }
 </style>
