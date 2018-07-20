@@ -21,7 +21,7 @@
           :style="'color:'+curColorCode+';'+(curColor === 3?'background-color:black;':'')"
         >
         <div v-show="photoEmbroidery">
-          <span>{{curPhoto}}</span>
+          <a @click="browsePicture">{{curPhoto}}</a>
           <i class="btn-close" @click="imageDelete"></i>
         </div>
       </div>
@@ -36,8 +36,11 @@
           <i class=""></i>{{$t('m.Upload_Images')}}
         </div>
       </div>
-      <div class="tip-1">{{$t('m.SelectColor')}}</div>
-      <div class="font-color-box" @click="selectColor">
+      <div v-show="!photoEmbroidery" class="tip-1">{{$t('m.SelectColor')}}</div>
+      <div class="font-color-box" 
+        v-show="!photoEmbroidery"
+        @click="selectColor"
+      >
         <div v-for="(c,k) in allColor"
           :key="k"
           :color-id="c.id"
@@ -52,19 +55,26 @@
         <h2>{{$t('m.Upload_Images')}}</h2>
         <i class="btn-close" @click="changeOpenStatus"></i>
         <div class="image-box">
-          <img :src="imgBase64" alt="">
+          <img @click="browsePicture" :src="imgBase64" alt="">
         </div>
         <div class="inf">
-          <span>{{curPhoto}}</span>
+          <span v-show="curPhoto">{{curPhoto}}</span>
+          <span v-show="!curPhoto" class="alarm">
+            {{$t('m.Image_Alarm_'+ error)}}
+          </span>
+          <span></span>
           <div>
             <div class="btn btn-sel-img">
               {{$t('m.Select_Image')}}
               <input type="file" ref="image-file">
             </div>
-            <div class="btn btn-upl-img" @click="imageOk">{{$t('m.Confirm_Image')}}</div>
+            <div class="btn btn-upl-img" @click="imageOk">{{curPhoto?$t('m.Confirm_Image'):$t('m.Cancel_Image')}}</div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="browse-pictures" v-show="browsePicturesOpen" @click="closeBrowsePicture">
+      <img :src="imgBase64" alt="" :title="curPhoto">
     </div>
   </div>
 </template>
@@ -111,11 +121,14 @@ export default {
       curColor: 0, // 当前文字颜色 id
       curColorCode: '', // 当前文字颜色编码
 
-      openStatus: false, // 弹窗开关
+      openStatus: false, // 弹窗1开关
       imgBase64: '',
       imgFlieDom: null, 
       
-      photoEmbroidery: false // 刺绣类型，false文字刺绣，true图片刺绣
+      photoEmbroidery: false, // 刺绣类型，false文字刺绣，true图片刺绣
+
+      error: '1',
+      browsePicturesOpen: false,
     }
   },
   computed: {
@@ -149,9 +162,7 @@ export default {
       this.update()
     },
   },
-  created(){
-    
-  },
+  created(){},
   mounted(){
     var t = this
     setTimeout(() => {
@@ -225,6 +236,7 @@ export default {
       this.curPhoto = this.eParts[this.curPartIndex].photo
       this.imgBase64 = this.eParts[this.curPartIndex].imgBase64
       this.openStatus = !this.openStatus
+      if(this.openStatus) this.error = '1'
     },
     addFileChange(){
       var t = this
@@ -236,7 +248,9 @@ export default {
           t.imgBase64 = e
           t.curPhoto = file.name
         }).catch((e) => {
-          alert(e)
+          t.error = e.message
+          t.curPhoto = ''
+          t.imgBase64 = ''
         })
       })
     },
@@ -249,7 +263,7 @@ export default {
         t.$bus.hasChange = !t.$bus.hasChange
       })
       this.inputBoxDom.addEventListener('click', function () {
-        t.textInDom.focus()
+        if(!t.photoEmbroidery) t.textInDom.focus()
       })
     },
     imageOk(){
@@ -259,14 +273,15 @@ export default {
         this.eParts[this.curPartIndex].photo = this.curPhoto
         this.eParts[this.curPartIndex].imgBase64 = this.imgBase64
         this.eParts.forEach((e)=>{
-          e.content = '' // 删除文字刺绣
-          e.fontColor = 1 // 重置文字颜色
           if(!e.photo || !e.imgBase64) { // 没图片的全部换上当前图片
             e.photo = t.curPhoto
             e.imgBase64 = t.imgBase64
           }
         })
         this.update()
+      }else {
+        this.curPhoto = this.eParts[this.curPartIndex].photo
+        this.imgBase64 = this.eParts[this.curPartIndex].imgBase64
       }
       this.openStatus = !this.openStatus
     },
@@ -284,6 +299,12 @@ export default {
     },
     setAngle(){
       this.$bus.angle = this.eParts[this.curPartIndex].angle
+    },
+    browsePicture(){
+      this.browsePicturesOpen = true
+    },
+    closeBrowsePicture(){
+      this.browsePicturesOpen = false
     }
   }
 }
@@ -402,14 +423,17 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    color: #000;
+    font-size: 17px;
     background: white;
-    &>span {
+    &>a {
       @center-middle();
       white-space: pre;
       overflow: hidden;
       display: inline-block;
       max-width: 70%;
+      color: blue;
+      text-decoration: solid blue underline;
+      cursor: pointer;
     }
     &>.btn-close {
       position: absolute;
@@ -502,6 +526,7 @@ export default {
 }
 
 .fix-window {
+  transition: 1000ms;
   position: fixed;
   transition: 200ms;
   width: 100%;
@@ -536,6 +561,7 @@ export default {
       width: 100%;
       height: 100%;
       display: block;
+      cursor: pointer;
     }
   }
   .inf {
@@ -555,6 +581,9 @@ export default {
       font-size: 15px;
       top: 0;
       padding: 5px;
+      &.alarm {
+        color: red;
+      }
     }
     >div {
       position: absolute;
@@ -620,6 +649,23 @@ export default {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   cursor: pointer;
+}
+.browse-pictures {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 12;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 1);
+  &>img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
 </style>
 

@@ -13,6 +13,12 @@ export const m = {
   'Upload_Images': 'UPLOAD IMAGES',
   'Select_Image': 'Select Iamge',
   'Confirm_Image': 'OK',
+  'Cancel_Image': 'Cancel',
+  
+  'Image_Alarm_1': 'Please select pictures !',
+  'Image_Alarm_2': 'Browser version too low !',
+  'Image_Alarm_3': 'Non - picture !',
+  'Image_Alarm_4': 'The picture size should not exceed 3MB !',
 
   'HIGH_CARBON': { // HIGH CARBON 品牌的部件名
     'a': 'Main Upper(PU)',

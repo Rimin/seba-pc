@@ -13,6 +13,12 @@ export const m = {
   'Upload_Images': '上传图片',
   'Select_Image': '选择图片',
   'Confirm_Image': '确定',
+  'Cancel_Image': '取消',
+
+  'Image_Alarm_1': '请选择图片 !',
+  'Image_Alarm_2': '浏览器版本过低 !',
+  'Image_Alarm_3': '非图片 !',
+  'Image_Alarm_4': '图片大小不要超过 3MB !',
 
   'HIGH_CARBON': { // HIGH CARBON 品牌的部件名
     'a': '大身内外/下包铮',
