@@ -6,34 +6,35 @@
     </h1>
     <div>
       <div class="row">
-        <label>{{$t('m.Personal_Information.First_Name')}}</label>
+        <label :title="$t('m.Personal_Information.First_Name')">{{$t('m.Personal_Information.First_Name')}}</label>
         <input style="width:186px" type="text" v-model="firstName">
-        <label style="width:100px">{{$t('m.Personal_Information.Last_Name')}}</label>
+        <label :title="$t('m.Personal_Information.Last_Name')" style="width:100px">{{$t('m.Personal_Information.Last_Name')}}</label>
         <input style="width:185px" type="text" v-model="lastName">
       </div>
       <div class="row">
-        <label>{{$t('m.Personal_Information.Phone_Number')}}</label>
+        <label :title="$t('m.Personal_Information.Phone_Number')">{{$t('m.Personal_Information.Phone_Number')}}</label>
         <input style="width:114px" type="text" v-model="phone">
-        <label style="width:50px">{{$t('m.Personal_Information.Email')}}</label>
+        <label :title="$t('m.Personal_Information.Email')" style="width:50px">{{$t('m.Personal_Information.Email')}}</label>
         <input style="width:112px" type="text" v-model="email">
-        <label style="width:80px; font-size: 13px;">{{$t('m.Personal_Information.Post_Code')}}</label>
+        <label :title="$t('m.Personal_Information.Post_Code')" style="width:80px; font-size: 13px;">{{$t('m.Personal_Information.Post_Code')}}</label>
         <input style="width:107px" type="text" v-model="postCode">
       </div>
       <div class="row">
-        <label>{{$t('m.Personal_Information.Address')}}</label>
+        <label :title="$t('m.Personal_Information.Address')">{{$t('m.Personal_Information.Address')}}</label>
         <input style="width:479px" type="text" v-model="address">
       </div>
       <div class="row">
-        <label style="font-size: 13px;">{{$t('m.Personal_Information.SEBA_Store')}}</label>
+        <label :title="$t('m.Personal_Information.SEBA_Store')" style="font-size: 13px;">{{$t('m.Personal_Information.SEBA_Store')}}</label>
         <input style="width:227px" type="text" v-model="SEBA_STORE_NAME">
         <input style="width:248px" type="text" v-model="SEBA_STORE_ADDRESS">
       </div>
       <div class="area-box" @click="selectArea">
-        <label>{{$t('m.Personal_Information.Your_Area')}}</label>
+        <label :title="$t('m.Personal_Information.Your_Area')">{{$t('m.Personal_Information.Your_Area')}}</label>
         <span :class="'area-item ' + (areaId === item.id?'active':'')" 
           v-for="(item,i) in areaList" 
           :key="i"
           :area-id="item.id"
+          :title="lang === 'en-US'?item.enName:item.zhName"
         ><span>{{lang === 'en-US'?item.enName:item.zhName}}</span></span>
       </div>
     </div>
@@ -110,7 +111,7 @@ export default {
         this.address = ms.address
         this.SEBA_STORE_NAME = ms.SEBA_STORE_NAME
         this.SEBA_STORE_ADDRESS = ms.SEBA_STORE_ADDRESS
-        this.areaId = ms.areaId
+        this.areaId = ms.areaId || 1
       }
       this.areaList = getArea()
     },
@@ -136,7 +137,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@BaseUrl: '../../../static/personalInf';
+@BaseUrl: '../../../static/selectMaterial';
 @BorderDefaultColor: rgb(213, 213, 213);
 @BorderActiveColor: rgba(255, 0, 0, 0.5);
 @DefaultBorder: 1px @BorderDefaultColor solid;
@@ -144,7 +145,6 @@ export default {
 
 .personal-inf-wrap {
   width: 100%;
-  height: 100%;
   padding: 30px 0 0 0;
   position: relative;
   &>div {
@@ -239,12 +239,12 @@ div.row {
     cursor: pointer;
     &:hover {
       border: @ActiveBorder;
-      background-color: red;
+      background-color: rgb(238, 3, 3);
       color: white;
     }
     &.active {
       border: @ActiveBorder;
-      background-color: red;
+      background-color: rgb(238, 0, 0);
       color: white;
     }
   }

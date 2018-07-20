@@ -14,6 +14,7 @@ export const m = {
   'Select_Image': 'Select Iamge',
   'Confirm_Image': 'OK',
   'Cancel_Image': 'Cancel',
+
   'Image_Alarm_1': 'Please select pictures !',
   'Image_Alarm_2': 'Browser version too low !',
   'Image_Alarm_3': 'Non - picture !',
@@ -68,7 +69,8 @@ export const m = {
 
   'Customised_Logo': { // 自定义刺绣
     'Title': 'CUSTOMISED LOGO',
-    'Please_Input': 'Please type here'
+    'Please_Input': 'Please type here',
+    'Label': 'CUSTOMISED LOGO (EMBROIDERY)'
   },
 
   'Font_Family': { // 字体

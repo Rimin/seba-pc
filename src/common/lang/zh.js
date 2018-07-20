@@ -69,7 +69,8 @@ export const m = {
 
   'Customised_Logo': { // 自定义刺绣
     'Title': '自定义刺绣',
-    'Please_Input': '点击添加文字'
+    'Please_Input': '点击添加文字',
+    'Label': '自定义刺绣'
   },
 
   'Font_Family': { // 字体

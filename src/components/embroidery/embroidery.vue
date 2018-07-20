@@ -182,9 +182,12 @@ export default {
       this.allColor = getFontColor().map((e) => {
         return new FontColor(e)
       })
+      this.photoEmbroidery = this.eParts.some((e) => { // 判断是图片刺绣还是文字刺绣
+        console.log(e.photo)
+        return e.photo !== ''
+      })
       this.curPartIndex = 0
       this.setAngle()
-      this.photoEmbroidery = false
       this.setToPart(this.curPartIndex)
       var count = this.eParts.length || 1
       if(!this.boxDom) this.boxDom = this.$refs['embroidery-edit']

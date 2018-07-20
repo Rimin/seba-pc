@@ -15,7 +15,12 @@
                     <div class="personal-message-box">
                         <personal-inf></personal-inf>
                     </div>
-                    
+                    <div class="CUSTOMISED_LOGO">
+                        <check-logo></check-logo>
+                    </div>
+                    <div class="SPECIAL_REQUESTS">
+                        <special-request></special-request>
+                    </div>
                 </div>
             </div>
             <div class="order-btn-wrap">
@@ -30,6 +35,8 @@
 <script>
 import ShowShoe from '@/components/showShoe/showShoe'
 import PersonalInf from '@/components/personalInf/personalInf'
+import SpecialRequest from '@/components/specialRequest/specialRequest'
+import CheckLogo from '@/components/checkLogo/checkLogo'
 export default {
   computed: {
     lang() {
@@ -38,7 +45,9 @@ export default {
   },
   components:{
     ShowShoe,
-    PersonalInf
+    PersonalInf,
+    SpecialRequest,
+    CheckLogo
   },
   data(){
       return {
@@ -127,5 +136,14 @@ export default {
 .personal-message-box {
     width: 100%;
     position: relative;
+}
+.CUSTOMISED_LOGO {
+    width: 100%;
+    height: 100px;
+}
+.SPECIAL_REQUESTS {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
 }
 </style>
