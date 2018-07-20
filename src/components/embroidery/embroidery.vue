@@ -66,7 +66,7 @@
           <div>
             <div class="btn btn-sel-img">
               {{$t('m.Select_Image')}}
-              <input type="file" ref="image-file">
+              <form ref="image-form"><input type="file" ref="image-file"></form>
             </div>
             <div class="btn btn-upl-img" @click="imageOk">{{curPhoto?$t('m.Confirm_Image'):$t('m.Cancel_Image')}}</div>
           </div>
@@ -236,21 +236,30 @@ export default {
       this.curPhoto = this.eParts[this.curPartIndex].photo
       this.imgBase64 = this.eParts[this.curPartIndex].imgBase64
       this.openStatus = !this.openStatus
-      if(this.openStatus) this.error = '1'
+      if(this.openStatus) {
+        this.error = '1'
+        if(!this.imgFormDom) this.imgFormDom = this.$refs['image-form']
+        this.imgFormDom.reset()
+      }
     },
     addFileChange(){
       var t = this
       if(!t.imgFlieDom) t.imgFlieDom = t.$refs['image-file']
       t.imgFlieDom.addEventListener('change',function(){
         var file = this.files[0]
-        //console.log(file)
+        // console.log(file)
         imageFileToBase64(file).then((e)=>{
           t.imgBase64 = e
           t.curPhoto = file.name
         }).catch((e) => {
           t.error = e.message
-          t.curPhoto = ''
-          t.imgBase64 = ''
+          if(t.error !== '1') {
+          //   t.curPhoto = t.eParts[t.curPartIndex].photo
+          //   t.imgBase64 = t.eParts[t.curPartIndex].imgBase64
+          // } else {
+            t.curPhoto = ''
+            t.imgBase64 = ''  
+          }
         })
       })
     },
@@ -591,7 +600,8 @@ export default {
       bottom: 0;
       left: 0;
       width: 100%;
-      >.btn {
+      .btn {
+        display: block;
         border-radius: 3px;
         position: relative;
         width: 100%;
@@ -622,7 +632,7 @@ export default {
       &:hover {
         border: @ActiveBorder;
       }
-      &>input {
+      input, form {
         display: block;
         width: 100%;
         height: 100%;

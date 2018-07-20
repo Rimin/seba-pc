@@ -88,7 +88,8 @@ export const m = {
     'Address': 'ADDRESS',
     'Please_Perfect_Address': 'Please perfect the address',
     'SEBA_Store': 'SEBA STORE&ADDRESS',
-    'Special_Requests': 'SPECIAL REQUESTS'
+    'Special_Requests': 'SPECIAL REQUESTS',
+    'Your_Area': 'AREA'
   },
 
   'Area': { // 区域
