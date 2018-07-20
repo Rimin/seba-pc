@@ -34,7 +34,7 @@
           v-for="(item,i) in areaList" 
           :key="i"
           :area-id="item.id"
-        >{{lang === 'en-US'?item.enName:item.zhName}}</span>
+        ><span>{{lang === 'en-US'?item.enName:item.zhName}}</span></span>
       </div>
     </div>
   </div>
@@ -211,8 +211,7 @@ div.row {
     width: 150px;
     text-align: right;
     height: 40px;
-    line-height: 40px;
-    padding-right: 20px;
+    padding-right: 10px;
   }
   &>span {
     display: inline-block;
@@ -220,11 +219,23 @@ div.row {
     height: 40px;
     border-radius: 50%;
     text-align: center;
-    line-height: 40px;
     border: @DefaultBorder;
     transition: 200ms;
     font-size: 13px;
     margin: 0 5px 5px 0;
+    vertical-align: middle;
+    &>span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &::after {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      width: 0;
+      vertical-align: middle;
+      zoom: 1;
+    }
     cursor: pointer;
     &:hover {
       border: @ActiveBorder;
