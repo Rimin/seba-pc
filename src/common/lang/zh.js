@@ -89,7 +89,8 @@ export const m = {
     'Address': '地址',
     'Please_Perfect_Address': '请完善地址',
     'SEBA_Store': 'SEBA专卖店及地址',
-    'Special_Requests': '特殊要求'
+    'Special_Requests': '特殊要求',
+    'Your_Area': '您的所在地'
   },
 
   'Area': { // 区域

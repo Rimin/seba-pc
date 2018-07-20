@@ -9,7 +9,11 @@
           <div class="content">
             <div class="order-contain clrfix">
                 <div class="shoe-preview fl"></div>
-                <div class="order-form fl"></div>
+                <div class="order-form fl">
+                    <div class="personal-message-box">
+                        <personal-inf></personal-inf>
+                    </div>
+                </div>
             </div>
             <div class="order-btn-wrap">
                 <router-link to="/rollerskate/edit" :class="(lang==='en-US'? 'operate_en_btn  back_en_btn': 'operate_zh_btn  back_zh_btn')"></router-link>
@@ -22,6 +26,7 @@
 
 <script>
 import ShowShoe from '@/components/showShoe/showShoe'
+import PersonalInf from '@/components/personalInf/personalInf'
 export default {
   computed: {
     lang() {
@@ -29,7 +34,8 @@ export default {
     }
   },
   components:{
-    ShowShoe
+    ShowShoe,
+    PersonalInf
   },
   data(){
       return {
@@ -114,5 +120,9 @@ export default {
     &:hover{
         background-position: -414px -102px; 
     }
+}
+.personal-message-box {
+    width: 100%;
+    position: relative;
 }
 </style>

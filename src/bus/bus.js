@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { PersonalMessage } from '@/config/PersonalMessage'
 const bus = new Vue({
   data () {
     return {
@@ -7,10 +8,14 @@ const bus = new Vue({
       curSelectPart: 'a',
       material: 0,
       angle: 'side',
-      hasChange: true
+      hasChange: true,
+      personalMessage: {}
     }
   },
   watch: {},
+  created () {
+    this.personalMessage = new PersonalMessage()
+  },
   methods: {
 
   }
