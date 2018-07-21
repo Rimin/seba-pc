@@ -93,6 +93,7 @@ export const m = {
     'Please_Perfect_Address': 'Please perfect the address',
     'SEBA_Store': 'SEBA STORE&ADDRESS',
     'Special_Requests': 'SPECIAL REQUESTS',
+    'Special_Requests_Tip': 'PLEASE TYPE HERE( e.g. ADD VENTILATED WINDOW ON HEEL) OR UPLOAD IMAGES. ',
     'Your_Area': 'AREA'
   },
 

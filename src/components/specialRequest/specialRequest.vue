@@ -1,7 +1,7 @@
 <template>
   <div class="special-request">
     <label>{{$t('m.Personal_Information.Special_Requests')}}</label>
-    <textarea></textarea>
+    <textarea :placeholder="$t('m.Personal_Information.Special_Requests_Tip')"></textarea>
     <div class="btn">{{$t('m.Upload_Images')}}</div>
   </div>
 </template>
