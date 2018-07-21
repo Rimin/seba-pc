@@ -16,6 +16,7 @@ const bus = new Vue({
     shoe (v, oldV) {
       this.personalMessage.specialRequestPhoto = []
       this.personalMessage.specialRequestContent = ''
+      // this.personalMessage = new PersonalMessage()
       if (!v) this.shoe = oldV
     }
   },
