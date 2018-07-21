@@ -561,7 +561,7 @@ export default {
   h2 {
     color: rgb(50, 50, 50);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
   .image-box {
     border: @DefaultBorder;
@@ -684,6 +684,15 @@ export default {
     max-width: 100%;
     max-height: 100%;
   }
+}
+h4.text {
+  text-align: center;
+  margin: 2px 0;
+  color: black;
+}
+.text.text-small {
+  font-size: 12px;
+  font-weight: 200;
 }
 </style>
 

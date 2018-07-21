@@ -11,7 +11,8 @@ export const m = {
   'Back': 'BACK',
   'Confirm': 'COMFIRM',
   'Upload_Images': 'UPLOAD IMAGES',
-  'Select_Image': 'Select Iamge',
+  'Select_Image': 'Select Image',
+  'Add_Images': 'ADD IMAGES',
   'Confirm_Image': 'OK',
   'Cancel_Image': 'Cancel',
 
@@ -19,6 +20,7 @@ export const m = {
   'Image_Alarm_2': 'Browser version too low !',
   'Image_Alarm_3': 'Non - picture !',
   'Image_Alarm_4': 'The picture size should not exceed 3MB !',
+  'Image_Alarm_Max': 'MAX !',
 
   'HIGH_CARBON': { // HIGH CARBON 品牌的部件名
     'a': 'Main Upper(PU)',

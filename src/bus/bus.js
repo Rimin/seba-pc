@@ -12,7 +12,13 @@ const bus = new Vue({
       personalMessage: {}
     }
   },
-  watch: {},
+  watch: {
+    shoe (v, oldV) {
+      this.personalMessage.specialRequestPhoto = []
+      this.personalMessage.specialRequestContent = ''
+      if (!v) this.shoe = oldV
+    }
+  },
   created () {
     this.personalMessage = new PersonalMessage()
   },
