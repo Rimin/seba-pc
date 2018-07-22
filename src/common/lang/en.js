@@ -11,13 +11,16 @@ export const m = {
   'Back': 'BACK',
   'Confirm': 'COMFIRM',
   'Upload_Images': 'UPLOAD IMAGES',
-  'Select_Image': 'Select Iamge',
+  'Select_Image': 'Select Image',
+  'Add_Images': 'ADD IMAGES',
   'Confirm_Image': 'OK',
   'Cancel_Image': 'Cancel',
+
   'Image_Alarm_1': 'Please select pictures !',
   'Image_Alarm_2': 'Browser version too low !',
   'Image_Alarm_3': 'Non - picture !',
   'Image_Alarm_4': 'The picture size should not exceed 3MB !',
+  'Image_Alarm_Max': 'MAX !',
 
   'HIGH_CARBON': { // HIGH CARBON 品牌的部件名
     'a': 'Main Upper(PU)',
@@ -70,7 +73,8 @@ export const m = {
 
   'Customised_Logo': { // 自定义刺绣
     'Title': 'CUSTOMISED LOGO',
-    'Please_Input': 'Please type here'
+    'Please_Input': 'Please type here',
+    'Label': 'CUSTOMISED LOGO (EMBROIDERY)'
   },
 
   'Font_Family': { // 字体
@@ -91,6 +95,7 @@ export const m = {
     'Please_Perfect_Address': 'Please perfect the address',
     'SEBA_Store': 'SEBA STORE&ADDRESS',
     'Special_Requests': 'SPECIAL REQUESTS',
+    'Special_Requests_Tip': 'PLEASE TYPE HERE( e.g. ADD VENTILATED WINDOW ON HEEL) OR UPLOAD IMAGES. ',
     'Your_Area': 'AREA'
   },
 

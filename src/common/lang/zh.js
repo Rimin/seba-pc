@@ -12,6 +12,7 @@ export const m = {
   'Confirm': '确认下单',
   'Upload_Images': '上传图片',
   'Select_Image': '选择图片',
+  'Add_Images': '添加图片',
   'Confirm_Image': '确定',
   'Cancel_Image': '取消',
 
@@ -19,6 +20,7 @@ export const m = {
   'Image_Alarm_2': '浏览器版本过低 !',
   'Image_Alarm_3': '非图片 !',
   'Image_Alarm_4': '图片大小不要超过 3MB !',
+  'Image_Alarm_Max': '最多五张图片 !',
 
   'HIGH_CARBON': { // HIGH CARBON 品牌的部件名
     'a': '大身内外/下包铮',
@@ -71,7 +73,8 @@ export const m = {
 
   'Customised_Logo': { // 自定义刺绣
     'Title': '自定义刺绣',
-    'Please_Input': '点击添加文字'
+    'Please_Input': '点击添加文字',
+    'Label': '自定义刺绣'
   },
 
   'Font_Family': { // 字体
@@ -92,6 +95,7 @@ export const m = {
     'Please_Perfect_Address': '请完善地址',
     'SEBA_Store': 'SEBA专卖店及地址',
     'Special_Requests': '特殊要求',
+    'Special_Requests_Tip': '请写下您的要求（TRIX/WFSC需要后跟胶窗等）或上传图片说明，谢谢',
     'Your_Area': '您的所在地'
   },
 

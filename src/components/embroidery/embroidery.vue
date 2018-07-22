@@ -182,9 +182,12 @@ export default {
       this.allColor = getFontColor().map((e) => {
         return new FontColor(e)
       })
+      this.photoEmbroidery = this.eParts.some((e) => { // 判断是图片刺绣还是文字刺绣
+        console.log(e.photo)
+        return e.photo !== ''
+      })
       this.curPartIndex = 0
       this.setAngle()
-      this.photoEmbroidery = false
       this.setToPart(this.curPartIndex)
       var count = this.eParts.length || 1
       if(!this.boxDom) this.boxDom = this.$refs['embroidery-edit']
@@ -558,7 +561,7 @@ export default {
   h2 {
     color: rgb(50, 50, 50);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
   .image-box {
     border: @DefaultBorder;
@@ -681,6 +684,15 @@ export default {
     max-width: 100%;
     max-height: 100%;
   }
+}
+h4.text {
+  text-align: center;
+  margin: 2px 0;
+  color: black;
+}
+.text.text-small {
+  font-size: 12px;
+  font-weight: 200;
 }
 </style>
 
