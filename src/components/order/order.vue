@@ -144,15 +144,17 @@ export default {
 }
 .CUSTOMISED_LOGO {
     width: 100%;
-    height: 100px;
+    position: absolute;
+    bottom: 110px;
+    height: 110px;
 }
 .SPECIAL_REQUESTS {
     width: 100%;
     height: 100px;
-    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
 }
 .product-config-box{
     width: 100%;
-    
 }
 </style>

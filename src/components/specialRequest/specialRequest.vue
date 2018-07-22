@@ -1,7 +1,7 @@
 <template>
   <div class="special-request">
     <label>{{$t('m.Personal_Information.Special_Requests')}}</label>
-    <textarea :placeholder="$t('m.Personal_Information.Special_Requests_Tip')"
+    <textarea :placeholder="$t('m.Personal_Information.Special_Requests_Tip')" id="request"
       v-model="content"
     ></textarea>
     <div class="btn" @click="changeOpenStatus">{{$t('m.Upload_Images')}}</div>
@@ -184,19 +184,36 @@ export default {
     display: inline-block;
     border: @DefaultBorder;
     height: 30px;
-    width: auto;
-    padding: 5px;
-    line-height: normal;
-    font-size: 15px;
+    width: 120px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 12px;
     margin: 0;
     cursor: pointer;
-    color: white;
-    background: #d62329;
+    color: #000;
+    background: #ffffff;
     border-radius: 4px;
     &:hover {
-      background: #bd1e23;
+      background: rgb(230, 0, 18);
+      color: #fff;
     }
   }
+}
+#request::-webkit-input-placeholder{
+  font-size: 14px;
+  font-family: arial,'Hiragino Sans GB','Microsoft Yahei','微软雅黑','宋体',Tahoma, '\5b8b\4f53',Arial,Helvetica;
+}
+#request::-moz-placeholder{
+  font-size: 14px;
+  font-family: arial,'Hiragino Sans GB','Microsoft Yahei','微软雅黑','宋体',Tahoma, '\5b8b\4f53',Arial,Helvetica;
+}
+#request:-moz-placeholder{
+  font-size: 14px;
+  font-family: arial,'Hiragino Sans GB','Microsoft Yahei','微软雅黑','宋体',Tahoma, '\5b8b\4f53',Arial,Helvetica;
+}
+#request:-ms-input-placeholder {
+  font-size: 14px;
+  font-family: arial,'Hiragino Sans GB','Microsoft Yahei','微软雅黑','宋体',Tahoma, '\5b8b\4f53',Arial,Helvetica;
 }
 
 .fix-window {
@@ -245,6 +262,7 @@ export default {
     width: 100%;
   }
 }
+
 .btn {
   display: inline-block;
   height: 33px;

@@ -16,7 +16,7 @@ export const m = {
   'Confirm_Image': 'OK',
   'Cancel_Image': 'Cancel',
 
-  'Image_Alarm_1': 'Please select pictures !',
+  'Image_Alarm_1': 'PLEASE UPLOAD IMAGE LESS THAN 5M WITH PNG/JPG/JPEG FORMAT.(Maximum 5 Pictures) !',
   'Image_Alarm_2': 'Browser version too low !',
   'Image_Alarm_3': 'Non - picture !',
   'Image_Alarm_4': 'The picture size should not exceed 3MB !',

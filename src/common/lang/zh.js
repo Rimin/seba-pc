@@ -16,7 +16,7 @@ export const m = {
   'Confirm_Image': '确定',
   'Cancel_Image': '取消',
 
-  'Image_Alarm_1': '请选择图片 !',
+  'Image_Alarm_1': '请使用png、jpg、jpeg格式图片，文件大小小于3MB !',
   'Image_Alarm_2': '浏览器版本过低 !',
   'Image_Alarm_3': '非图片 !',
   'Image_Alarm_4': '图片大小不要超过 3MB !',
