@@ -28,10 +28,13 @@
             </div>
             <div class="order-btn-wrap">
                 <router-link to="/rollerskate/edit" :class="(lang==='en-US'? 'operate_en_btn  back_en_btn': 'operate_zh_btn  back_zh_btn')"></router-link>
-                <div style="margin-left: 30px;" :class="(lang==='en-US'? 'operate_en_btn  confirm_en_btn': 'operate_zh_btn  confirm_zh_btn')"></div>
+                <div style="margin-left: 30px;" :class="(lang==='en-US'? 'operate_en_btn  confirm_en_btn': 'operate_zh_btn  confirm_zh_btn')" @click="submintOrder"></div>
             </div>
           </div>
       </div>
+      <!-- <div class="testpicture" v-show="test">
+          <img :src="test">
+      </div> -->
   </div>
 </template>
 
@@ -56,8 +59,32 @@ export default {
   },
   data(){
       return {
-        editshow: false
+        editshow: false,
+        test: ''
       }
+  },
+  methods: {
+    submintOrder() {
+        // this.drawShoeImg()
+    },
+    drawShoeImg(){
+        let canvasSide = document.createElement("canvas")
+        canvasSide.width = 638
+        canvasSide.height = 590
+        let contextSide = canvasSide.getContext("2d")
+        contextSide.rect(0 , 0 , canvasSide.width , canvasSide.height)
+        contextSide.fillStyle = 'rgba(255, 255, 255, 0)'
+        contextSide.fill()
+        let imgside = document.getElementsByClassName("imgside")
+        // let imgfront = document.getElementsByClassName("imgfront")
+        // let img45 = document.getElementsByClassName("img45")
+        for(let i = 0; i < imgside.length; i++) {
+            contextSide.drawImage(imgside[i], 0 , 0, canvasSide.width , canvasSide.height) 
+        }
+        let base64Side = canvasSide.toDataURL("image/png")
+        // this.test = base64Side
+        console.log(base64Side)
+    }
   }
 }
 </script>
@@ -156,5 +183,12 @@ export default {
 }
 .product-config-box{
     width: 100%;
+}
+.testpicture{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 638px;
+    height: 590px;
 }
 </style>

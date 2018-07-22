@@ -8,7 +8,7 @@
 				<li class="part-list img-list" v-for="item in part" :key="item.id">
 					<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
 				</li>
-				<li class="nowheel img-list" v-show="nowheel">
+				<li class="nowheel img-list" v-if="nowheel">
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
 				</li>
 				<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
@@ -25,7 +25,7 @@
 				<li class="part-list img-list" v-for="item in part" :key="item.id">
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
 				</li>
-				<li class="nowheel img-list" v-show="nowheel">
+				<li class="nowheel img-list" v-if="nowheel">
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
 				</li>
 				<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
@@ -42,7 +42,7 @@
 				<li class="part-list img-list" v-for="item in part" :key="item.id">
 					<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
 				</li>
-				<li class="nowheel img-list" v-show="nowheel">
+				<li class="nowheel img-list" v-if="nowheel">
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
 				</li>
 				<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
@@ -71,7 +71,7 @@
 						<li class="part-list img-list" v-for="item in part" :key="item.id">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
 						</li>
-						<li class="nowheel img-list" v-show="nowheel">
+						<li class="nowheel img-list" v-if="nowheel">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
 						</li>
 						<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
@@ -90,7 +90,7 @@
 						<li class="part-list img-list" v-for="item in part" :key="item.id">
 							<img  onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
 						</li>
-						<li class="nowheel img-list" v-show="nowheel">
+						<li class="nowheel img-list" v-if="nowheel">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
 						</li>
 						<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
@@ -109,7 +109,7 @@
 						<li class="part-list img-list" v-for="item in part" :key="item.id">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
 						</li>
-						<li class="nowheel img-list" v-show="nowheel">
+						<li class="nowheel img-list" v-if="nowheel">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
 						</li>
 						<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
@@ -133,16 +133,16 @@
 			<div class="order-shower-side fl">
 				<ul class="side">
 					<li class="base img-list">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_side.png'">
+						<img class="imgside" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_side.png'">
 					</li>
 					<li class="part-list img-list" v-for="item in part" :key="item.id">
-						<img  onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
+						<img class="imgside" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
 					</li>
-					<li class="nowheel img-list" v-show="nowheel">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
+					<li class="nowheel img-list" v-if="nowheel">
+						<img class="imgside" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
 					</li>
 					<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/side/'+item.id+'.png'">
+						<img class="imgside" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/side/'+item.id+'.png'">
 					</li>
 					<li class="customised-logo" v-for="(item, index) in customlogo['side'] " :key="item?'cutom'+index:'no1'">
 						<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+'_preo '+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
@@ -152,16 +152,16 @@
 			<div class="order-shower-front fl">
 				<ul class="front order-shower">
 					<li class="base img-list">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_front.png'">
+						<img  class="imgfront" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_front.png'">
 					</li>
 					<li class="part-list img-list" v-for="item in part" :key="item.id">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
+						<img class="imgfront" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
 					</li>
-					<li class="nowheel img-list" v-show="nowheel">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
+					<li class="nowheel img-list" v-if="nowheel">
+						<img class="imgfront" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
 					</li>
 					<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
-						<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/front/'+item.id+'.png'">
+						<img class="imgfront" onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/front/'+item.id+'.png'">
 					</li>
 					<li class="customised-logo" v-for="(item, index) in customlogo['front'] " :key="item?'cutom'+index:'no3'">
 						<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+'_preo '+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
@@ -171,16 +171,16 @@
 			<div class="order-shower-45 fl">
 				<ul class="45 order-shower">
 					<li class="base img-list">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
+						<img class="img45" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
 					</li>
 					<li class="part-list img-list" v-for="item in part" :key="item.id">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
+						<img class="img45" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
 					</li>
-					<li class="nowheel img-list" v-show="nowheel">
-						<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
+					<li class="nowheel img-list" v-if="nowheel">
+						<img class="img45" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
 					</li>
 					<li class="logo-list img-list" v-for="(item,index) in logo" :key="index" v-if="showLogo(item.confict, item.confictAngle)">
-						<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/45/'+item.id+'.png'">
+						<img class="img45" onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/logo/45/'+item.id+'.png'">
 					</li>
 					<li class="customised-logo" v-for="(item,index) in customlogo['45'] " :key="item?'cutom'+index:'no2'">
 						<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+'_preo '+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
