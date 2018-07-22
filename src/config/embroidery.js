@@ -93,7 +93,7 @@ export const getEmbroidery = function () {
       shoeStyle: shoeStyles[0], // 鞋子品牌
       partId: 'c', // 部件id：前能量带
       content: '', // 文字内容
-      fontFamily: f[0], // 字体 id
+      fontFamily: f[0], // 字体
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
@@ -103,7 +103,7 @@ export const getEmbroidery = function () {
       shoeStyle: shoeStyles[1], // 鞋子品牌
       partId: 'a', // 部件id：鞋帮
       content: '', // 文字内容
-      fontFamily: f[0], // 字体 id
+      fontFamily: f[0], // 字体
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
@@ -113,7 +113,7 @@ export const getEmbroidery = function () {
       shoeStyle: shoeStyles[1], // 鞋子品牌
       partId: 'f', // 部件id：前能量带
       content: '', // 文字内容
-      fontFamily: f[0], // 字体 id
+      fontFamily: f[0], // 字体
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
@@ -123,7 +123,7 @@ export const getEmbroidery = function () {
       shoeStyle: shoeStyles[1], // 鞋子品牌
       partId: 'h', // 部件id：大身侧面
       content: '', // 文字内容
-      fontFamily: f[0], // 字体 id
+      fontFamily: f[0], // 字体
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
