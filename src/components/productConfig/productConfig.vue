@@ -65,20 +65,88 @@
             </select>
         </div>
         <div class="config-list">
-            <div class="cloth-part fl"></div>
-            <div class="glue-part fl"></div>
+            <div class="cloth-part fl" :style="clothpart.length>gluepart.length?'border-right: 1px solid #b0adad':''">
+                <div class="config-item" v-for="item in clothpart" :key="item.id">
+                    <label class="select-label label1 fl">{{(lang== 'en-US'?item.enName:item.zhName)+'：' }}</label>
+                    <div class="fl configshow" :style="'background:'+item.colorcode +';color:'+(item.colorcode=='#fff'?'#000':'')">{{lang =='en-US'? (item.material==0?'':item.material+'·')+item.enColor:(item.material==0?'':item.textureName+item.material+'号·')+item.zhColor}}</div>
+                </div>
+            </div>
+            <div class="glue-part fl" :style="clothpart.length<gluepart.length?'border-left: 1px solid #b0adad':''">
+                <div class="config-item2" v-for="item in gluepart" :key="item.id">
+                    <label class="select-label label3 fl">{{(lang== 'en-US'?item.enName:item.zhName)+'：'}}</label>
+                    <div class="fl configshow2" :style="'background:'+item.colorcode +';color:'+(item.colorcode=='#fff'?'#000':'')">{{lang =='en-US'? item.enColor:item.zhColor}}</div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import { getClothById } from '@/config/cloth'
+import { getGlueById } from '@/config/glue'
+class Part {
+    constructor (enName, zhName, material, parttype, long){
+        this.enName = enName
+        this.zhName = zhName
+        this.material = material
+        this.long = long
+        if(parttype === 1) {
+            this.colorcode = getClothById(material).code
+            this.textureName = getClothById(material).texture.name
+            this.zhColor = getClothById(material).zhColor
+            this.enColor = getClothById(material).enColor
+        } else{
+            this.enColor = getGlueById(material).enColor
+            this.zhColor = getGlueById(material).zhColor
+            this.colorcode = getGlueById(material).code
+        }
+       
+    }
+}
 export default {
-    // computed: {
-    //     lang() {
-    //         return this.$i18n.locale
-    //     }
-    // },
+    data() {
+        return{
+            clothpart: [],
+            gluepart: []
+        }
+    },
+    mounted(){
+       this.getConfigList(this.shoe)  
+    },
+    computed: {
+        shoe() {
+            return this.$bus.shoe
+        },
+        lang(){
+            return this.$i18n.locale
+        }
+    },
+    methods:{
+        getConfigList(shoe) {
+            for(let key in shoe) {  
+                if(shoe[key].partType && shoe[key].partType.id === 1) {
+                    this.clothpart.push(new Part(
+                        shoe[key].enName,
+                        shoe[key].zhName,
+                        shoe[key].material,
+                        shoe[key].partType.id,
 
+                    ))
+                } else if(shoe[key].partType && shoe[key].partType.id !== 1) {
+                    this.gluepart.push(new Part(
+                        shoe[key].enName,
+                        shoe[key].zhName,
+                        shoe[key].material,
+                        shoe[key].partType.id
+                    )) 
+                }
+            }
+            console.log(this.gluepart)
+        },
+        _getClothById (id) {
+            return getClothById(id)
+        }
+    }
 }
 </script>
 
@@ -130,17 +198,49 @@ export default {
 }
 .cloth-part{
     width: 375px;
-    padding-bottom: 9999px;
-    margin-bottom: -9999px;
-    background: #fff;
+   
 }
 .glue-part{
     overflow: auto;
-    margin-left: 376px;
-    padding-bottom: 9999px;
-    margin-bottom: -9999px;
-    background: #fff;
 }
-
-
+.config-item{
+    line-height: 24px;
+    overflow: hidden;
+    padding-top: 5px;
+   // border-right: 1px solid #d2d3d3;
+}
+.configshow{
+    font-size: 14px;
+    text-align: center;
+    border: #ccc solid 1px;
+    border-radius: 50px;
+    height: 22px;
+    font-size: 12px;
+    line-height: 20px; 
+    width: 150px;
+    margin-left: 5px;
+    color: #ffffff;
+}
+.label3{
+    width: 184px;
+    font-size: 14px; 
+}
+.config-item2{
+    line-height: 24px;
+    overflow: hidden;
+    padding-top: 5px;
+   // border-left: 1px solid #d2d3d3;
+}
+.configshow2{
+    font-size: 14px;
+    text-align: center;
+    border: #ccc solid 1px;
+    border-radius: 50px;
+    height: 22px;
+    font-size: 12px;
+    line-height: 20px; 
+    width: 60px;
+    margin-left: 5px;
+    color: #ffffff;
+}
 </style>
