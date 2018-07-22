@@ -130,16 +130,16 @@ export default {
     },
     selectPart(e){
       var t = this
-      // console.log(e)
-      var path = e.path
-      for(var i=0; i<path.length; i++){
-        var item = path[i]
-        if(/list-item-click/g.test(item.className)){
-          var attr = item.getAttribute('shoe-part');
+      console.log(e)
+      e = e.target
+      while(e){
+        if(/list-item-click/g.test(e.className)){
+          var attr = e.getAttribute('shoe-part');
           if(attr){
             return t.curPart = attr
           } 
         }
+        e = e.parentNode
       }
     }
   }

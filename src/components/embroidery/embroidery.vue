@@ -197,17 +197,17 @@ export default {
     selectEPart(e){
       var t = this
       // //console.log(e)
-      var path = e.path
-      for(var i=0; i<path.length; i++){
-        var item = path[i]
-        if(/div-part/g.test(item.className)){
-          var index = item.getAttribute('epart-index') - ''
+      e = e.target
+      while(e){
+        if(/div-part/g.test(e.className)){
+          var index = e.getAttribute('epart-index') - ''
           // //console.log(attr)
           if(index!==t.curPartIndex){
             t.curPartIndex = index
           }
           break
         }
+        e = e.parentNode
       }
     },
     setToPart(index){
@@ -221,11 +221,10 @@ export default {
     selectColor(e){
       var t = this
       //console.log(e)
-      var path = e.path
-      for(var i=0; i<path.length; i++){
-        var item = path[i]
-        if(/color-btn/g.test(item.className)){
-          var index = item.getAttribute('color-id') - ''
+      e = e.target
+      while(e){
+        if(/color-btn/g.test(e.className)){
+          var index = e.getAttribute('color-id') - ''
           //console.log(index)
           if(index!==t.curColor){
             //console.log(true)
@@ -233,6 +232,7 @@ export default {
           }
           break
         }
+        e = e.parentNode
       }
     },
     changeOpenStatus(){ // 打开弹窗时，先读取图片

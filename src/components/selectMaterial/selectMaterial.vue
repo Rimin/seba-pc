@@ -146,27 +146,26 @@ export default {
     selectTexture(e){
       var t = this
       // console.log(e)
-      var path = e.path
-      for(var i=0; i<path.length; i++){
-        var item = path[i]
-        if(/material/g.test(item.className)){
-          var attr = item.getAttribute('texture-id') - '';
+      e = e.target
+      while(e){
+        if(/material/g.test(e.className)){
+          var attr = e.getAttribute('texture-id') - '';
           if(attr&&attr!==t.curTexture){
             return t.curTexture = attr
           }else {
             return t.curTexture = 0
           }
         }
+        e = e.parentNode
       }
     },
     selectColor(e){
       var t = this
       // console.log(e)
-      var path = e.path
-      for(var i=0; i<path.length; i++){
-        var item = path[i]
-        if(/color-icon/g.test(item.className)){
-          var attr = item.getAttribute('color-id') - '';
+      e = e.target
+      while(e){
+        if(/color-icon/g.test(e.className)){
+          var attr = e.getAttribute('color-id') - '';
           // console.log(attr)
           if(attr&&attr!==t.curColorId){
             t.curColorId = attr
@@ -175,6 +174,7 @@ export default {
           }
           break;
         }
+        e = e.parentNode
       }
       t.update()
     },
