@@ -61,8 +61,8 @@
 			<div :class="(lang==='en-US'?'operate_en_btn ':'operate_zh_btn ')+(preview?'btn_view-active':'btn_view')" @click="preview = !preview"></div>
 			<div style="height:53px;" :class="[{'operate_en_btn btn_en_nowheel-active': lang==='en-US'&&nowheel},{'operate_en_btn btn_en_nowheel': lang==='en-US'&&!nowheel},{'operate_zh_btn btn_zh_nowheel-active': lang==='zh-CN'&&nowheel},{'operate_zh_btn btn_zh_nowheel': lang==='zh-CN'&&!nowheel} ]"  @click="onlyShoeBody"></div>
 		</div>
-		<div class="viewAll-area" v-if="edit" v-show="preview" @click.stop="viewAll($event)">
-			<div class="content clrfix" id="view-contain">
+		<div class="viewAll-area" v-if="edit" v-show="preview" @click="closeView">
+			<div class="content clrfix" id="view-contain" @click.stop>
 				<div class="view-box fl">
 					<ul class="front">
 						<li class="base img-list">
@@ -120,7 +120,7 @@
 						</li>
 					</ul>
 				</div>
-				<div id="close" @click="viewAll($event)"></div>
+				<div id="close" @click="closeView"></div>
 			</div>
 		</div>
 		<div class="orderView-area" v-if="!edit">
@@ -192,7 +192,6 @@
 </template>
 
 <script>
-import { hasDom } from 'common/js/dom'
 import { getLogoByShoeId } from '@/config/logo'
 import { getFontColorById } from '@/config/embroidery'  
 export default {
@@ -213,7 +212,8 @@ data() {
 			'front': [],
 			'45': [],
 			'side': []
-		}
+		},
+		updataFlag: false
 	}
 },
 // created(){
@@ -224,7 +224,7 @@ mounted() {
 	setTimeout(() => {
 		console.log(this.customLogo)
 		this.getCustomLogo(this.customLogo)
-    },300)
+    }, 300)
 },
 methods: {
 	initShoeShow(shoe){
@@ -257,14 +257,8 @@ methods: {
 	onlyShoeBody(){
 		this.$bus.nowheel = !this.nowheel
 	},
-	viewAll(event){
-		let e = window.event || event
-		let area = document.getElementById("view-contain")
-		let close = document.getElementById("close")
-		e.stopPropagation()
-		if(area !== e.target && !hasDom(e.target, area) || e.target === close){
-			this.preview = !this.preview
-		}
+	closeView(){
+		this.preview = false
 	},
 	getCustomLogo(cl){
 		this.customlogo['front'] = []
@@ -284,6 +278,8 @@ methods: {
 				default: break;
 			}
 		}
+		console.log('是否mouted太快延时不够？：')
+		console.log(this.customlogo)
 	},
 	showLogo(part, angle){
 		if(part === '') return true
@@ -334,7 +330,13 @@ computed: {
 			},300)
 		},
 		customLogo(newCustomLogo){
-			console.log(newCustomLogo)
+			console.log('hahah')
+			console.log(this.updataFlag)
+			if(this.updataFlag === false) {
+				this.getCustomLogo(this.customLogo)
+				this.updataFlag = true
+			} else return
+			// console.log(newCustomLogo)
 		},
 		hasChange(newChange){
 			console.log(newChange)
