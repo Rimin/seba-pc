@@ -118,11 +118,10 @@ export default {
     selectArea(e){
       var t = this
       //console.log(e)
-      var path = e.path
-      for(var i=0; i<path.length; i++){
-        var item = path[i]
-        if(/area-item/g.test(item.className)){
-          var index = item.getAttribute('area-id') - ''
+      e = e.target
+      while(e){
+        if(/area-item/g.test(e.className)){
+          var index = e.getAttribute('area-id') - ''
           //console.log(index)
           if(index!==t.areaId){
             //console.log(true)
@@ -130,6 +129,7 @@ export default {
           }
           break
         }
+        e = e.parentNode
       }
     }
   }
