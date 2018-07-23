@@ -18,7 +18,7 @@
 					<div :class="'custom-logo custom-logo_'+item.shoeStyle.id+'_'+item.partId+' text-'+item.fontFamily+' color_'+item.fontColor">{{item.content}}</div>
 				</li>
 			</ul>
-			<ul class="45" v-show="currentAngle==='45'">
+			<ul class="_45" v-show="currentAngle==='45'">
 				<li class="base img-list">
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
 				</li>
@@ -102,7 +102,7 @@
 					</ul>
 				</div>
 				<div class="view-box fl">
-					<ul class="45">
+					<ul class="_45">
 						<li class="base img-list">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
 						</li>
@@ -169,7 +169,7 @@
 				</ul>
 			</div>
 			<div class="order-shower-45 fl">
-				<ul class="45 order-shower">
+				<ul class="_45 order-shower">
 					<li class="base img-list">
 						<img class="img45" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
 					</li>
@@ -358,17 +358,29 @@ computed: {
 
 <style lang="less" scoped>
 @import url('../../common/less/common.less');
+.showshoe, .showEdit-area{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.side, .front, ._45{
+	margin-top: 10px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 .img-list{
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: auto;
 	list-style: none;
 }
 .img-list>img{
 	width: 100%;
-  margin-top: 10px;
+	height: auto;
 }
 .customised-logo{
 	position: absolute;
@@ -380,8 +392,8 @@ computed: {
 }
 .stylename{
 	position: absolute;
-  top: 24px;
-  left: 21px;
+	top: 10px;
+	left: 21px;
 }
 .operate_zh_btn{
 	position: absolute;
@@ -515,7 +527,7 @@ computed: {
 }
 /**操作时*/
 .custom-logo_1_c{
-	top: 54%;
+	top: 52%;
     left: 43%;
     width: 18%;
     font-size: 19px;
@@ -525,13 +537,13 @@ computed: {
     transform: rotate(16deg);
 }
 .custom-logo_2_a{
-	top: 21%;
+	top: 18%;
     left: 16%;
     width: 18%;
     font-size: 19px;
 }
 .custom-logo_2_f{
-	top: 54.5%;
+	top: 53%;
     left: 40%;
     width: 17%;
     font-size: 20px;
@@ -540,14 +552,14 @@ computed: {
     transform: rotateZ(5deg);
 }
 .custom-logo_2_h{
-	top: 53%;
+	top: 52%;
     left: 42%;
     width: 16%;
     font-size: 23px;
 }
 /**操作预览时*/
 .custom-logo_1_c_pre{
-	top: 49%;
+	top: 46%;
     left: 43%;
     width: 18%;
     font-size: 12px;
@@ -557,13 +569,13 @@ computed: {
     transform: rotate(16deg);
 }
 .custom-logo_2_a_pre{
-	top: 21%;
+	top: 18%;
     left: 16%;
     width: 18%;
     font-size: 12px;
 }
 .custom-logo_2_f_pre{
-	top: 50%;
+	top: 47%;
     left: 40%;
     width: 17%;
     font-size: 12px;
@@ -572,14 +584,14 @@ computed: {
     transform: rotateZ(5deg);
 }
 .custom-logo_2_h_pre{
-	top: 51%;
+	top: 48%;
     left: 42%;
     width: 16%;
     font-size: 12px;
 }
 /**订单预览时*/
 .custom-logo_1_c_preo{
-	top: 55.7%;
+	top: 53%;
     left: 43%;
     width: 18%;
     font-size: 12px;
@@ -589,13 +601,13 @@ computed: {
     transform: rotate(16deg);
 }
 .custom-logo_2_a_preo{
-	top: 21%;
+	top: 18%;
     left: 16%;
     width: 18%;
     font-size: 14px;
 }
 .custom-logo_2_f_preo{
-	top: 56.5%;
+	top: 53.5%;
     left: 40%;
     width: 17%;
     font-size: 12px;
@@ -662,7 +674,7 @@ computed: {
     width: 359px;
     left: 50%;
     margin-left: -180px;
-    margin-top: -15px;
+    margin-top: -6px;
 }
 .order-shower-45{
 	width: 272px;
