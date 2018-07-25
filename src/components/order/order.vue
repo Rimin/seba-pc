@@ -32,6 +32,15 @@
             </div>
           </div>
       </div>
+      <div class="comfig" v-show="showTipBox" @click="showTipBox = false">
+          <div class="tip-box" @click.stop>
+                <div id="close" @click="showTipBox = false"></div>
+                <div class="tip--wrap">
+                   <i :class="'tip-icon '+(status===2?'tip-icon_suss':'tip-icon_warning')" ></i>
+                   <p>{{status_title}}</p>
+                </div>
+          </div>
+      </div>
       <!-- <div class="testpicture" v-show="test">
           <img :src="test">
       </div> -->
@@ -48,6 +57,15 @@ export default {
   computed: {
     lang() {
         return this.$i18n.locale
+    },
+    shoe() {
+        return this.$bus.shoe
+    },
+    nowheel() {
+        return this.$bus.nowheel
+    },
+    personalinfor() {
+        return this.$bus.personalMessage
     }
   },
   components:{
@@ -60,14 +78,19 @@ export default {
   data(){
       return {
         editshow: false,
+        status: 0, // 0 失败，信息不完整， // 1 等待正在提交  // 2 提交成功
+        showTipBox: true,
+        status_title: '',
         test: ''
       }
   },
   methods: {
     submintOrder() {
+        this.showTipBox = true
         // this.drawShoeImg()
-    },
+    }, 
     drawShoeImg(){
+        // just for test
         let canvasSide = document.createElement("canvas")
         canvasSide.width = 638
         canvasSide.height = 590
@@ -184,6 +207,61 @@ export default {
 .product-config-box{
     width: 100%;
 }
+.comfig{
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    z-index: 100;
+}
+.tip-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -110px;
+    margin-left: -154px;
+    height: 220px;
+    width: 308px;
+    background: #fff;
+    border-radius: 3px;
+    padding: 0 20px;
+}
+#close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+	width: 15px;
+	height: 15px;
+    background: url("@{bgimgurl}/order/close.png") no-repeat;
+    background-position: 50% 50%; // !
+}
+.tip-icon{
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    width: 50px;
+    height: 50px;
+    background-position: 50% 50%;
+}
+.tip-icon_suss{
+    background: url("@{bgimgurl}/order/icon_suss.png") no-repeat;
+}
+.tip-icon_warning{
+    background: url("@{bgimgurl}/order/icon_warn.png") no-repeat;
+}
+.tip-wrap > p{
+    margin: 0;
+    margin-top: 25px;
+    font-size: 20px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    font-weight: 100;
+}
+// just for test
 .testpicture{
     position: absolute;
     top: 0;

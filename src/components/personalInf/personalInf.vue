@@ -142,7 +142,9 @@ export default {
 @BorderActiveColor: rgba(255, 0, 0, 0.5);
 @DefaultBorder: 1px @BorderDefaultColor solid;
 @ActiveBorder: 1px solid @BorderActiveColor;
-
+* {
+    box-sizing: border-box;
+}
 .personal-inf-wrap {
   width: 100%;
   padding: 30px 0 0 0;

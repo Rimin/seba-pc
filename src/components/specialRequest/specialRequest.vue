@@ -142,6 +142,9 @@ export default {
 @BorderActiveColor: rgba(255, 0, 0, 0.7);
 @DefaultBorder: 1px @BorderDefaultColor solid;
 @ActiveBorder: 1px solid @BorderActiveColor;
+*{
+    box-sizing: border-box;
+}
 .special-request {
   padding: 0 8px 40px 150px;
   position: relative;

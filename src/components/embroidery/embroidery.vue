@@ -324,7 +324,9 @@ export default {
 
 <style lang="less" scoped>
 @BaseUrl: '../../../static/embroidery';
-
+* {
+    box-sizing: border-box;
+}
 .embroidery-box {
   width: 100%;
   height: 100%;

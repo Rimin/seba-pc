@@ -98,6 +98,16 @@ export const m = {
     'Special_Requests_Tip': 'PLEASE TYPE HERE( e.g. ADD VENTILATED WINDOW ON HEEL) OR UPLOAD IMAGES. ',
     'Your_Area': 'AREA'
   },
+  'Order_Tip': {
+    'Submiting': 'Loading',
+    'Failure': 'FAILURE',
+    'Success': 'SUCCESS',
+    'Back_Btn': 'BACK',
+    'Thanks_Btn': 'THANKS',
+    'Waiting_Tip': 'loading......',
+    'Success_Tip': 'THANK YOU FOR YOUR MESSAGE. WE WILL RESPOND PROMPTLY',
+    'Wrong_Tip_Blank': 'Please fill in the blank!'
+  },
 
   'Area': { // 区域
     'CHN': 'CHN',

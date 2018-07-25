@@ -278,7 +278,7 @@ methods: {
 				default: break;
 			}
 		}
-		console.log('是否mouted太快延时不够？：')
+		// console.log('是否mouted太快延时不够？：')
 		console.log(this.customlogo)
 	},
 	showLogo(part, angle){
@@ -469,7 +469,6 @@ computed: {
 }
 .btn_en_nowheel{
 	width: 55px;
-	padding: 0 10px;
 	right: 11px;
 	top: 216px;
 	background-position: -40px -98px;
@@ -477,7 +476,6 @@ computed: {
 .btn_en_nowheel:hover{
 	right: 11px;
 	width: 55px;
-	padding: 0 10px;
 	background-position: -93px -98px;
 }
 .btn_en_nowheel-active{

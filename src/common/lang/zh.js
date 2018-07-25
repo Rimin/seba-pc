@@ -99,6 +99,17 @@ export const m = {
     'Your_Area': '您的所在地'
   },
 
+  'Order_Tip': {
+    'Submiting': 'loading',
+    'Failure': 'FAILURE',
+    'Success': 'SUCCESS',
+    'Back_Btn': 'BACK',
+    'Thanks_Btn': 'THANKS',
+    'Waiting_Tip': '正在生成订单中，请稍等......',
+    'Success_Tip': 'THANK YOU FOR YOUR MESSAGE. WE WILL RESPOND PROMPTLY',
+    'Wrong_Tip_Blank': 'Please fill in the blank!'
+  },
+
   'Area': { // 区域
     'CHN': '中国',
     'HK': '香港',

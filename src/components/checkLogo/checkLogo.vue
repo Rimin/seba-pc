@@ -76,6 +76,9 @@ export default {
 @BorderActiveColor: rgba(255, 0, 0, 0.7);
 @DefaultBorder: 1px @BorderDefaultColor solid;
 @ActiveBorder: 1px solid @BorderActiveColor;
+*{
+    box-sizing: border-box;
+}
 .logo-box {
   width: 100%;
   height: 100%;
