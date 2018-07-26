@@ -35,10 +35,12 @@
       <div class="comfig" v-show="showTipBox" @click="showTipBox = false">
           <div class="tip-box" @click.stop>
                 <div id="close" @click="showTipBox = false"></div>
-                <div class="tip--wrap">
+                <div class="tip-wrap">
                    <i :class="'tip-icon '+(status===2?'tip-icon_suss':'tip-icon_warning')" ></i>
-                   <p>{{status_title}}</p>
+                   <p>{{status===1?$t('m.Order_Tip.Submiting'):(status===0?$t('m.Order_Tip.Failure'):$t('m.Order_Tip.Success'))}}</p>
+                   <span>{{orderTip}}</span>
                 </div>
+                <div class="back_btn"></div>
           </div>
       </div>
       <!-- <div class="testpicture" v-show="test">
@@ -66,6 +68,38 @@ export default {
     },
     personalinfor() {
         return this.$bus.personalMessage
+    },
+    orderTip(){
+        if(this.status===1) {
+            return this.lang === 'en-US' ? 'loading......': '正在生成订单中，请稍等...'
+        } else if(this.status === 0 && this.lang === 'en-US' && (this.error_reason === 0||this.error_reason === 1||this.error_reason === 2||this.error_reason===3||this.error_reason===4||this.error_reason===5 )) {
+            return 'Please fill in the blank!'
+        } else if(this.status === 0 && this.error_reason === 6) {
+            return this.lang === 'en-US' ? '  ': ' '
+        } else if(this.status === 0 && this.lang !== 'en-US') {
+            switch (this.error_reason) {
+                case 0:
+                    return '未填写姓'
+                    break;
+                case 1:
+                    return '未填写名'
+                    break;
+                case 2:
+                    return '未填写电话'
+                    break;
+                 case 3:
+                    return '未填写邮箱'
+                    break;
+                case 4:
+                    return '未填写邮编'
+                    break;
+                case 2:
+                    return '未填写地址'
+                    break;
+            }
+        } else if(this.status === 2) {
+            return this.lang === 'en-US' ? 'THANK YOU FOR YOUR MESSAGE. WE WILL RESPOND PROMPTLY': '我们将会尽快联系您，感谢。'
+        }
     }
   },
   components:{
@@ -78,17 +112,20 @@ export default {
   data(){
       return {
         editshow: false,
-        status: 0, // 0 失败，信息不完整， // 1 等待正在提交  // 2 提交成功
-        showTipBox: true,
-        status_title: '',
+        status: 1, // 0 失败，信息不完整或提交订单不成功 // 1 等待正在提交  // 2 提交成功
+        showTipBox: false,
+        error_reason: 0, // 0: 未填写姓 1 未填写名 2 未填写电话 3 未填写邮箱 4 未填写邮编 5 未填写地址 6 其他错误
         test: ''
       }
   },
   methods: {
     submintOrder() {
         this.showTipBox = true
-        // this.drawShoeImg()
+        // 
     }, 
+    validata() {
+        console.log(this.personalinfor)
+    },
     drawShoeImg(){
         // just for test
         let canvasSide = document.createElement("canvas")
@@ -252,14 +289,24 @@ export default {
 .tip-icon_warning{
     background: url("@{bgimgurl}/order/icon_warn.png") no-repeat;
 }
-.tip-wrap > p{
-    margin: 0;
-    margin-top: 25px;
-    font-size: 20px;
-    line-height: 50px;
-    height: 50px;
-    text-align: center;
-    font-weight: 100;
+.tip-wrap {
+    & > p{
+        margin: 0;
+        margin-top: 25px;
+        font-size: 20px;
+        line-height: 50px;
+        height: 50px;
+        text-align: center;
+        font-weight: 100;
+    }
+    & > span{
+        display: block;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+   
 }
 // just for test
 .testpicture{

@@ -99,7 +99,7 @@ export const m = {
     'Your_Area': 'AREA'
   },
   'Order_Tip': {
-    'Submiting': 'Loading',
+    'Submiting': 'Loading...',
     'Failure': 'FAILURE',
     'Success': 'SUCCESS',
     'Back_Btn': 'BACK',

@@ -100,14 +100,14 @@ export const m = {
   },
 
   'Order_Tip': {
-    'Submiting': 'loading',
-    'Failure': 'FAILURE',
-    'Success': 'SUCCESS',
-    'Back_Btn': 'BACK',
-    'Thanks_Btn': 'THANKS',
-    'Waiting_Tip': '正在生成订单中，请稍等......',
-    'Success_Tip': 'THANK YOU FOR YOUR MESSAGE. WE WILL RESPOND PROMPTLY',
-    'Wrong_Tip_Blank': 'Please fill in the blank!'
+    'Submiting': '提交中...',
+    'Failure': '失败',
+    'Success': '提交订单成功！',
+    'Back_Btn': '返回重选',
+    'Thanks_Btn': '好的',
+    'Waiting_Tip': '正在生成订单中，请稍等...',
+    'Success_Tip': '我们将会尽快联系您，感谢。',
+    'Wrong_Tip_Blank': '请将个人信息填写完整!'
   },
 
   'Area': { // 区域
