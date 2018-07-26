@@ -36,11 +36,13 @@
           <div class="tip-box" @click.stop>
                 <div id="close" @click="showTipBox = false"></div>
                 <div class="tip-wrap">
-                   <i :class="'tip-icon '+(status===2?'tip-icon_suss':'tip-icon_warning')" ></i>
-                   <p>{{status===1?$t('m.Order_Tip.Submiting'):(status===0?$t('m.Order_Tip.Failure'):$t('m.Order_Tip.Success'))}}</p>
+                    <i :class="'tip-icon '+(status===2?'tip-icon_suss':'tip-icon_warning')" ></i>
+                    <p>
+                       {{status===1?$t('m.Order_Tip.Submiting'):(status===0?$t('m.Order_Tip.Failure'):$t('m.Order_Tip.Success'))}}
+                    </p>
                    <span>{{orderTip}}</span>
                 </div>
-                <div class="back_btn"></div>
+                <div v-show="status!==1" :class="'back_btn '+(status===1?'':(status===0?'back_btn_unsuccess':'back_btn_success'))" @click="showTipBox = false">{{status===0?$t('m.Order_Tip.Back_Btn'):$t('m.Order_Tip.Thanks_Btn')}}</div>
           </div>
       </div>
       <!-- <div class="testpicture" v-show="test">
@@ -55,6 +57,7 @@ import PersonalInf from '@/components/personalInf/personalInf'
 import SpecialRequest from '@/components/specialRequest/specialRequest'
 import CheckLogo from '@/components/checkLogo/checkLogo'
 import ProductConfig from '@/components/productConfig/productConfig'
+import { fliter } from '@/common/js/validata'
 export default {
   computed: {
     lang() {
@@ -93,7 +96,7 @@ export default {
                 case 4:
                     return '未填写邮编'
                     break;
-                case 2:
+                case 5:
                     return '未填写地址'
                     break;
             }
@@ -121,10 +124,41 @@ export default {
   methods: {
     submintOrder() {
         this.showTipBox = true
-        // 
+        if(!this.validata()) return
+        else {
+            // 开始生成订单提交
+
+        }
     }, 
     validata() {
         console.log(this.personalinfor)
+        
+        this.status = 1
+        if(!fliter(this.personalinfor.lastName)){
+            this.status = 0; this.error_reason = 0
+            return false
+        } else if(!fliter(this.personalinfor.firstName)){
+            this.status = 0; this.error_reason = 1
+            return false
+        } else if(!fliter(this.personalinfor.phone)){
+            this.status = 0; this.error_reason = 2
+            return false
+        } else if(!fliter(this.personalinfor.email)){
+            this.status = 0; this.error_reason = 3
+             return false
+        } else if(!fliter(this.personalinfor.postCode)){
+            this.status = 0; this.error_reason = 4
+             return false
+        } else if(!fliter(this.personalinfor.address)){
+            this.status = 0; this.error_reason = 5
+            return false
+        } else {
+            this.status = 1
+            return true
+        }
+    },
+    creactOrder() {
+        
     },
     drawShoeImg(){
         // just for test
@@ -277,8 +311,7 @@ export default {
 }
 .tip-icon{
     position: absolute;
-    top: 20px;
-    left: 70px;
+    left: 40px;
     width: 50px;
     height: 50px;
     background-position: 50% 50%;
@@ -292,7 +325,7 @@ export default {
 .tip-wrap {
     & > p{
         margin: 0;
-        margin-top: 25px;
+        margin-top: 20px;
         font-size: 20px;
         line-height: 50px;
         height: 50px;
@@ -302,11 +335,34 @@ export default {
     & > span{
         display: block;
         font-size: 14px;
-        margin-top: 5px;
+        margin-top: 15px;
         margin-bottom: 30px;
         text-align: center;
     }
-   
+}
+.back_btn{
+    cursor: pointer;
+    width: 160px;
+    height: 40px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 56px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 4px;
+}
+.back_btn_unsuccess{
+    background: #f7ba31;
+    &:hover{
+       background: #dea92c;  
+    }
+}
+.back_btn_success{
+    background: rgb(142,228,57);
+    &:hover{
+       background: rgb(126,201,50);  
+    }
 }
 // just for test
 .testpicture{

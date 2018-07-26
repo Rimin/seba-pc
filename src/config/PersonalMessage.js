@@ -8,7 +8,7 @@ export class PersonalMessage {
     this.address = address || '' // 地址
     this.SEBA_STORE_NAME = SEBA_STORE_NAME || '' // SEBA专卖店名称
     this.SEBA_STORE_ADDRESS = SEBA_STORE_ADDRESS || '' // SEBA专卖店地址
-    this.areaId = areaId || '' // 客户所在地
+    this.areaId = areaId || 1 // 客户所在地
     this.specialRequestPhoto = specialRequestPhoto || [] // 特别要求的图片
     this.specialRequestContent = specialRequestContent || '' // 特别要求的说明
   }
