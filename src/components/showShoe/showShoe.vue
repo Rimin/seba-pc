@@ -480,7 +480,6 @@ computed: {
 }
 .btn_en_nowheel-active{
 	width: 55px;
-	padding: 0 10px;
 	right: 11px;
 	top: 216px;
 	background-position: -93px -98px;
