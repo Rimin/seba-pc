@@ -6,7 +6,7 @@
         </h2>
         <div class="select-row">
             <label class="select-label label1">{{$t('m.Produce.Left_Size')}}</label>
-            <select class="select-choices">
+            <select class="select-choices" v-model="leftsize">
                 <option value="32">32</option>
                 <option value="33">33</option>
                 <option value="34">34</option>
@@ -25,7 +25,7 @@
                 <option value="47">47</option>
             </select>
             <label class="select-label label2">{{$t('m.Produce.Right_Size')}}</label>
-            <select class="select-choices">
+            <select class="select-choices" v-model="rightsize">
                 <option value="32">32</option>
                 <option value="33">33</option>
                 <option value="34">34</option>
@@ -46,7 +46,7 @@
         </div>
          <div class="select-row">
             <label class="select-label label1">{{$t('m.Produce.Frame_Size')}}</label>
-            <select class="select-choices">
+            <select class="select-choices" v-model="framesize">
                 <option value="pt219">{{$t('m.Produce.Frame')}} 219mm</option>
                 <option value="pt231">{{$t('m.Produce.Frame')}} 231mm</option>
                 <option value="pt243">{{$t('m.Produce.Frame')}} 243mm</option>
@@ -57,7 +57,7 @@
                 <option value="xj243">{{$t('m.Produce.Rockered_Frame')}} 243mm</option>
             </select>
             <label class="select-label label2">{{$t('m.Produce.Wheel_Size')}}</label>
-            <select class="select-choices">
+            <select class="select-choices" v-model="wheelsize">
                 <option value="72mm">72mm</option>
                 <option value="76mm">76mm</option>
                 <option value="80mm">80mm</option>
@@ -103,15 +103,59 @@ class Part {
        
     }
 }
+const framesizeConfigEn = {
+    'pt219': 'Frame 219mm',
+    'pt231': 'Frame 231mm',
+    'pt243': 'Frame 243mm',
+    'xj219': 'Rockered Frame 219mm',
+    'xj227': 'Rockered Frame 227mm',
+    'xj231': 'Rockered Frame 227mm',
+    'xj239': 'Rockered Frame 239mm',
+    'xj243': 'Rockered Frame 243mm'
+}
+const framesizeConfigZh = {
+    'pt219': '普通平架 219mm',
+    'pt231': '普通平架 231mm',
+    'pt243': '普通平架 243mm',
+    'xj219': '香蕉架 219mm',
+    'xj227': '香蕉架 227mm',
+    'xj231': '香蕉架 227mm',
+    'xj239': '香蕉架 239mm',
+    'xj243': '香蕉架 243mm'
+}
+class skateSize {
+    constructor(ls, rs, fs, ws){
+        this.leftSize = ls
+        this.rightSize = rs
+        this.frameOption = {
+            size_en: framesizeConfigEn[fs], // 还要改，中英文参数 ??
+            size_zh: framesizeConfigZh[fs],
+            color_en: '',
+            color_zh: ''
+        }
+        this.wheelOption = {
+            size_en: ws,
+            size_zh: ws,
+            color_en: '',
+            color_zh: ''
+        }
+    }
+}
 export default {
     data() {
         return{
             clothpart: [],
-            gluepart: []
+            gluepart: [],
+            leftsize: 32,
+            rightsize: 32,
+            framesize: 'pt219',
+            wheelsize: '72mm'
         }
     },
     mounted(){
-       this.getConfigList(this.shoe)  
+       this.getConfigList(this.shoe)
+       this.$bus.skateInformation = new skateSize(32, 32, 'pt219', '72mm')
+       // console.log(this.skateInformation)
     },
     computed: {
         shoe() {
@@ -119,6 +163,26 @@ export default {
         },
         lang(){
             return this.$i18n.locale
+        },
+    },
+    watch: {
+        leftsize (newinfo) {
+            // console.log(newinfo)
+            this.$bus.skateInformation.leftSize = newinfo
+        },
+        rightsize (newinfo) {
+            // console.log(newinfo)
+             this.$bus.skateInformation.rightSize = newinfo
+        },
+        framesize(newinfo) {
+            // console.log(newinfo)
+            this.$bus.skateInformation.frameOption.size_en = framesizeConfigEn[newinfo]
+            this.$bus.skateInformation.frameOption.size_zh = framesizeConfigZh[newinfo]
+        },
+        wheelsize(newinfo) {
+            // console.log(newinfo)
+            this.$bus.skateInformation.wheelOption.size_en = newinfo
+            this.$bus.skateInformation.wheelOption.size_zh = newinfo
         }
     },
     methods:{

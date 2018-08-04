@@ -9,7 +9,8 @@ const bus = new Vue({
       material: 0,
       angle: 'side',
       hasChange: true,
-      personalMessage: {}
+      personalMessage: {},
+      skateInformation: {}
     }
   },
   watch: {

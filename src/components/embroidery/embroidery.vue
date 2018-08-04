@@ -289,6 +289,7 @@ export default {
             e.photo = t.curPhoto
             e.imgBase64 = t.imgBase64
           }
+          e.content = ''
         })
         this.update()
       }else {
@@ -304,6 +305,7 @@ export default {
         e.photo = ''
         e.imgBase64 = ''
       })
+      this.setToPart(this.curPartIndex)
       this.update()
     },
     update(){

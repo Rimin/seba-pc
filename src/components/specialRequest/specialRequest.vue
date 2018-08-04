@@ -129,6 +129,8 @@ export default {
       }
     },
     imgOk(){
+      // 上传图片获得图片名
+      
       this.$bus.personalMessage.specialRequestPhoto = this.photos
       this.openStatus = false
     }

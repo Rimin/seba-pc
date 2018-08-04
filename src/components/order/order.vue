@@ -58,6 +58,32 @@ import SpecialRequest from '@/components/specialRequest/specialRequest'
 import CheckLogo from '@/components/checkLogo/checkLogo'
 import ProductConfig from '@/components/productConfig/productConfig'
 import { fliter } from '@/common/js/validata'
+import { getAreaById } from '@/config/area'
+import { getGlueById } from '@/config/glue'
+import { getLogoByShoeId } from '@/config/logo'
+import { getClothById } from '@/config/cloth'
+class Part {
+    constructor (name, material, parttype, lang){
+        this.name = name
+        this.language = lang
+        if(parttype === 1) {
+            this.sort = true
+            if(lang === 'en') {
+                this.material = material + '·' + getClothById(material).enColor
+            } else {
+                this.material = getClothById(material).texture.name + material + '号·' + getClothById(material).zhColor
+            }
+        } else{
+            this.sort = false
+            if(lang === 'en') {
+                this.material = getGlueById(material).enColor
+            } else {
+                this.material = getGlueById(material).zhColor
+            }
+        }
+       
+    }
+}
 export default {
   computed: {
     lang() {
@@ -71,6 +97,9 @@ export default {
     },
     personalinfor() {
         return this.$bus.personalMessage
+    },
+    skateInformation (){
+        return this.$bus.skateInformation
     },
     orderTip(){
         if(this.status===1) {
@@ -118,21 +147,119 @@ export default {
         status: 1, // 0 失败，信息不完整或提交订单不成功 // 1 等待正在提交  // 2 提交成功
         showTipBox: false,
         error_reason: 0, // 0: 未填写姓 1 未填写名 2 未填写电话 3 未填写邮箱 4 未填写邮编 5 未填写地址 6 其他错误
-        test: ''
+        test: '',
+        order: {}
       }
   },
   methods: {
     submintOrder() {
         this.showTipBox = true
-        if(!this.validata()) return
+        if(!this.validata()) {
+            console.log('订单还未填写完整')
+            return
+        }
         else {
             // 开始生成订单提交
-
+            this.creactOrder()
         }
-    }, 
+    },
+    creactOrder() {
+        console.log(this.personalinfor)
+        // 个人基本信息
+        this.order.customer = {
+           firstName: this.personalinfor.firstName,
+           lastName: this.personalinfor.lastName,
+           phoneNumber: this.personalinfor.phone,
+           email: this.personalinfor.email,
+           postId: this.personalinfor.postCode,
+           address: this.personalinfor.address,
+           sebaStores: this.personalinfor.SEBA_STORE_NAME,
+           sebaAddress: this.personalinfor.SEBA_STORE_ADDRESS,
+           area: getAreaById(this.personalinfor.areaId).enName 
+        }
+        // 鞋子码数相关
+        this.order.skateInformation = this.skateInformation
+        this.order.skateInformation.isSkate = !this.nowheel
+        if(!this.nowheel) { // 如果有轮子计算出颜色值否则为空
+            let framecolor = this.getPartColor('Flat Frame')
+            let wheelscolor = this.getPartColor('Wheels')
+            this.order.skateInformation.frameOption.color_en = framecolor.color_en
+            this.order.skateInformation.frameOption.color_zh = framecolor.color_zh
+            this.order.skateInformation.wheelOption.color_en = wheelscolor.color_en
+            this.order.skateInformation.wheelOption.color_zh = wheelscolor.color_zh
+        }
+
+        // 图片合成部件图片 logo为数组，要另外找和判断是否冲突
+        this.order.skateParts = {
+           sort: 'shoe_' + this.shoe.shoeStyle.id,
+           isSkate: !this.nowheel
+        }
+        for(let key in this.shoe) {
+            if(/^[a-z]$/.test(key)) { 
+                this.order.skateParts[key] = this.shoe[key].material
+            }
+        }
+        this.order.skateParts.logo = this.getLogo()
+       
+        // 鞋子部件部分 excel表格
+        this.order.skatePartList = this.getPartsForExcel()
+
+        // 自定义部分及特殊要求部分
+        this.order.customised = {
+            content: this.personalinfor.specialRequestContent,
+            pictures: this.personalinfor.specialRequestPhoto,
+            logos: []
+        }
+
+        console.log(this.order)
+    },
+    getcustomisedLogo() {
+        let logos = []
+    },
+    getPartsForExcel(){
+        let parts = []
+          for(let key in this.shoe) {
+            if(/^[a-z]$/.test(key)) { 
+               parts.push(new Part(this.shoe[key].enName, this.shoe[key].material, this.shoe[key].partType.id, 'en'))
+               parts.push(new Part(this.shoe[key].zhName, this.shoe[key].material, this.shoe[key].partType.id, 'zh'))
+            }
+        }
+        return parts
+    },
+    getPartColor(partname) {
+        let color = {}
+        for(let key in this.shoe) {
+            if(this.shoe[key].enName === partname ) {
+                console.log(this.shoe[key].material)
+                color.color_zh = getGlueById(this.shoe[key].material).zhColor
+                color.color_en = getGlueById(this.shoe[key].material).enColor
+                break
+            }
+        }
+        return color
+    },
+    getLogo() {
+        let logoArr = getLogoByShoeId(this.shoe.shoeStyle.id)
+        let embroidery = this.shoe.embroidery
+        //if(this.shoe)
+        logoArr =  logoArr.filter((x, index) => {
+            let flag = true
+           for(var i=0; i<embroidery.length; i++) {
+               if(embroidery[i].content || embroidery[i].imgBase64) {
+                   if(embroidery[i].partId === x.confict) flag = false
+               }
+           }
+           if(flag) return x 
+        })
+        console.log(logoArr)
+        if(logoArr.length !== 0) {
+            logoArr = logoArr.map(x => x.id)
+        }
+        return logoArr
+    },
     validata() {
         console.log(this.personalinfor)
-        
+        console.log(this.skateInformation)
         this.status = 1
         if(!fliter(this.personalinfor.lastName)){
             this.status = 0; this.error_reason = 0
@@ -157,28 +284,25 @@ export default {
             return true
         }
     },
-    creactOrder() {
-        
-    },
-    drawShoeImg(){
-        // just for test
-        let canvasSide = document.createElement("canvas")
-        canvasSide.width = 638
-        canvasSide.height = 590
-        let contextSide = canvasSide.getContext("2d")
-        contextSide.rect(0 , 0 , canvasSide.width , canvasSide.height)
-        contextSide.fillStyle = 'rgba(255, 255, 255, 0)'
-        contextSide.fill()
-        let imgside = document.getElementsByClassName("imgside")
-        // let imgfront = document.getElementsByClassName("imgfront")
-        // let img45 = document.getElementsByClassName("img45")
-        for(let i = 0; i < imgside.length; i++) {
-            contextSide.drawImage(imgside[i], 0 , 0, canvasSide.width , canvasSide.height) 
-        }
-        let base64Side = canvasSide.toDataURL("image/png")
-        // this.test = base64Side
-        console.log(base64Side)
-    }
+    // drawShoeImg(){
+    //     // just for test
+    //     let canvasSide = document.createElement("canvas")
+    //     canvasSide.width = 638
+    //     canvasSide.height = 590
+    //     let contextSide = canvasSide.getContext("2d")
+    //     contextSide.rect(0 , 0 , canvasSide.width , canvasSide.height)
+    //     contextSide.fillStyle = 'rgba(255, 255, 255, 0)'
+    //     contextSide.fill()
+    //     let imgside = document.getElementsByClassName("imgside")
+    //     // let imgfront = document.getElementsByClassName("imgfront")
+    //     // let img45 = document.getElementsByClassName("img45")
+    //     for(let i = 0; i < imgside.length; i++) {
+    //         contextSide.drawImage(imgside[i], 0 , 0, canvasSide.width , canvasSide.height) 
+    //     }
+    //     let base64Side = canvasSide.toDataURL("image/png")
+    //     // this.test = base64Side
+    //     console.log(base64Side)
+    // }
   }
 }
 </script>

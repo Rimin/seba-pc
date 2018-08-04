@@ -18,7 +18,7 @@
       </div>
       <div class="tip-2" v-show="curTexture !== 0">{{$t('m.SelectColor')}}</div>
       <div class="tip-3" v-show="curTexture === 0">{{$t('m.PleaseSelectColor')}}</div>
-      <div class="cloth-color-box" @click="selectColor">
+      <div class="cloth-color-box" @click="selectColorHaveDefault">
         <div v-for="(list,i) in allClothes" 
           :key="i"
           v-show="curTexture + '' === i"
@@ -159,7 +159,7 @@ export default {
         e = e.parentNode
       }
     },
-    selectColor(e){
+    selectColorHaveDefault(e){
       var t = this
       // console.log(e)
       e = e.target
@@ -171,6 +171,26 @@ export default {
             t.curColorId = attr
           }else {
             t.curColorId = 0
+          }
+          break;
+        }
+        e = e.parentNode
+      }
+      t.update()
+    },
+    selectColor(e){
+      var t = this
+      // console.log(e)
+      e = e.target
+      while(e){
+        if(/color-icon/g.test(e.className)){
+          var attr = e.getAttribute('color-id') - '';
+          // console.log(attr)
+          if(attr&&attr!==t.curColorId){
+            t.curColorId = attr
+          }else {
+            // t.curColorId = 0
+            return
           }
           break;
         }
