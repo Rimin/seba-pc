@@ -21,6 +21,7 @@ export const m = {
   'Image_Alarm_3': 'Non - picture !',
   'Image_Alarm_4': 'The picture size should not exceed 3MB !',
   'Image_Alarm_Max': 'MAX !',
+  'No_Image': 'No Picture',
 
   'HIGH_CARBON': { // HIGH CARBON 品牌的部件名
     'a': 'Main Upper(PU)',

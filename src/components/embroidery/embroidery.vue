@@ -21,7 +21,7 @@
           :style="'color:'+curColorCode+';'+(curColor === 3?'background-color:black;':'')"
         >
         <div v-show="photoEmbroidery">
-          <a @click="browsePicture">{{curPhoto}}</a>
+          <a @click="browsePicture">{{curPhoto||$t('No_Image')}}</a>
           <i class="btn-close btn-close2" @click="imageDelete"></i>
         </div>
       </div>
@@ -285,10 +285,10 @@ export default {
         this.eParts[this.curPartIndex].photo = this.curPhoto
         this.eParts[this.curPartIndex].imgBase64 = this.imgBase64
         this.eParts.forEach((e)=>{
-          if(!e.photo || !e.imgBase64) { // 没图片的全部换上当前图片
-            e.photo = t.curPhoto
-            e.imgBase64 = t.imgBase64
-          }
+          // if(!e.photo || !e.imgBase64) { // 没图片的全部换上当前图片
+          //   e.photo = t.curPhoto
+          //   e.imgBase64 = t.imgBase64
+          // }
           e.content = ''
         })
         this.update()
@@ -300,11 +300,10 @@ export default {
     },
     imageDelete(){
       var t = this
-      this.photoEmbroidery = false // 刺绣类型改为文字刺绣
-      this.eParts.forEach((e)=>{ // 删除所有图片
-        e.photo = ''
-        e.imgBase64 = ''
-      })
+      // this.photoEmbroidery = false // 刺绣类型改为文字刺绣
+      this.eParts[this.curPartIndex].photo = ''// 删除当前部件的图片
+      this.eParts[this.curPartIndex].imgBase64 = ''
+      this.eParts.every((e)=>{ return e.photo === '' }) && (this.photoEmbroidery = false) // 判断是否需要改为文字刺绣
       this.setToPart(this.curPartIndex)
       this.update()
     },
