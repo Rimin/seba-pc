@@ -38,7 +38,7 @@
 <script>
 import { RequestPhoto, REQUEST_PHOTO_MAX_COUNT } from '@/config/PersonalMessage'
 import { imageFileToBase64 } from '@/common/js/fn'
-
+import { getImgName } from '@/api/order'
 export default {
   data(){
     return {
@@ -124,14 +124,25 @@ export default {
           var index = item.getAttribute('photo-index') - ''
           // //console.log(attr)
           t.photos.splice(index,1)
+          // console.log('删除后：')
+          // console.log(t.photos)
+          // console.log(this.$bus.personalMessage.specialRequestPhoto)
           break
         }
       }
     },
     imgOk(){
+      // console.log(this.photos)
       // 上传图片获得图片名
-      
-      this.$bus.personalMessage.specialRequestPhoto = this.photos
+      for (let i= 0; i< this.photos.length; i++) {
+         getImgName(this.photos[i].imgBase64).then(res => {
+          // console.log(img)
+            if(res.result === 'success') {
+              this.photos[i].imgName = res.message
+            }
+         })
+      }
+     console.log(this.photos)
       this.openStatus = false
     }
   }

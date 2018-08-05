@@ -2,8 +2,7 @@ import axios from 'axios'
 import querystring from 'querystring'
 
 const service = axios.create({
-  baseURL: 'http://47.106.249.6:8080/seba/',
-  timeout: 20000
+  timeout: 200000
 })
 
 export function getImgName (imgbase) {

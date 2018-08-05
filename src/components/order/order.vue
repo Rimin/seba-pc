@@ -62,6 +62,7 @@ import { getAreaById } from '@/config/area'
 import { getGlueById } from '@/config/glue'
 import { getLogoByShoeId } from '@/config/logo'
 import { getClothById } from '@/config/cloth'
+import { getPartsByShoeStyleId } from '@/config/shoeParts'
 class Part {
     constructor (name, material, parttype, lang){
         this.name = name
@@ -82,6 +83,16 @@ class Part {
             }
         }
        
+    }
+}
+class CustomLogo {
+    constructor(type, id, content, font, colorid, lang) { // type 0 表示文字， 1 表示图片
+    this.name = name
+        if(type === 0) { // 文字
+            this.text = content,
+            this.font = font,
+            this.lang = lang
+        }
     }
 }
 export default {
@@ -207,14 +218,27 @@ export default {
         // 自定义部分及特殊要求部分
         this.order.customised = {
             content: this.personalinfor.specialRequestContent,
-            pictures: this.personalinfor.specialRequestPhoto,
+            pictures: this.getSpecialImg(),
             logos: []
         }
 
         console.log(this.order)
     },
+    getSpecialImg() {
+        let img =  this.personalinfor.specialRequestPhoto.map(x => {x.imgName})
+        return img
+    },
     getcustomisedLogo() {
         let logos = []
+        let embroidery = this.shoe.embroidery
+        for(var i = 0; i< embroidery.length; i++) {
+            if(embroidery.imgBase64) {
+
+            } else if(embroidery.content) {
+
+            }
+        }
+        return logos
     },
     getPartsForExcel(){
         let parts = []

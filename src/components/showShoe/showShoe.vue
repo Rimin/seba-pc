@@ -339,12 +339,12 @@ computed: {
 			// console.log(newCustomLogo)
 		},
 		hasChange(newChange){
-			console.log(newChange)
-			console.log('是否相等')
-			console.log(this.customAngle === this.currentAngle)
+			// console.log(newChange)
+			// console.log('是否相等')
+			// console.log(this.customAngle === this.currentAngle)
 			setTimeout(() => {
-				console.log('wait:equal?')
-				console.log(this.customAngle === this.currentAngle)
+				// console.log('wait:equal?')
+				// console.log(this.customAngle === this.currentAngle)
 				if(this.customAngle === this.currentAngle) return 
 				else {
 					this.currentAngle = this.customAngle	
