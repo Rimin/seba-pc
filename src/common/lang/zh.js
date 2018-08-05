@@ -21,6 +21,7 @@ export const m = {
   'Image_Alarm_3': '非图片 !',
   'Image_Alarm_4': '图片大小不要超过 3MB !',
   'Image_Alarm_Max': '最多五张图片 !',
+  'No_Image': '无图片',
 
   'HIGH_CARBON': { // HIGH CARBON 品牌的部件名
     'a': '大身内外/下包铮',
