@@ -14,3 +14,14 @@ export function getImgName (imgbase) {
     return Promise.resolve(res.data)
   })
 }
+
+export function sendOrder (orderinfor) {
+  const url = '/seba/GenerateOrder'
+  const data = {
+    json: JSON.stringify(orderinfor)
+  }
+  console.log(typeof data)
+  return service.post(url, querystring.stringify(data)).then((res) => {
+    return Promise.resolve(res.data)
+  })
+}

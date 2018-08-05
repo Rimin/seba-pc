@@ -62,17 +62,24 @@ import { getAreaById } from '@/config/area'
 import { getGlueById } from '@/config/glue'
 import { getLogoByShoeId } from '@/config/logo'
 import { getClothById } from '@/config/cloth'
-import { getPartsByShoeStyleId } from '@/config/shoeParts'
+import { getPartsByIdAndShoeStyleId } from '@/config/shoeParts'
+import { getFontColorById } from '@/config/embroidery'
+import { sendOrder } from '@/api/order'
 class Part {
     constructor (name, material, parttype, lang){
-        this.name = name
+        this.partName = name
         this.language = lang
         if(parttype === 1) {
             this.sort = true
             if(lang === 'en') {
-                this.material = material + '·' + getClothById(material).enColor
+                if(material === 0) {
+                    this.material =  getClothById(material).enColor
+                } else this.material = material + '·' + getClothById(material).enColor
+               
             } else {
-                this.material = getClothById(material).texture.name + material + '号·' + getClothById(material).zhColor
+                if(material === 0) {
+                   this.material = getClothById(material).zhColor
+                } else this.material = getClothById(material).texture.name + material + '号·' + getClothById(material).zhColor
             }
         } else{
             this.sort = false
@@ -86,12 +93,16 @@ class Part {
     }
 }
 class CustomLogo {
-    constructor(type, id, content, font, colorid, lang) { // type 0 表示文字， 1 表示图片
-    this.name = name
+    constructor(type, shoeId ,id, content, font, colorid, lang) { // type 0 表示文字， 1 表示图片
         if(type === 0) { // 文字
+            this.name = (lang === 'en') ? getPartsByIdAndShoeStyleId(shoeId, id).enName : getPartsByIdAndShoeStyleId(shoeId, id).zhName
             this.text = content,
             this.font = font,
-            this.lang = lang
+            this.color = (lang === 'en') ? getFontColorById(colorid).enColor :  getFontColorById(colorid).zhColor 
+            this.language = lang
+        } else {
+            this.name = getPartsByIdAndShoeStyleId(shoeId, id).enName
+            this.logo = content
         }
     }
 }
@@ -118,7 +129,7 @@ export default {
         } else if(this.status === 0 && this.lang === 'en-US' && (this.error_reason === 0||this.error_reason === 1||this.error_reason === 2||this.error_reason===3||this.error_reason===4||this.error_reason===5 )) {
             return 'Please fill in the blank!'
         } else if(this.status === 0 && this.error_reason === 6) {
-            return this.lang === 'en-US' ? '  ': ' '
+            return this.lang === 'en-US' ? 'Sorry, some error happen,please try again': '出错，请再试一次'
         } else if(this.status === 0 && this.lang !== 'en-US') {
             switch (this.error_reason) {
                 case 0:
@@ -172,10 +183,18 @@ export default {
         else {
             // 开始生成订单提交
             this.creactOrder()
+          //  console.log(JSON.stringify(this.order))
+            sendOrder(this.order).then(res => {
+                if(res.result === 'success') {
+                    this.status = 2
+                } else {
+                    this.status = 0
+                    this.error_reason = 6
+                }
+            })
         }
     },
     creactOrder() {
-        console.log(this.personalinfor)
         // 个人基本信息
         this.order.customer = {
            firstName: this.personalinfor.firstName,
@@ -190,7 +209,7 @@ export default {
         }
         // 鞋子码数相关
         this.order.skateInformation = this.skateInformation
-        this.order.skateInformation.isSkate = !this.nowheel
+        // this.order.skateInformation.isSkate = !this.nowheel
         if(!this.nowheel) { // 如果有轮子计算出颜色值否则为空
             let framecolor = this.getPartColor('Flat Frame')
             let wheelscolor = this.getPartColor('Wheels')
@@ -219,23 +238,25 @@ export default {
         this.order.customised = {
             content: this.personalinfor.specialRequestContent,
             pictures: this.getSpecialImg(),
-            logos: []
+            logos: this.getcustomisedLogo()
         }
 
         console.log(this.order)
     },
     getSpecialImg() {
-        let img =  this.personalinfor.specialRequestPhoto.map(x => {x.imgName})
+        let img =  this.personalinfor.specialRequestPhoto.map(x => x.imgName)
+        console.log(img)
         return img
     },
     getcustomisedLogo() {
         let logos = []
         let embroidery = this.shoe.embroidery
         for(var i = 0; i< embroidery.length; i++) {
-            if(embroidery.imgBase64) {
-
-            } else if(embroidery.content) {
-
+            if(embroidery[i].imgBase64) {
+                logos.push(new CustomLogo(1, this.shoe.shoeStyle.id ,embroidery[i].partId, embroidery[i].imgBase64 ))
+            } else if(embroidery[i].content) {
+                logos.push(new CustomLogo(0, this.shoe.shoeStyle.id, embroidery[i].partId, embroidery[i].content, embroidery[i].fontFamily, embroidery[i].fontColor, 'en'))
+                logos.push(new CustomLogo(0, this.shoe.shoeStyle.id, embroidery[i].partId, embroidery[i].content, embroidery[i].fontFamily, embroidery[i].fontColor, 'zh'))
             }
         }
         return logos
@@ -282,8 +303,8 @@ export default {
         return logoArr
     },
     validata() {
-        console.log(this.personalinfor)
-        console.log(this.skateInformation)
+        // console.log(this.personalinfor)
+        // console.log(this.skateInformation)
         this.status = 1
         if(!fliter(this.personalinfor.lastName)){
             this.status = 0; this.error_reason = 0

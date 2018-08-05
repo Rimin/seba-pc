@@ -348,3 +348,11 @@ export const getPartsByShoeStyleId = function (shoeStyleId) {
     return e.shoeStyle.id === shoeStyleId
   })
 }
+
+export const getPartsByIdAndShoeStyleId = function (shoeStyleId, id) {
+  var shoeParts = getShoeParts()
+  var arr = shoeParts.filter((e) => {
+    return e.id === id && e.shoeStyle.id === shoeStyleId
+  })
+  return arr[0]
+}

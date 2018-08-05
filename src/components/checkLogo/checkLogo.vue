@@ -106,6 +106,7 @@ export default {
   padding-bottom: 20px;
   position: relative;
   display: inline-block;
+  vertical-align: middle;
   &>span {
     position: absolute;
     left: 0;

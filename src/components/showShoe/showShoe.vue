@@ -505,7 +505,7 @@ computed: {
 .view-box{
 	position: relative;
 	border-right: #ccc solid 1px;
-	width: 360px;
+	width: 359px;
 	height: 360px;
 }
 #close{
