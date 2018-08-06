@@ -20,7 +20,6 @@ export function sendOrder (orderinfor) {
   const data = {
     json: JSON.stringify(orderinfor)
   }
-  console.log(typeof data)
   return service.post(url, querystring.stringify(data)).then((res) => {
     return Promise.resolve(res.data)
   })

@@ -245,7 +245,6 @@ export default {
     },
     getSpecialImg() {
         let img =  this.personalinfor.specialRequestPhoto.map(x => x.imgName)
-        console.log(img)
         return img
     },
     getcustomisedLogo() {
