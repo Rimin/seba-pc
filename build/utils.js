@@ -9,7 +9,7 @@ exports.assetsPath = function (_path) {
     ? config.build.assetsSubDirectory
     : config.dev.assetsSubDirectory
 
-  return path.posix.join(assetsSubDirectory, _path)
+  return path.posix.join(assetsSubDirectory, _path) // 看是否能解决static图片问题
 }
 
 exports.cssLoaders = function (options) {

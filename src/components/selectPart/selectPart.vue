@@ -42,8 +42,8 @@
 <script>
 import { initShoe } from '@/config/createShoe';
 import { getPartsByShoeStyleId } from '@/config/shoeParts'
-
-const PART_BASE_URL = '../../../static/selectPart';
+import STATIC_PATH from '@/config/staticPath'
+const PART_BASE_URL = STATIC_PATH + 'selectPart'
 class Part {
   constructor(part){
     this.enName = part.enName;
@@ -147,6 +147,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url('../../common/less/common.less');
 @btn-width: 25px;
 @btn: {
   position: absolute;
@@ -171,7 +172,7 @@ export default {
   &:hover {
     opacity: 0.7;
   }
-  background-image: url(../../../static/selectPart/last-btn.png);
+  background-image: url("@{staticimg}/selectPart/last-btn.png");
 }
 
 .next-btn {
@@ -180,7 +181,7 @@ export default {
   &:hover {
     opacity: 0.7;
   }
-  background-image: url(../../../static/selectPart/next-btn.png);
+  background-image: url("@{staticimg}/selectPart/next-btn.png");
 }
 
 .select-list {
@@ -229,12 +230,12 @@ export default {
   cursor: pointer;
   .list-icon {
     &.active {
-      background: url(../../../static/selectPart/part_selbox.png);
+      background: url("@{staticimg}/selectPart/part_selbox.png");
     };
   }
   &:hover {
     .list-icon {
-      background: url(../../../static/selectPart/part_selbox.png);
+      background: url("@{staticimg}/selectPart/part_selbox.png");
     }
   }
 }

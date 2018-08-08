@@ -58,8 +58,8 @@
 <script>
 import { getTexture, getClothes, getClothById } from '../../config/cloth'
 import { getGlues, getGlueById, getGlueByPartsType } from '../../config/glue'
-
-const BASE_URL = '../../../static/selectMaterial'
+import STATIC_PATH from '@/config/staticPath'
+const BASE_URL = STATIC_PATH + 'selectMaterial'
 class Texture{
   constructor(e){
     this.id = e.id

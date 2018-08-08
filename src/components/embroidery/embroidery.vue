@@ -80,6 +80,7 @@
 </template>
 
 <script>
+import STATIC_PATH from '@/config/staticPath'
 import { imageFileToBase64 } from '@/common/js/fn'
 import { getEmbroideryByShoeStyleId, getFontFamily, getFontColor, getFontColorById } from '@/config/embroidery'
 // class EPart{ 
@@ -91,7 +92,7 @@ import { getEmbroideryByShoeStyleId, getFontFamily, getFontColor, getFontColorBy
 //     this.photo = e.photo
 //   }
 // }
-const BASE_URL = '../../../static/embroidery/color'
+const BASE_URL = STATIC_PATH + 'embroidery/color'
 class FontColor{
   constructor(e){
     this.id = e.id

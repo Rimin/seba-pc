@@ -124,9 +124,9 @@
 			</div>
 		</div>
 		<div class="orderView-area" v-if="!edit">
-			<img src="../../../static/showShoe/order_shadow_45.png" class="shawdow45">
-			<img src="../../../static/showShoe/order_shadow_front.png" class="shawdowfront">
-			<img src="../../../static/showShoe/order_shadow_side.png" class="shawdowside">
+			<img :src="IMG_PATH +'showShoe/order_shadow_45.png'" class="shawdow45">
+			<img :src="IMG_PATH +'showShoe/order_shadow_front.png'" class="shawdowfront">
+			<img :src="IMG_PATH +'showShoe/order_shadow_side.png'" class="shawdowside">
 			<div class="stylename-order">
 				<img :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/stylename.png'">
 			</div>
@@ -193,7 +193,8 @@
 
 <script>
 import { getLogoByShoeId } from '@/config/logo'
-import { getFontColorById } from '@/config/embroidery'  
+import { getFontColorById } from '@/config/embroidery' 
+import STATIC_PATH from '@/config/staticPath'
 export default {
 props: {
 	edit: {
@@ -203,7 +204,7 @@ props: {
 },
 data() {
 	return {
-		IMG_PATH : '../../../static/',
+		IMG_PATH :  STATIC_PATH,
 		currentAngle: 'side', // '45','side'
 		preview: false,
 		part: [],
