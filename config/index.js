@@ -58,8 +58,8 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-   //  assetsPublicPath: '/seba/', // 相对路径
-    assetsPublicPath: './', // 相对路径
+    assetsPublicPath: '/seba/', // 相对路径
+    // assetsPublicPath: './', // 相对路径
 
     /**
      * Source Maps

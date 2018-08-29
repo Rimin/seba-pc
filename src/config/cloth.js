@@ -41,6 +41,18 @@ export const getTexture = function () {
       type: 4, // 纹理类别
       detail: 2, // 纹理细节：斑马线纹理
       id: 6 // 该纹理 id
+    },
+    {
+      name: '不规则花石', // 纹理类别名称                103 ~ 110
+      type: 5, // 纹理类别
+      detail: 1, // 纹理细节：斑马线纹理
+      id: 7 // 该纹理 id
+    },
+    {
+      name: '闪粉', // 纹理类别名称                111 ~ 115
+      type: 6, // 纹理类别
+      detail: 1, // 纹理细节：斑马线纹理
+      id: 8 // 该纹理 id
     }
   ]
 }
@@ -367,6 +379,110 @@ export const getClothes = function () {
       zhColor: '灰', // 中文颜色名
       enColor: 'Gray', // 英文颜色名
       code: '#54565b' // 颜色编码
+    },
+    {
+      texture: texture[7], // 纹理类型
+      id: 103, // 布料号码
+      color: '299C蓝', // 颜色
+      zhColor: '蓝', // 中文颜色名
+      enColor: 'Blue', // 英文颜色名
+      code: '#00ale0' // 颜色编码
+    },
+    {
+      texture: texture[7], // 纹理类型
+      id: 104, // 布料号码
+      color: '877C银', // 颜色
+      zhColor: '银', // 中文颜色名
+      enColor: 'Silver', // 英文颜色名
+      code: '#8a8d8e' // 颜色编码
+    },
+    {
+      texture: texture[7], // 纹理类型
+      id: 105, // 布料号码
+      color: '212C红', // 颜色
+      zhColor: '粉', // 中文颜色名
+      enColor: 'Pink', // 英文颜色名
+      code: '#f45197' // 颜色编码
+    },
+    {
+      texture: texture[7], // 纹理类型
+      id: 106, // 布料号码
+      color: '白色', // 颜色
+      zhColor: '白', // 中文颜色名
+      enColor: 'White', // 英文颜色名
+      code: '#fff' // 颜色编码
+    },
+    {
+      texture: texture[7], // 纹理类型
+      id: 107, // 布料号码
+      color: '黑色', // 颜色
+      zhColor: '黑', // 中文颜色名
+      enColor: 'Black', // 英文颜色名
+      code: '#000' // 颜色编码
+    },
+    {
+      texture: texture[7], // 纹理类型
+      id: 108, // 布料号码
+      color: '199C红', // 颜色
+      zhColor: '红', // 中文颜色名
+      enColor: 'Red', // 英文颜色名
+      code: '#ele667' // 颜色编码
+    },
+    {
+      texture: texture[7], // 纹理类型
+      id: 109, // 布料号码
+      color: '379C黄', // 颜色
+      zhColor: '黄', // 中文颜色名
+      enColor: 'Yellow', // 英文颜色名
+      code: '#ele667' // 颜色编码
+    },
+    {
+      texture: texture[7], // 纹理类型
+      id: 110, // 布料号码
+      color: '367C绿', // 颜色
+      zhColor: '绿', // 中文颜色名
+      enColor: 'Green', // 英文颜色名
+      code: '#a3d55f' // 颜色编码
+    },
+    {
+      texture: texture[8], // 纹理类型
+      id: 111, // 布料号码
+      color: '353C绿', // 颜色
+      zhColor: '绿', // 中文颜色名
+      enColor: 'Green', // 英文颜色名
+      code: '#79dea8' // 颜色编码
+    },
+    {
+      texture: texture[8], // 纹理类型
+      id: 112, // 布料号码
+      color: '白色', // 颜色
+      zhColor: '白', // 中文颜色名
+      enColor: 'White', // 英文颜色名
+      code: '#fff' // 颜色编码
+    },
+    {
+      texture: texture[8], // 纹理类型
+      id: 113, // 布料号码
+      color: '247C红', // 颜色
+      zhColor: '红', // 中文颜色名
+      enColor: 'Red', // 英文颜色名
+      code: '#c017a2' // 颜色编码
+    },
+    {
+      texture: texture[8], // 纹理类型
+      id: 114, // 布料号码
+      color: '318C蓝', // 颜色
+      zhColor: '蓝', // 中文颜色名
+      enColor: 'Blue', // 英文颜色名
+      code: '#84dade' // 颜色编码
+    },
+    {
+      texture: texture[8], // 纹理类型
+      id: 115, // 布料号码
+      color: '2365C红', // 颜色
+      zhColor: '粉', // 中文颜色名
+      enColor: 'Pink', // 英文颜色名
+      code: '#flb9df' // 颜色编码
     }
   ]
 }

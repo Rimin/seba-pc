@@ -6,7 +6,7 @@
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_side.png'">
 				</li>
 				<li class="part-list img-list" v-for="item in part" :key="item.id">
-					<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
+					<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'" v-if="item.material!==0"> 
 				</li>
 				<li class="nowheel img-list" v-if="nowheel">
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
@@ -23,7 +23,7 @@
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
 				</li>
 				<li class="part-list img-list" v-for="item in part" :key="item.id">
-					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
+					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'" v-if="item.material!==0">
 				</li>
 				<li class="nowheel img-list" v-if="nowheel">
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
@@ -40,7 +40,7 @@
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_front.png'">
 				</li>
 				<li class="part-list img-list" v-for="item in part" :key="item.id">
-					<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
+					<img onerror="this.src='../../../static/showShoe/error.png'"  :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'" v-if="item.material!==0"> 
 				</li>
 				<li class="nowheel img-list" v-if="nowheel">
 					<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
@@ -69,7 +69,7 @@
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_front.png'">
 						</li>
 						<li class="part-list img-list" v-for="item in part" :key="item.id">
-							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'" v-if="item.material!==0">
 						</li>
 						<li class="nowheel img-list" v-if="nowheel">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
@@ -88,7 +88,7 @@
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_side.png'">
 						</li>
 						<li class="part-list img-list" v-for="item in part" :key="item.id">
-							<img  onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
+							<img  onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'" v-if="item.material!==0">
 						</li>
 						<li class="nowheel img-list" v-if="nowheel">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
@@ -107,7 +107,7 @@
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
 						</li>
 						<li class="part-list img-list" v-for="item in part" :key="item.id">
-							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
+							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'" v-if="item.material!==0">
 						</li>
 						<li class="nowheel img-list" v-if="nowheel">
 							<img onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
@@ -136,7 +136,7 @@
 						<img class="imgside" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_side.png'">
 					</li>
 					<li class="part-list img-list" v-for="item in part" :key="item.id">
-						<img class="imgside" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'">
+						<img class="imgside" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/side/'+item.material+'.png'" v-if="item.material!==0">
 					</li>
 					<li class="nowheel img-list" v-if="nowheel">
 						<img class="imgside" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/side_nowheel.png'">
@@ -155,7 +155,7 @@
 						<img  class="imgfront" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_front.png'">
 					</li>
 					<li class="part-list img-list" v-for="item in part" :key="item.id">
-						<img class="imgfront" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'">
+						<img class="imgfront" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/front/'+item.material+'.png'" v-if="item.material!==0">
 					</li>
 					<li class="nowheel img-list" v-if="nowheel">
 						<img class="imgfront" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/front_nowheel.png'">
@@ -174,7 +174,7 @@
 						<img class="img45" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+shoe.shoeStyle.id+'_45.png'">
 					</li>
 					<li class="part-list img-list" v-for="item in part" :key="item.id">
-						<img class="img45" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'">
+						<img class="img45" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/'+item.id+'/45/'+item.material+'.png'" v-if="item.material!==0">
 					</li>
 					<li class="nowheel img-list" v-if="nowheel">
 						<img class="img45" onerror="this.src='../../../static/showShoe/error.png'" :src="IMG_PATH+'shoe_'+shoe.shoeStyle.id+'/45_nowheel.png'">
