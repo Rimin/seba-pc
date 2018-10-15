@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url('../../common/less/base.less');
+@import url('../../common/less/variable.less');
 @import url('../../common/less/common.less');
 .edit-main{
   width: 1140px;

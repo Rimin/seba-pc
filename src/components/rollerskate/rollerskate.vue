@@ -85,7 +85,7 @@ export default {
 
 
 <style lang="less" scoped>
-@import url('../../common/less/base.less');
+@import url('../../common/less/variable.less');
 @middlewidth: 1080px;
 @bordercolor: #c2282c;
 .rollerskate{

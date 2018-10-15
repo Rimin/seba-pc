@@ -28,7 +28,7 @@
             </div>
             <div class="order-btn-wrap">
                 <router-link to="/rollerskate/edit" :class="(lang==='en-US'? 'operate_en_btn  back_en_btn': 'operate_zh_btn  back_zh_btn')"></router-link>
-                <div style="margin-left: 30px;" :class="(lang==='en-US'? 'operate_en_btn  confirm_en_btn': 'operate_zh_btn  confirm_zh_btn')" @click="submintOrder"></div>
+                <button style="margin-left: 30px;" :class="(lang==='en-US'? 'operate_en_btn  confirm_en_btn': 'operate_zh_btn  confirm_zh_btn')" @click="submintOrder" :disabled="isDisabled"></button>
             </div>
           </div>
       </div>
@@ -170,27 +170,39 @@ export default {
         showTipBox: false,
         error_reason: 0, // 0: 未填写姓 1 未填写名 2 未填写电话 3 未填写邮箱 4 未填写邮编 5 未填写地址 6 其他错误
         test: '',
-        order: {}
+        order: {},
+        isDisabled: false
       }
   },
   methods: {
     submintOrder() {
         this.showTipBox = true
+        this.isDisabled = true
         if(!this.validata()) {
-            console.log('订单还未填写完整')
+          //  console.log('订单还未填写完整')
+            this.isDisabled = false
             return
         }
         else {
+            var that = this
             // 开始生成订单提交
-            this.creactOrder()
-          //  console.log(JSON.stringify(this.order))
-            sendOrder(this.order).then(res => {
+            that.creactOrder()
+    
+            sendOrder(that.order).then(res => {
                 if(res.result === 'success') {
-                    this.status = 2
+                    that.status = 2
+                    that.isDisabled = false
                 } else {
-                    this.status = 0
-                    this.error_reason = 6
+                    that.status = 0
+                    that.error_reason = 6
+                    that.isDisabled = false
                 }
+            }).catch(function(error) {
+                that.status = 0
+                that.error_reason = 6
+                that.isDisabled = false
+                // console.log(this)
+                // console.log(error)
             })
         }
     },
@@ -274,7 +286,6 @@ export default {
         let color = {}
         for(let key in this.shoe) {
             if(this.shoe[key].enName === partname ) {
-                console.log(this.shoe[key].material)
                 color.color_zh = getGlueById(this.shoe[key].material).zhColor
                 color.color_en = getGlueById(this.shoe[key].material).enColor
                 break
@@ -295,7 +306,7 @@ export default {
            }
            if(flag) return x 
         })
-        console.log(logoArr)
+        // console.log(logoArr)
         if(logoArr.length !== 0) {
             logoArr = logoArr.map(x => x.id)
         }
@@ -353,7 +364,7 @@ export default {
 
 
 <style lang="less" scoped>
-@import url('../../common/less/base.less');
+@import url('../../common/less/variable.less');
 @import url('../../common/less/common.less');
 .order-main{
     width: 1140px;
@@ -531,6 +542,10 @@ export default {
     &:hover{
        background: rgb(126,201,50);  
     }
+}
+button{
+    border: 0;
+    outline: 0;
 }
 // just for test
 .testpicture{

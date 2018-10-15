@@ -208,7 +208,7 @@ export default {
     update(){ // 更新全局数据
       this.$bus.shoe[this.curPart].material = this.curColorId
       this.$bus.material = this.curColorId
-      console.log(this.$bus.shoe)
+    //  console.log(this.$bus.shoe)
     },
     setPartData(v){ // 根据全局$bus对象初始化部件数据
       var shoe = this.shoe
@@ -224,7 +224,7 @@ export default {
           this.curColorId = getGlueById(shoe[v].material).id // 获取胶件颜色
         }else { // 寻找胶件的默认值
           this.curColorId = getGlueByPartsType(shoe[v].partType.id)[0].id
-          console.log(this.curColorId)
+        //  console.log(this.curColorId)
           this.update()
         }
       }

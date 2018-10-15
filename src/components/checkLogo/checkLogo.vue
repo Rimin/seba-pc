@@ -42,9 +42,9 @@ export default {
       return this.$i18n.locale
     },
   },
-  created(){
-    console.log(this.shoe)
-  },
+  // created(){
+  //   console.log(this.shoe)
+  // },
   mounted(){
     var t = this
     setTimeout(()=>{
@@ -60,7 +60,7 @@ export default {
     init(){
       if(!this.logoBox) this.logoBox = this.$refs['logo-box']
       var count = this.embroidery.lehgth || 1
-      console.log([this.logoBox])
+    //  console.log([this.logoBox])
       var w = ((this.logoBox.clientWidth - 150) / count) | 0
       this.itemWidth = w > MAX_WIDTH ? MAX_WIDTH : w
     },

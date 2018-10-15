@@ -30,6 +30,11 @@ const getLogo = function () {
           id: 3,
           confict: '',
           confictAngle: ''
+        },
+        {
+          id: 4,
+          confict: '',
+          confictAngle: ''
         }
       ]
     }

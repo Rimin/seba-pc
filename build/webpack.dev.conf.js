@@ -55,6 +55,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
+      minify: {
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+      },
       inject: true
     }),
     // copy custom static assets

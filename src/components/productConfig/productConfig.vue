@@ -85,17 +85,21 @@
 import { getClothById } from '@/config/cloth'
 import { getGlueById } from '@/config/glue'
 class Part {
-    constructor (enName, zhName, material, parttype, long){
+    constructor (enName, zhName, material, parttype, nowheel){
         this.enName = enName
         this.zhName = zhName
         this.material = material
-        this.long = long
+       // this.long = long
         if(parttype === 1) {
             this.colorcode = getClothById(material).code
             this.textureName = getClothById(material).texture.name
             this.zhColor = getClothById(material).zhColor
             this.enColor = getClothById(material).enColor
-        } else{
+        } else if((enName === 'Wheels' || enName === 'Flat Frame') && nowheel === true ) {
+            this.enColor = 'null'
+            this.zhColor = '无'
+            this.colorcode = '#fff'
+        }else{
             this.enColor = getGlueById(material).enColor
             this.zhColor = getGlueById(material).zhColor
             this.colorcode = getGlueById(material).code
@@ -164,6 +168,9 @@ export default {
         lang(){
             return this.$i18n.locale
         },
+        nowheel() {
+            return this.$bus.nowheel
+        }
     },
     watch: {
         leftsize (newinfo) {
@@ -194,6 +201,7 @@ export default {
                         shoe[key].zhName,
                         shoe[key].material,
                         shoe[key].partType.id,
+                        this.nowheel
 
                     ))
                 } else if(shoe[key].partType && shoe[key].partType.id !== 1) {
@@ -201,11 +209,12 @@ export default {
                         shoe[key].enName,
                         shoe[key].zhName,
                         shoe[key].material,
-                        shoe[key].partType.id
+                        shoe[key].partType.id,
+                        this.nowheel
                     )) 
                 }
             }
-            console.log(this.gluepart)
+            // console.log(this.gluepart)
         },
         _getClothById (id) {
             return getClothById(id)
@@ -215,7 +224,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url('../../common/less/base.less');
+@import url('../../common/less/variable.less');
 @staticimg: '../../../static';
 .produtConfig > h2{
     margin-left: 72px;

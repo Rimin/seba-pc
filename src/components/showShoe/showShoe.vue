@@ -223,7 +223,7 @@ data() {
 mounted() {
 	this.initShoeShow(this.shoe)
 	setTimeout(() => {
-		console.log(this.customLogo)
+		// console.log(this.customLogo)
 		this.getCustomLogo(this.customLogo)
     }, 300)
 },
@@ -280,7 +280,7 @@ methods: {
 			}
 		}
 		// console.log('是否mouted太快延时不够？：')
-		console.log(this.customlogo)
+		
 	},
 	showLogo(part, angle){
 		if(part === '') return true
@@ -326,13 +326,10 @@ computed: {
 		shoe(newshoe) {
 			this.initShoeShow(newshoe)
 			setTimeout(() => {
-				console.log(this.customLogo)
 				this.getCustomLogo(this.customLogo)
 			},300)
 		},
 		customLogo(newCustomLogo){
-			console.log('hahah')
-			console.log(this.updataFlag)
 			if(this.updataFlag === false) {
 				this.getCustomLogo(this.customLogo)
 				this.updataFlag = true
@@ -358,7 +355,7 @@ computed: {
 
 
 <style lang="less" scoped>
-@import url('../../common/less/common.less');
+@import url('../../common/less/variable.less');
 .showshoe, .showEdit-area{
 	position: relative;
 	width: 100%;

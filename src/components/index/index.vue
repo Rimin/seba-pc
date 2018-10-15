@@ -39,7 +39,7 @@
                 <div class="choose-skatename choose-skatename3"></div>            
                 <div class="choose-btn-box choose-btn-box3">
                     <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate(3)"></div>
-                    IGOR
+                    SLIDE
                 </div>
           </div>
       </div>
@@ -49,7 +49,7 @@
                 <div class="choose-skatename choose-skatename4"></div>            
                 <div class="choose-btn-box choose-btn-box4">
                     <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate(4)"></div>
-                    WFSC
+                    UFS SERIES
                 </div>
           </div>
       </div>
@@ -116,7 +116,7 @@ export default {
 
 
 <style lang="less" scoped>
-@import url('../../common/less/base.less');
+@import url('../../common/less/variable.less');
 .ab_hor_center(){
     position: absolute;
     left: 0; right: 0;
@@ -166,16 +166,16 @@ export default {
     background-size: auto 100%;
 }
 .choose-box1:hover .choose-skateimg1{
-    background: url('@{bgimgurl}/index/sprite_home_ture_color.png') -320px 0 no-repeat;
+    background: url('@{bgimgurl}/index/sprite_skates_nor.png') -10px -10px no-repeat;
 }
 .choose-box2:hover .choose-skateimg2{
-    background: url('@{bgimgurl}/index/sprite_home_ture_color.png')  0 -390px no-repeat;
+    background: url('@{bgimgurl}/index/sprite_skates_nor.png') -350px -10px no-repeat;
 }
 .choose-box3:hover .choose-skateimg3{
-    background: url('@{bgimgurl}/index/sprite_home_ture_color.png') 0 0 no-repeat;
+    background: url('@{bgimgurl}/index/sprite_skates_nor.png') -690px -10px  no-repeat;
 }
 .choose-box4:hover .choose-skateimg4{
-    background: url('@{bgimgurl}/index/sprite_home_ture_color.png') -320px -390px no-repeat;
+    background: url('@{bgimgurl}/index/sprite_skates_nor.png') -1030px -10px no-repeat;
 }
 .choose-box:hover .choose-skatename{
     display: none;
@@ -201,28 +201,28 @@ export default {
     margin: 0 auto;
 }
 .choose-skateimg1{
-    background: url('@{bgimgurl}/index/index_zh/sprite_home.png') 0 0 no-repeat;
+    background: url('@{bgimgurl}/index/sprite_skates_pre.png') -10px -10px no-repeat;
 }
 .choose-skatename1{
-    background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -438px -390px no-repeat;
+    background: url('@{bgimgurl}/index/home_logo_shd.png') 0 0 no-repeat;
 }
 .choose-skateimg2{
-    background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -640px 0 no-repeat;
+    background: url('@{bgimgurl}/index/sprite_skates_pre.png') -350px -10px no-repeat;
 }
 .choose-skatename2{
-    background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -320px -390px  no-repeat;
+    background: url('@{bgimgurl}/index/home_logo_trix.png') 0 0  no-repeat;
 }
 .choose-skateimg3{
-    background: url('@{bgimgurl}/index/index_zh/sprite_home.png')  0 -390px no-repeat;
+    background: url('@{bgimgurl}/index/sprite_skates_pre.png') -690px -10px  no-repeat;
 }
 .choose-skatename3{
-    background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -674px -390px no-repeat;
+    background: url('@{bgimgurl}/index/home_logo_slide.png') 0 0 no-repeat;
 }
 .choose-skateimg4{
-    background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -320px 0  no-repeat;
+    background: url('@{bgimgurl}/index/sprite_skates_pre.png') -1030px -10px no-repeat;
 }
 .choose-skatename4{
-    background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -556px -390px no-repeat;
+    background: url('@{bgimgurl}/index/home_logo_ufs_series.png') 0 0 no-repeat;
 }
 .choose-btn-box{
     display: none;
@@ -239,16 +239,16 @@ export default {
 }
 
 .btn_en{
-    background: url('@{bgimgurl}/index/index_en/sprite_home.png') -320px -434px no-repeat; 
+    background: url('@{bgimgurl}/index/index_en/btn_choose_pre.png') 0 0 no-repeat; 
 }
 .btn_en:hover{
-    background: url('@{bgimgurl}/index/index_en/sprite_home.png') -482px -434px no-repeat;
+    background: url('@{bgimgurl}/index/index_en/btn_choose_nor.png') 0 0  no-repeat;
 }
 .btn_zh{
-   background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -320px -434px no-repeat;  
+   background: url('@{bgimgurl}/index/index_zh/btn_choose_pre.png') 0 0  no-repeat;  
 }
 .btn_zh:hover{
-    background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -482px -434px no-repeat; 
+    background: url('@{bgimgurl}/index/index_zh/btn_choose_nor.png') 0 0  no-repeat; 
 }
 .foot{
    position: absolute;
@@ -275,8 +275,8 @@ export default {
     width: 40px;
     height: 40px;
 }
-.fb{background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -792px -390px no-repeat;}
-.tw{background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -868px -390px no-repeat; }
-.vim{background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -830px -390px no-repeat; }
-.ins{background: url('@{bgimgurl}/index/index_zh/sprite_home.png') -906px -390px  no-repeat; }
+.fb{background: url('@{bgimgurl}/index/home_ico_1.png') 0 0 no-repeat;}
+.tw{background: url('@{bgimgurl}/index/home_ico_2.png') 0 0 no-repeat; }
+.vim{background: url('@{bgimgurl}/index/home_ico_3.png') 0 0 no-repeat; }
+.ins{background: url('@{bgimgurl}/index/home_ico_4.png') 0 0 no-repeat; }
 </style>

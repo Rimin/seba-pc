@@ -130,7 +130,7 @@ export default {
     },
     selectPart(e){
       var t = this
-      console.log(e)
+    //  console.log(e)
       e = e.target
       while(e){
         if(/list-item-click/g.test(e.className)){
@@ -147,7 +147,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url('../../common/less/common.less');
+@import url('../../common/less/variable.less');
 @btn-width: 25px;
 @btn: {
   position: absolute;

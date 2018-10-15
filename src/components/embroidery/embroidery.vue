@@ -184,7 +184,7 @@ export default {
         return new FontColor(e)
       })
       this.photoEmbroidery = this.eParts.some((e) => { // 判断是图片刺绣还是文字刺绣
-        console.log(e.photo)
+       // console.log(e.photo)
         return e.photo !== ''
       })
       this.curPartIndex = 0
