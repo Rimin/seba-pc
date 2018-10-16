@@ -33,6 +33,19 @@ export const getPartTypes = function () {
       detail: 4, // 部件细节 : 轮子
       id: 5, // 该部件 id
       hide: 0 // 0为显示，1为隐藏（单上鞋）
+    },
+    {
+      name: 'glue', // 部件类型名称 因为第四款鞋子的胶件的颜色和其他的颜色的种类不一样，所以这属于另一个类型（普通）
+      type: 2, // 部件类型
+      detail: 1, // 部件细节 : 普通
+      id: 6 // 该部件 id
+    },
+    {
+      name: 'glue', // 部件类型名称 因为第四款鞋子的胶件的颜色和其他的颜色的种类不一样，所以这属于另一个类型（刀架）
+      type: 2, // 部件类型
+      detail: 3, // 部件细节 : 刀架
+      id: 7, // 该部件 id,
+      hide: 0 // 0为显示，1为隐藏（单上鞋）
     }
   ]
 }
@@ -338,6 +351,110 @@ export const getShoeParts = function () {
       zhName: '轮子', // 中文名称
       enName: 'Wheels', // 英文名称
       material: 17 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[1], // 部件类型： 布件或胶件
+      id: 'g', // 部件 id，用于识别是哪个部位的部件
+      zhName: '鞋头壳', // 中文名称
+      enName: 'Toe Cap', // 英文名称
+      material: 1 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[1], // 部件类型： 布件或胶件
+      id: 'h', // 部件 id，用于识别是哪个部位的部件
+      zhName: '防磨片', // 中文名称
+      enName: 'Abrasive Pad', // 英文名称
+      material: 1 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[1], // 部件类型： 布件或胶件
+      id: 'i', // 部件 id，用于识别是哪个部位的部件
+      zhName: '脚背护带/能量带', // 中文名称
+      enName: 'Double Strap', // 英文名称
+      material: 1 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[1], // 部件类型： 布件或胶件
+      id: 'j', // 部件 id，用于识别是哪个部位的部件
+      zhName: '脚背护带芭扣', // 中文名称
+      enName: 'Spider Buckle', // 英文名称
+      material: 1 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[1], // 部件类型： 布件或胶件
+      id: 'k', // 部件 id，用于识别是哪个部位的部件
+      zhName: 'CUFF芭扣', // 中文名称
+      enName: 'CUFF buckle', // 英文名称
+      material: 1 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[1], // 部件类型： 布件或胶件
+      id: 'l', // 部件 id，用于识别是哪个部位的部件
+      zhName: '鞋带', // 中文名称
+      enName: 'Lace', // 英文名称
+      material: 1 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[3], // 部件类型： 布件或胶件
+      id: 'm', // 部件 id，用于识别是哪个部位的部件
+      zhName: '刀架', // 中文名称
+      enName: 'Flat Frame', // 英文名称
+      material: 12 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[4], // 部件类型： 布件或胶件
+      id: 'n', // 部件 id，用于识别是哪个部位的部件
+      zhName: '轮子', // 中文名称
+      enName: 'Wheels', // 英文名称
+      material: 17 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[5], // 部件类型： 布件或胶件
+      id: 'h', // 部件 id，用于识别是哪个部位的部件
+      zhName: '后铮Cuff', // 中文名称
+      enName: 'Cuff', // 英文名称
+      material: 1 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[5], // 部件类型： 布件或胶件
+      id: 'i', // 部件 id，用于识别是哪个部位的部件
+      zhName: '泥档片', // 中文名称
+      enName: 'Abrasive Pad', // 英文名称
+      material: 1 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[5], // 部件类型： 布件或胶件
+      id: 'j', // 部件 id，用于识别是哪个部位的部件
+      zhName: '鞋带', // 中文名称
+      enName: 'Lace', // 英文名称
+      material: 1 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[5], // 部件类型： 布件或胶件
+      id: 'k', // 部件 id，用于识别是哪个部位的部件
+      zhName: '鞋床板', // 中文名称
+      enName: 'Soul Plate', // 英文名称
+      material: 1 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[6], // 部件类型： 布件或胶件
+      id: 'l', // 部件 id，用于识别是哪个部位的部件
+      zhName: '胶底板', // 中文名称
+      enName: 'Frame', // 英文名称
+      material: 1 // 使用材料的 id
     }
   ]
 }

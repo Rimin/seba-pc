@@ -9,6 +9,14 @@ export const getShoeStyle = function () {
     {
       name: 'TRIX', // 品牌名称
       id: 2 // 品牌 id
+    },
+    {
+      name: 'SLDE',
+      id: 3
+    },
+    {
+      name: 'UFS SERIES',
+      id: 4
     }
   ]
 }

@@ -23,10 +23,34 @@ function TRIX () {
   t.embroidery = []
 }
 
+function SLDE () {
+  var t = this
+  var parts = getPartsByShoeStyleId(3)
+
+  t.shoeStyle = getShoeStyle()[2]
+  parts.forEach((e) => {
+    t[e.id] = e
+  })
+  t.embroidery = []
+}
+
+function UFS_SERIES () {
+  var t = this
+  var parts = getPartsByShoeStyleId(4)
+
+  t.shoeStyle = getShoeStyle()[3]
+  parts.forEach((e) => {
+    t[e.id] = e
+  })
+  t.embroidery = []
+}
+
 export const initShoe = function (styleId) {
   switch (styleId) {
     case 1: return new HIGH_CARBON()
     case 2: return new TRIX()
+    case 3: return new SLDE()
+    case 4: return new UFS_SERIES()
     default: return false
   }
 }

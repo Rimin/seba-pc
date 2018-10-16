@@ -85,7 +85,7 @@
 import { getClothById } from '@/config/cloth'
 import { getGlueById } from '@/config/glue'
 class Part {
-    constructor (enName, zhName, material, parttype, nowheel){
+    constructor (enName, zhName, material, parttype, detail, nowheel){
         this.enName = enName
         this.zhName = zhName
         this.material = material
@@ -95,7 +95,7 @@ class Part {
             this.textureName = getClothById(material).texture.name
             this.zhColor = getClothById(material).zhColor
             this.enColor = getClothById(material).enColor
-        } else if((enName === 'Wheels' || enName === 'Flat Frame') && nowheel === true ) {
+        } else if((detail === 3 || detail === 4 ) && nowheel === true ) {
             this.enColor = 'null'
             this.zhColor = '无'
             this.colorcode = '#fff'
@@ -195,21 +195,23 @@ export default {
     methods:{
         getConfigList(shoe) {
             for(let key in shoe) {  
-                if(shoe[key].partType && shoe[key].partType.id === 1) {
+                if(shoe[key].partType && shoe[key].partType.type === 1) {
                     this.clothpart.push(new Part(
                         shoe[key].enName,
                         shoe[key].zhName,
                         shoe[key].material,
-                        shoe[key].partType.id,
+                        shoe[key].partType.type,
+                        shoe[key].partType.detail,
                         this.nowheel
 
                     ))
-                } else if(shoe[key].partType && shoe[key].partType.id !== 1) {
+                } else if(shoe[key].partType && shoe[key].partType.type !== 1) {
                     this.gluepart.push(new Part(
                         shoe[key].enName,
                         shoe[key].zhName,
                         shoe[key].material,
-                        shoe[key].partType.id,
+                        shoe[key].partType.type,
+                        shoe[key].partType.detail,
                         this.nowheel
                     )) 
                 }
