@@ -297,19 +297,22 @@ export default {
         let logoArr = getLogoByShoeId(this.shoe.shoeStyle.id)
         let embroidery = this.shoe.embroidery
         //if(this.shoe)
-        logoArr =  logoArr.filter((x, index) => {
+         if(logoArr.length !== 0) {
+            logoArr =  logoArr.filter((x, index) => {
             let flag = true
-           for(var i=0; i<embroidery.length; i++) {
-               if(embroidery[i].content || embroidery[i].imgBase64) {
-                   if(embroidery[i].partId === x.confict) flag = false
-               }
-           }
-           if(flag) return x 
-        })
-        // console.log(logoArr)
-        if(logoArr.length !== 0) {
-            logoArr = logoArr.map(x => x.id)
-        }
+            for(var i=0; i<embroidery.length; i++) {
+                if(embroidery[i].content || embroidery[i].imgBase64) {
+                    if(embroidery[i].partId === x.confict) flag = false
+                }
+            }
+                if(flag) return x 
+            })
+            // console.log(logoArr)
+            if(logoArr.length !== 0) {
+                logoArr = logoArr.map(x => x.id)
+            }
+         }
+       
         return logoArr
     },
     validata() {

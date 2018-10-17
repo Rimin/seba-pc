@@ -37,6 +37,14 @@ const getLogo = function () {
           confictAngle: ''
         }
       ]
+    },
+    {
+      shoeStyle: shoeStyles[2],
+      logo: []
+    },
+    {
+      shoeStyle: shoeStyles[3],
+      logo: []
     }
   ]
 }

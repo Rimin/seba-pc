@@ -201,6 +201,150 @@ export const getGlues = function () {
       zhColor: '粉红',
       enColor: 'Pink',
       code: '#e60895'
+    },
+    {
+      partType: partTypes[5],
+      id: 1,
+      color: '黑',
+      zhColor: '黑',
+      enColor: 'black',
+      code: '#000'
+    },
+    {
+      partType: partTypes[5],
+      id: 2,
+      color: '白',
+      zhColor: '白',
+      enColor: 'white',
+      code: '#fff'
+    },
+    {
+      partType: partTypes[5],
+      id: 3,
+      color: '1797C紅',
+      zhColor: '红',
+      enColor: 'Red',
+      code: '#d0343a'
+    },
+    {
+      partType: partTypes[5],
+      id: 4,
+      color: '172C橙',
+      zhColor: '橙',
+      enColor: 'Origin',
+      code: '#ff4814'
+    },
+    {
+      partType: partTypes[5],
+      id: 5,
+      color: '102C黄',
+      zhColor: '黄',
+      enColor: 'Yellow',
+      code: '#fde300'
+    },
+    {
+      partType: partTypes[5],
+      id: 6,
+      color: '360C绿',
+      zhColor: '绿',
+      enColor: 'Green',
+      code: '#6bc04b'
+    },
+    {
+      partType: partTypes[5],
+      id: 7,
+      color: '2935C蓝',
+      zhColor: '蓝',
+      enColor: 'Blue',
+      code: '#0056b8'
+    },
+    {
+      partType: partTypes[5],
+      id: 8,
+      color: '2612C紫',
+      zhColor: '紫',
+      enColor: 'Purple',
+      code: '#7b2682'
+    },
+    {
+      partType: partTypes[5],
+      id: 9,
+      color: 'Rhodamine Red C',
+      zhColor: '粉红',
+      enColor: 'Pink',
+      code: '#e60895'
+    },
+    {
+      partType: partTypes[6],
+      id: 1,
+      color: '黑',
+      zhColor: '黑',
+      enColor: 'black',
+      code: '#000'
+    },
+    {
+      partType: partTypes[6],
+      id: 2,
+      color: '白',
+      zhColor: '白',
+      enColor: 'white',
+      code: '#fff'
+    },
+    {
+      partType: partTypes[6],
+      id: 3,
+      color: '1797C紅',
+      zhColor: '红',
+      enColor: 'Red',
+      code: '#d0343a'
+    },
+    {
+      partType: partTypes[6],
+      id: 4,
+      color: '172C橙',
+      zhColor: '橙',
+      enColor: 'Origin',
+      code: '#ff4814'
+    },
+    {
+      partType: partTypes[6],
+      id: 5,
+      color: '102C黄',
+      zhColor: '黄',
+      enColor: 'Yellow',
+      code: '#fde300'
+    },
+    {
+      partType: partTypes[6],
+      id: 6,
+      color: '360C绿',
+      zhColor: '绿',
+      enColor: 'Green',
+      code: '#6bc04b'
+    },
+    {
+      partType: partTypes[6],
+      id: 7,
+      color: '2935C蓝',
+      zhColor: '蓝',
+      enColor: 'Blue',
+      code: '#0056b8'
+    },
+    {
+      partType: partTypes[6],
+      id: 8,
+      color: '2612C紫',
+      zhColor: '紫',
+      enColor: 'Purple',
+      code: '#7b2682'
+    },
+    {
+      partType: partTypes[6],
+      id: 9,
+      color: 'Rhodamine Red C',
+      zhColor: '粉红',
+      enColor: 'Pink',
+      code: '#e60895'
     }
   ]
 }
