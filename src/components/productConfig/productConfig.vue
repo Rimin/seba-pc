@@ -95,7 +95,7 @@ class Part {
             this.textureName = getClothById(material).texture.name
             this.zhColor = getClothById(material).zhColor
             this.enColor = getClothById(material).enColor
-        } else if((detail === 3 || detail === 4 ) && nowheel === true ) {
+        } else if((detail === 3 || detail === 4 || detail === 6) && nowheel === true ) {
             this.enColor = 'null'
             this.zhColor = '无'
             this.colorcode = '#fff'

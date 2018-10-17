@@ -53,7 +53,7 @@ class Part {
     this.shoeStyle = part.shoeStyle;
     this.zhName = part.zhName;
     this.imgUrl = PART_BASE_URL + '/' + part.shoeStyle.id + '/part_' + part.id + '.png';
-    if(part.partType.type === 2 && (part.partType.detail === 4 || part.partType.detail === 3)){
+    if(part.partType.type === 2 && (part.partType.detail === 4 || part.partType.detail === 3 || part.partType.detail === 6)){
       this.noImgUrl = PART_BASE_URL + '/' + part.shoeStyle.id + '/part_' + part.id + '_dis.png';
     }
   }
