@@ -354,6 +354,54 @@ export const getShoeParts = function () {
     },
     {
       shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'a', // 部件 id，用于识别是哪个部位的部件
+      zhName: '大身饰花', // 中文名称
+      enName: 'Main Upper', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'b', // 部件 id，用于识别是哪个部位的部件
+      zhName: '前能量带', // 中文名称
+      enName: 'Toe Strap', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'c', // 部件 id，用于识别是哪个部位的部件
+      zhName: '大身腰围', // 中文名称
+      enName: 'Body Part', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'd', // 部件 id，用于识别是哪个部位的部件
+      zhName: '领口', // 中文名称
+      enName: 'Collar Part D', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'e', // 部件 id，用于识别是哪个部位的部件
+      zhName: '领口饰花/利仔饰花', // 中文名称
+      enName: 'Collar Part E', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'f', // 部件 id，用于识别是哪个部位的部件
+      zhName: '后铮', // 中文名称
+      enName: 'Heal Part', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[2], // 该部件所属品牌
       partType: partTypes[1], // 部件类型： 布件或胶件
       id: 'g', // 部件 id，用于识别是哪个部位的部件
       zhName: '鞋头壳', // 中文名称

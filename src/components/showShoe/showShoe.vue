@@ -552,6 +552,16 @@ computed: {
     width: 16%;
     font-size: 23px;
 }
+.custom-logo_3_b{
+	top: 52%;
+    left: 43%;
+    width: 18%;
+    font-size: 19px;
+    line-height: 30px;
+    -webkit-transform: rotate(16deg);
+    -ms-transform: rotate(16deg);
+    transform: rotate(16deg);
+}
 /**操作预览时*/
 .custom-logo_1_c_pre{
 	top: 46%;
@@ -584,6 +594,16 @@ computed: {
     width: 16%;
     font-size: 12px;
 }
+.custom-logo_3_b_pre{
+	top: 46%;
+    left: 43%;
+    width: 18%;
+    font-size: 12px;
+    line-height: 30px;
+    -webkit-transform: rotate(16deg);
+    -ms-transform: rotate(16deg);
+    transform: rotate(16deg);
+}
 /**订单预览时*/
 .custom-logo_1_c_preo{
 	top: 53%;
@@ -615,6 +635,16 @@ computed: {
     left: 42%;
     width: 16%;
     font-size: 14px;
+}
+.custom-logo_3_b_preo{
+	top: 53%;
+    left: 43%;
+    width: 18%;
+    font-size: 12px;
+    line-height: 30px;
+    -webkit-transform: rotate(16deg);
+    -ms-transform: rotate(16deg);
+    transform: rotate(16deg);
 }
 
 .color_1{ color: #000; }

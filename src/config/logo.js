@@ -40,7 +40,13 @@ const getLogo = function () {
     },
     {
       shoeStyle: shoeStyles[2],
-      logo: []
+      logo: [
+        {
+          id: 1,
+          confict: 'b',
+          confictAngle: 'front'
+        }
+      ]
     },
     {
       shoeStyle: shoeStyles[3],
