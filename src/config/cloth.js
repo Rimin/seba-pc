@@ -482,7 +482,7 @@ export const getClothes = function () {
       color: '2365C红', // 颜色
       zhColor: '粉', // 中文颜色名
       enColor: 'Pink', // 英文颜色名
-      code: '#flb9df' // 颜色编码
+      code: '#efb9df' // 颜色编码
     }
   ]
 }

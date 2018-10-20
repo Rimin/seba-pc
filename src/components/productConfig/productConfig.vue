@@ -216,7 +216,7 @@ export default {
                     )) 
                 }
             }
-            // console.log(this.gluepart)
+            // console.log(this.clothpart)
         },
         _getClothById (id) {
             return getClothById(id)
