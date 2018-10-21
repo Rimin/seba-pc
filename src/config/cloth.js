@@ -386,7 +386,7 @@ export const getClothes = function () {
       color: '299C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
       enColor: 'Blue', // 英文颜色名
-      code: '#00ale0' // 颜色编码
+      code: '#009fe0' // 颜色编码
     },
     {
       texture: texture[7], // 纹理类型
@@ -434,7 +434,7 @@ export const getClothes = function () {
       color: '379C黄', // 颜色
       zhColor: '黄', // 中文颜色名
       enColor: 'Yellow', // 英文颜色名
-      code: '#ele667' // 颜色编码
+      code: '#dfe667' // 颜色编码
     },
     {
       texture: texture[7], // 纹理类型
