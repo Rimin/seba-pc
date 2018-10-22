@@ -464,6 +464,63 @@ export const getShoeParts = function () {
       enName: 'Wheels', // 英文名称
       material: 17 // 使用材料的 id
     },
+
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'a', // 部件 id，用于识别是哪个部位的部件
+      zhName: '领口', // 中文名称
+      enName: 'Collar Part A', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'b', // 部件 id，用于识别是哪个部位的部件
+      zhName: '领口饰花', // 中文名称
+      enName: 'Collar Part B', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'c', // 部件 id，用于识别是哪个部位的部件
+      zhName: '鞋舌', // 中文名称
+      enName: 'Tongue', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'd', // 部件 id，用于识别是哪个部位的部件
+      zhName: '脚背能量带', // 中文名称
+      enName: 'Strap', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'e', // 部件 id，用于识别是哪个部位的部件
+      zhName: '眼排', // 中文名称
+      enName: 'Eyelet Part', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'f', // 部件 id，用于识别是哪个部位的部件
+      zhName: '大身内外', // 中文名称
+      enName: 'Main Upper', // 英文名称
+      material: 0 // 使用材料的 id
+    },
+    {
+      shoeStyle: shoeStyles[3], // 该部件所属品牌
+      partType: partTypes[0], // 部件类型： 布件或胶件
+      id: 'g', // 部件 id，用于识别是哪个部位的部件
+      zhName: '鞋头', // 中文名称
+      enName: 'Toe Part', // 英文名称
+      material: 0 // 使用材料的 id
+    },
     {
       shoeStyle: shoeStyles[3], // 该部件所属品牌
       partType: partTypes[5], // 部件类型： 布件或胶件

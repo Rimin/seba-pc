@@ -562,6 +562,16 @@ computed: {
     -ms-transform: rotate(6deg);
     transform: rotate(6deg);
 }
+.custom-logo_4_d{
+	top: 54%;
+    left: 42%;
+    width: 18%;
+    font-size: 19px;
+    line-height: 30px;
+    -webkit-transform: rotate(6deg);
+    -ms-transform: rotate(6deg);
+    transform: rotate(6deg);
+}
 /**操作预览时*/
 .custom-logo_1_c_pre{
 	top: 46%;
@@ -604,6 +614,16 @@ computed: {
     -ms-transform: rotate(6deg);
     transform: rotate(6deg);
 }
+.custom-logo_4_d_pre{
+	top: 48%;
+    left: 42%;
+    width: 18%;
+    font-size: 12px;
+    line-height: 30px;
+    -webkit-transform: rotate(6deg);
+    -ms-transform: rotate(6deg);
+    transform: rotate(6deg);
+}
 /**订单预览时*/
 .custom-logo_1_c_preo{
 	top: 53%;
@@ -637,6 +657,16 @@ computed: {
     font-size: 14px;
 }
 .custom-logo_3_b_preo{
+	top: 54.5%;
+    left: 42%;
+    width: 18%;
+    font-size: 12px;
+    line-height: 30px;
+    -webkit-transform: rotate(6deg);
+    -ms-transform: rotate(6deg);
+    transform: rotate(6deg);
+}
+.custom-logo_4_d_preo{
 	top: 54.5%;
     left: 42%;
     width: 18%;
