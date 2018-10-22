@@ -253,7 +253,7 @@ export default {
             logos: this.getcustomisedLogo()
         }
 
-        console.log(this.order)
+       // console.log(this.order)
     },
     getSpecialImg() {
         let img =  this.personalinfor.specialRequestPhoto.map(x => x.imgName)

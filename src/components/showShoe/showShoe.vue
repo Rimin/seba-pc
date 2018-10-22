@@ -563,14 +563,14 @@ computed: {
     transform: rotate(6deg);
 }
 .custom-logo_4_d{
-	top: 54%;
+	top: 38%;
     left: 42%;
     width: 18%;
     font-size: 19px;
     line-height: 30px;
-    -webkit-transform: rotate(6deg);
-    -ms-transform: rotate(6deg);
-    transform: rotate(6deg);
+    -webkit-transform: rotate(4deg);
+    -ms-transform: rotate(4deg);
+    transform: rotate(4deg);
 }
 /**操作预览时*/
 .custom-logo_1_c_pre{
@@ -615,14 +615,14 @@ computed: {
     transform: rotate(6deg);
 }
 .custom-logo_4_d_pre{
-	top: 48%;
+	top: 33%;
     left: 42%;
     width: 18%;
     font-size: 12px;
     line-height: 30px;
-    -webkit-transform: rotate(6deg);
-    -ms-transform: rotate(6deg);
-    transform: rotate(6deg);
+    -webkit-transform: rotate(4deg);
+    -ms-transform: rotate(4deg);
+    transform: rotate(4deg);
 }
 /**订单预览时*/
 .custom-logo_1_c_preo{
@@ -667,14 +667,14 @@ computed: {
     transform: rotate(6deg);
 }
 .custom-logo_4_d_preo{
-	top: 54.5%;
+	top: 38%;
     left: 42%;
     width: 18%;
     font-size: 12px;
     line-height: 30px;
-    -webkit-transform: rotate(6deg);
-    -ms-transform: rotate(6deg);
-    transform: rotate(6deg);
+    -webkit-transform: rotate(4deg);
+    -ms-transform: rotate(4deg);
+    transform: rotate(4deg);
 }
 
 .color_1{ color: #000; }

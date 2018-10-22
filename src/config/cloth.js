@@ -7,52 +7,52 @@ export const getTexture = function () {
       id: 0
     },
     {
-      name: '仿碳纤维', // 纹理类别名称              1 ~ 11
-      type: 1, // 纹理类别
+      name: '仿碳纤维', //                          1 ~ 11
+      type: 1,
       detail: 1, // 纹理细节
-      id: 1 // 该纹理 id
+      id: 1
     },
     {
-      name: '菱形网格', // 纹理类别名称              58 ~ 64
-      type: 2, // 纹理类别
+      name: '菱形网格', //              58 ~ 64
+      type: 2,
       detail: 1, // 纹理细节：大菱形纹理
-      id: 2 // 该纹理 id
+      id: 2
     },
     {
-      name: '菱形网格', // 纹理类别名称               65
-      type: 2, // 纹理类别
+      name: '菱形网格', //             65
+      type: 2,
       detail: 2, // 纹理细节：小菱形纹理
-      id: 3 // 该纹理 id
+      id: 3
     },
     {
-      name: '蜂窝网格', // 纹理类别名称               66 ~ 75
-      type: 3, // 纹理类别
+      name: '蜂窝网格', //              66 ~ 75
+      type: 3,
       detail: 1, // 纹理细节
-      id: 4 // 该纹理 id
+      id: 4
     },
     {
-      name: '方形网格', // 纹理类别名称                76 ~ 77 、  81 ~ 83
-      type: 4, // 纹理类别
+      name: '方形网格', //              76 ~ 77 、  81 ~ 83
+      type: 4,
       detail: 1, // 纹理细节：国际象棋棋盘纹理
-      id: 5 // 该纹理 id
+      id: 5
     },
     {
-      name: '方形网格', // 纹理类别名称                78 ~ 79  、 84 ~ 85
-      type: 4, // 纹理类别
+      name: '方形网格', //                78 ~ 79  、 84 ~ 85
+      type: 4,
       detail: 2, // 纹理细节：斑马线纹理
-      id: 6 // 该纹理 id
+      id: 6
     },
     {
-      name: '不规则花石', // 纹理类别名称                103 ~ 110
-      type: 5, // 纹理类别
+      name: '不规则花石', //              103 ~ 110
+      type: 5,
       detail: 1, // 纹理细节：斑马线纹理
-      id: 7 // 该纹理 id
+      id: 7
     },
     {
-      name: '闪粉', // 纹理类别名称                111 ~ 115
-      type: 6, // 纹理类别
+      name: '闪粉', //              111 ~ 115
+      type: 6,
       detail: 1, // 纹理细节：斑马线纹理
-      id: 8 // 该纹理 id
+      id: 8
     }
   ]
 }
@@ -61,7 +61,7 @@ export const getClothes = function () {
   var texture = getTexture()
   return [
     {
-      texture: texture[0], // 纹理类型
+      texture: texture[0],
       id: 0, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
@@ -69,7 +69,7 @@ export const getClothes = function () {
       code: '#000' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 1, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
@@ -77,7 +77,7 @@ export const getClothes = function () {
       code: '#000' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 2, // 布料号码
       color: '白色', // 颜色
       zhColor: '白', // 中文颜色名
@@ -85,7 +85,7 @@ export const getClothes = function () {
       code: '#fff' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 3, // 布料号码
       color: '187C红', // 颜色
       zhColor: '红', // 中文颜色名
@@ -93,7 +93,7 @@ export const getClothes = function () {
       code: '#ab192d' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 4, // 布料号码
       color: '299C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
@@ -101,7 +101,7 @@ export const getClothes = function () {
       code: '#00a1e0' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 5, // 布料号码
       color: '165C橙', // 颜色
       zhColor: '橙', // 中文颜色名
@@ -109,7 +109,7 @@ export const getClothes = function () {
       code: '#ff681d' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 6, // 布料号码
       color: '540C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
@@ -117,7 +117,7 @@ export const getClothes = function () {
       code: '#003057' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 7, // 布料号码
       color: '554C绿', // 颜色
       zhColor: '绿', // 中文颜色名
@@ -125,7 +125,7 @@ export const getClothes = function () {
       code: '#205b41' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 8, // 布料号码
       color: '519C紫', // 颜色
       zhColor: '紫', // 中文颜色名
@@ -133,7 +133,7 @@ export const getClothes = function () {
       code: '#5b325f' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 9, // 布料号码
       color: '7685C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
@@ -141,7 +141,7 @@ export const getClothes = function () {
       code: '#2c5697' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 10, // 布料号码
       color: '877C银', // 颜色
       zhColor: '银', // 中文颜色名
@@ -149,7 +149,7 @@ export const getClothes = function () {
       code: '#8a8d8e' // 颜色编码
     },
     {
-      texture: texture[1], // 纹理类型
+      texture: texture[1],
       id: 11, // 布料号码
       color: '116C黃', // 颜色
       zhColor: '黃', // 中文颜色名
@@ -157,7 +157,7 @@ export const getClothes = function () {
       code: '#ffce00' // 颜色编码
     },
     {
-      texture: texture[2], // 纹理类型
+      texture: texture[2],
       id: 58, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
@@ -165,7 +165,7 @@ export const getClothes = function () {
       code: '#000' // 颜色编码
     },
     {
-      texture: texture[2], // 纹理类型
+      texture: texture[2],
       id: 59, // 布料号码
       color: '白色', // 颜色
       zhColor: '白', // 中文颜色名
@@ -173,7 +173,7 @@ export const getClothes = function () {
       code: '#fff' // 颜色编码
     },
     {
-      texture: texture[2], // 纹理类型
+      texture: texture[2],
       id: 60, // 布料号码
       color: '186C红', // 颜色
       zhColor: '红', // 中文颜色名
@@ -181,7 +181,7 @@ export const getClothes = function () {
       code: '#cf102d' // 颜色编码
     },
     {
-      texture: texture[2], // 纹理类型
+      texture: texture[2],
       id: 61, // 布料号码
       color: '247C紫', // 颜色
       zhColor: '紫', // 中文颜色名
@@ -189,7 +189,7 @@ export const getClothes = function () {
       code: '#c018a2' // 颜色编码
     },
     {
-      texture: texture[2], // 纹理类型
+      texture: texture[2],
       id: 62, // 布料号码
       color: '102C黄', // 颜色
       zhColor: '黄', // 中文颜色名
@@ -197,7 +197,7 @@ export const getClothes = function () {
       code: '#fde300' // 颜色编码
     },
     {
-      texture: texture[2], // 纹理类型
+      texture: texture[2],
       id: 63, // 布料号码
       color: '355C绿', // 颜色
       zhColor: '绿', // 中文颜色名
@@ -205,7 +205,7 @@ export const getClothes = function () {
       code: '#00953b' // 颜色编码
     },
     {
-      texture: texture[2], // 纹理类型
+      texture: texture[2],
       id: 64, // 布料号码
       color: '151C橙', // 颜色
       zhColor: '橙', // 中文颜色名
@@ -213,7 +213,7 @@ export const getClothes = function () {
       code: '#ff8400' // 颜色编码
     },
     {
-      texture: texture[3], // 纹理类型
+      texture: texture[3],
       id: 65, // 布料号码
       color: '702C红', // 颜色
       zhColor: '红', // 中文颜色名
@@ -221,7 +221,7 @@ export const getClothes = function () {
       code: '#d75d73' // 颜色编码
     },
     {
-      texture: texture[4], // 纹理类型
+      texture: texture[4],
       id: 66, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
@@ -229,7 +229,7 @@ export const getClothes = function () {
       code: '#000' // 颜色编码
     },
     {
-      texture: texture[4], // 纹理类型
+      texture: texture[4],
       id: 67, // 布料号码
       color: '白色', // 颜色
       zhColor: '白', // 中文颜色名
@@ -237,7 +237,7 @@ export const getClothes = function () {
       code: '#fff' // 颜色编码
     },
     {
-      texture: texture[4], // 纹理类型
+      texture: texture[4],
       id: 68, // 布料号码
       color: '199C红', // 颜色
       zhColor: '红', // 中文颜色名
@@ -245,7 +245,7 @@ export const getClothes = function () {
       code: '#dc0032' // 颜色编码
     },
     {
-      texture: texture[4], // 纹理类型
+      texture: texture[4],
       id: 69, // 布料号码
       color: '2069C紫', // 颜色
       zhColor: '紫', // 中文颜色名
@@ -253,7 +253,7 @@ export const getClothes = function () {
       code: '#a438a8' // 颜色编码
     },
     {
-      texture: texture[4], // 纹理类型
+      texture: texture[4],
       id: 70, // 布料号码
       color: '108C黃', // 颜色
       zhColor: '黃', // 中文颜色名
@@ -261,7 +261,7 @@ export const getClothes = function () {
       code: '#ffdb00' // 颜色编码
     },
     {
-      texture: texture[4], // 纹理类型
+      texture: texture[4],
       id: 71, // 布料号码
       color: '367C绿', // 颜色
       zhColor: '绿', // 中文颜色名
@@ -269,7 +269,7 @@ export const getClothes = function () {
       code: '#a3d55f' // 颜色编码
     },
     {
-      texture: texture[4], // 纹理类型
+      texture: texture[4],
       id: 72, // 布料号码
       color: '877C银', // 颜色
       zhColor: '银', // 中文颜色名
@@ -277,7 +277,7 @@ export const getClothes = function () {
       code: '#8a8d8e' // 颜色编码
     },
     {
-      texture: texture[4], // 纹理类型
+      texture: texture[4],
       id: 73, // 布料号码
       color: '2174C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
@@ -285,7 +285,7 @@ export const getClothes = function () {
       code: '#0076ce' // 颜色编码
     },
     {
-      texture: texture[4], // 纹理类型
+      texture: texture[4],
       id: 74, // 布料号码
       color: '103C黃', // 颜色
       zhColor: '黃', // 中文颜色名
@@ -293,7 +293,7 @@ export const getClothes = function () {
       code: '#c6aa00' // 颜色编码
     },
     {
-      texture: texture[4], // 纹理类型
+      texture: texture[4],
       id: 75, // 布料号码
       color: '2046C红', // 颜色
       zhColor: '红', // 中文颜色名
@@ -301,7 +301,7 @@ export const getClothes = function () {
       code: '#cf578a' // 颜色编码
     },
     {
-      texture: texture[5], // 纹理类型
+      texture: texture[5],
       id: 76, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
@@ -309,7 +309,7 @@ export const getClothes = function () {
       code: '#000' // 颜色编码
     },
     {
-      texture: texture[5], // 纹理类型
+      texture: texture[5],
       id: 77, // 布料号码
       color: '白色', // 颜色
       zhColor: '白', // 中文颜色名
@@ -317,7 +317,7 @@ export const getClothes = function () {
       code: '#fff' // 颜色编码
     },
     {
-      texture: texture[5], // 纹理类型
+      texture: texture[5],
       id: 81, // 布料号码
       color: '2290C绿', // 颜色
       zhColor: '绿', // 中文颜色名
@@ -325,7 +325,7 @@ export const getClothes = function () {
       code: '#aadb1e' // 颜色编码
     },
     {
-      texture: texture[5], // 纹理类型
+      texture: texture[5],
       id: 82, // 布料号码
       color: '877C银', // 颜色
       zhColor: '银', // 中文颜色名
@@ -333,7 +333,7 @@ export const getClothes = function () {
       code: '#8a8d8e' // 颜色编码
     },
     {
-      texture: texture[5], // 纹理类型
+      texture: texture[5],
       id: 83, // 布料号码
       color: '3005C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
@@ -341,7 +341,7 @@ export const getClothes = function () {
       code: '#0075c9' // 颜色编码
     },
     {
-      texture: texture[6], // 纹理类型
+      texture: texture[6],
       id: 78, // 布料号码
       color: '亮红', // 颜色
       zhColor: '亮红', // 中文颜色名
@@ -349,7 +349,7 @@ export const getClothes = function () {
       code: '#ff3c1f' // 颜色编码
     },
     {
-      texture: texture[6], // 纹理类型
+      texture: texture[6],
       id: 79, // 布料号码
       color: '中紫', // 颜色
       zhColor: '中紫', // 中文颜色名
@@ -357,7 +357,7 @@ export const getClothes = function () {
       code: '#4d008c' // 颜色编码
     },
     {
-      texture: texture[6], // 纹理类型
+      texture: texture[6],
       id: 80, // 布料号码
       color: '012C黄', // 颜色
       zhColor: '黄', // 中文颜色名
@@ -365,7 +365,7 @@ export const getClothes = function () {
       code: '#ffd700' // 颜色编码
     },
     {
-      texture: texture[6], // 纹理类型
+      texture: texture[6],
       id: 84, // 布料号码
       color: '117C黃', // 颜色
       zhColor: '黄', // 中文颜色名
@@ -373,7 +373,7 @@ export const getClothes = function () {
       code: '#cc9800' // 颜色编码
     },
     {
-      texture: texture[6], // 纹理类型
+      texture: texture[6],
       id: 85, // 布料号码
       color: '11C灰', // 颜色
       zhColor: '灰', // 中文颜色名
@@ -381,7 +381,7 @@ export const getClothes = function () {
       code: '#54565b' // 颜色编码
     },
     {
-      texture: texture[7], // 纹理类型
+      texture: texture[7],
       id: 103, // 布料号码
       color: '299C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
@@ -389,7 +389,7 @@ export const getClothes = function () {
       code: '#009fe0' // 颜色编码
     },
     {
-      texture: texture[7], // 纹理类型
+      texture: texture[7],
       id: 104, // 布料号码
       color: '877C银', // 颜色
       zhColor: '银', // 中文颜色名
@@ -397,7 +397,7 @@ export const getClothes = function () {
       code: '#8a8d8e' // 颜色编码
     },
     {
-      texture: texture[7], // 纹理类型
+      texture: texture[7],
       id: 105, // 布料号码
       color: '212C红', // 颜色
       zhColor: '粉', // 中文颜色名
@@ -405,7 +405,7 @@ export const getClothes = function () {
       code: '#f45197' // 颜色编码
     },
     {
-      texture: texture[7], // 纹理类型
+      texture: texture[7],
       id: 106, // 布料号码
       color: '白色', // 颜色
       zhColor: '白', // 中文颜色名
@@ -413,7 +413,7 @@ export const getClothes = function () {
       code: '#fff' // 颜色编码
     },
     {
-      texture: texture[7], // 纹理类型
+      texture: texture[7],
       id: 107, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
@@ -421,15 +421,15 @@ export const getClothes = function () {
       code: '#000' // 颜色编码
     },
     {
-      texture: texture[7], // 纹理类型
+      texture: texture[7],
       id: 108, // 布料号码
       color: '199C红', // 颜色
       zhColor: '红', // 中文颜色名
       enColor: 'Red', // 英文颜色名
-      code: '#ele667' // 颜色编码
+      code: '#dc0032' // 颜色编码
     },
     {
-      texture: texture[7], // 纹理类型
+      texture: texture[7],
       id: 109, // 布料号码
       color: '379C黄', // 颜色
       zhColor: '黄', // 中文颜色名
@@ -437,7 +437,7 @@ export const getClothes = function () {
       code: '#dfe667' // 颜色编码
     },
     {
-      texture: texture[7], // 纹理类型
+      texture: texture[7],
       id: 110, // 布料号码
       color: '367C绿', // 颜色
       zhColor: '绿', // 中文颜色名
@@ -445,7 +445,7 @@ export const getClothes = function () {
       code: '#a3d55f' // 颜色编码
     },
     {
-      texture: texture[8], // 纹理类型
+      texture: texture[8],
       id: 111, // 布料号码
       color: '353C绿', // 颜色
       zhColor: '绿', // 中文颜色名
@@ -453,7 +453,7 @@ export const getClothes = function () {
       code: '#79dea8' // 颜色编码
     },
     {
-      texture: texture[8], // 纹理类型
+      texture: texture[8],
       id: 112, // 布料号码
       color: '白色', // 颜色
       zhColor: '白', // 中文颜色名
@@ -461,7 +461,7 @@ export const getClothes = function () {
       code: '#fff' // 颜色编码
     },
     {
-      texture: texture[8], // 纹理类型
+      texture: texture[8],
       id: 113, // 布料号码
       color: '247C红', // 颜色
       zhColor: '红', // 中文颜色名
@@ -469,7 +469,7 @@ export const getClothes = function () {
       code: '#c017a2' // 颜色编码
     },
     {
-      texture: texture[8], // 纹理类型
+      texture: texture[8],
       id: 114, // 布料号码
       color: '318C蓝', // 颜色
       zhColor: '蓝', // 中文颜色名
@@ -477,7 +477,7 @@ export const getClothes = function () {
       code: '#84dade' // 颜色编码
     },
     {
-      texture: texture[8], // 纹理类型
+      texture: texture[8],
       id: 115, // 布料号码
       color: '2365C红', // 颜色
       zhColor: '粉', // 中文颜色名

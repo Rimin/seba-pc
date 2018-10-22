@@ -107,7 +107,7 @@ export default {
        selectSkate(id){
             this.$bus.shoe = initShoe(id)
             this.$router.push({ path: `/rollerskate/edit`})
-            console.log(this.$bus.shoe)
+          //  console.log(this.$bus.shoe)
        }
     }
 }
