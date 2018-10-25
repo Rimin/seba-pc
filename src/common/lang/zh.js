@@ -96,7 +96,7 @@ export const m = {
     'Please_Perfect_Address': '请完善地址',
     'SEBA_Store': 'SEBA专卖店及地址',
     'Special_Requests': '特殊要求',
-    'Special_Requests_Tip': '请写下您的要求（TRIX/WFSC需要后跟胶窗等）或上传图片说明，谢谢',
+    'Special_Requests_Tip': '请写下您的要求（TRIX需要后跟胶窗等）或上传图片说明，谢谢',
     'Your_Area': '您的所在地'
   },
 

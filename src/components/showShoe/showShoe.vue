@@ -400,6 +400,7 @@ computed: {
 	height: 40px;
 	background: url("@{staticimg}/showShoe/btn_zh.png") no-repeat;
 	cursor: pointer;
+	user-select: none;
 }
 .operate_en_btn{
 	position: absolute;
@@ -408,6 +409,7 @@ computed: {
 	height: 40px;
 	background: url("@{staticimg}/showShoe/btn_en.png") no-repeat;
 	cursor: pointer;
+	user-select: none;
 }
 .btn_side{ 
 	top: 21px;
@@ -714,8 +716,8 @@ computed: {
 	right: 43px;
 }
 .stylename-order > img{
-	width: 80px;
-	height: 30px;
+	width: auto;
+	height: auto;
 }
 .order-shower-front{
 	width: 150px;

@@ -228,7 +228,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[5],
-      id: 4,
+      id: 21,
       color: '172C橙',
       zhColor: '橙',
       enColor: 'Origin',
@@ -236,7 +236,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[5],
-      id: 5,
+      id: 4,
       color: '102C黄',
       zhColor: '黄',
       enColor: 'Yellow',
@@ -244,7 +244,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[5],
-      id: 6,
+      id: 5,
       color: '360C绿',
       zhColor: '绿',
       enColor: 'Green',
@@ -252,7 +252,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[5],
-      id: 7,
+      id: 6,
       color: '2935C蓝',
       zhColor: '蓝',
       enColor: 'Blue',
@@ -260,7 +260,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[5],
-      id: 8,
+      id: 7,
       color: '2612C紫',
       zhColor: '紫',
       enColor: 'Purple',
@@ -268,7 +268,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[5],
-      id: 9,
+      id: 26,
       color: 'Rhodamine Red C',
       zhColor: '粉红',
       enColor: 'Pink',
@@ -300,7 +300,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[6],
-      id: 4,
+      id: 21,
       color: '172C橙',
       zhColor: '橙',
       enColor: 'Origin',
@@ -308,7 +308,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[6],
-      id: 5,
+      id: 4,
       color: '102C黄',
       zhColor: '黄',
       enColor: 'Yellow',
@@ -316,7 +316,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[6],
-      id: 6,
+      id: 5,
       color: '360C绿',
       zhColor: '绿',
       enColor: 'Green',
@@ -324,7 +324,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[6],
-      id: 7,
+      id: 6,
       color: '2935C蓝',
       zhColor: '蓝',
       enColor: 'Blue',
@@ -332,7 +332,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[6],
-      id: 8,
+      id: 7,
       color: '2612C紫',
       zhColor: '紫',
       enColor: 'Purple',
@@ -340,7 +340,7 @@ export const getGlues = function () {
     },
     {
       partType: partTypes[6],
-      id: 9,
+      id: 26,
       color: 'Rhodamine Red C',
       zhColor: '粉红',
       enColor: 'Pink',

@@ -28,7 +28,7 @@
             </div>
             <div class="order-btn-wrap">
                 <router-link to="/rollerskate/edit" :class="(lang==='en-US'? 'operate_en_btn  back_en_btn': 'operate_zh_btn  back_zh_btn')"></router-link>
-                <button style="margin-left: 30px;" :class="(lang==='en-US'? 'operate_en_btn  confirm_en_btn': 'operate_zh_btn  confirm_zh_btn')" @click="submintOrder" :disabled="isDisabled"></button>
+                <button style="margin-left: 30px;" :class="(lang==='en-US'? 'operate_en_btn2  confirm_en_btn': 'operate_zh_btn2  confirm_zh_btn')" @click="submintOrder" :disabled="isDisabled"></button>
             </div>
           </div>
       </div>
@@ -405,16 +405,34 @@ export default {
     cursor: pointer;
     display: inline-block;
     width: 220px;
-    height: 32px;
+    height: 34px;
     margin-top: 25px;
+    background: url("@{staticimg}/showShoe/btn_zh.png") no-repeat;
+}
+.operate_zh_btn2{
+    cursor: pointer;
+    display: inline-block;
+    width: 220px;
+    height: 34px;
+    margin-top: 25px;
+    vertical-align: top;
     background: url("@{staticimg}/showShoe/btn_zh.png") no-repeat;
 }
 .operate_en_btn{
     cursor: pointer;
     display: inline-block;
     width: 220px;
-    height: 32px;
+    height: 34px;
     margin-top: 25px;
+   	background: url("@{staticimg}/showShoe/btn_en.png") no-repeat;
+}
+.operate_en_btn2{
+    cursor: pointer;
+    display: inline-block;
+    width: 220px;
+    height: 34px;
+    margin-top: 25px;
+    vertical-align: top;
    	background: url("@{staticimg}/showShoe/btn_en.png") no-repeat;
 }
 .back_zh_btn{
@@ -430,15 +448,15 @@ export default {
     }
 }
 .confirm_zh_btn{
-    background-position: -414px -68px;
+    background-position: -414px -68.4px;
     &:hover{
         background-position: -414px -102px;
     }
 }
 .confirm_en_btn{
-    background-position: -414px -68px;
+    background-position: -414px -68.4px;
     &:hover{
-        background-position: -414px -102px; 
+        background-position: -414px -101px; 
     }
 }
 .personal-message-box {
