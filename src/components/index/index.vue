@@ -13,7 +13,7 @@
             </div>
             <div class="logo" :class="[lang==='en-US'?'logo_en':'logo_zh']"></div>
       </header>
-      <div class="choose-box choose-box1" @touchstart.stop="mouseIn(1)" @touchend.stop="mouseOut(1)">
+      <div class="choose-box choose-box1" @mouseenter="mouseIn(1)" @mouseleave="mouseOut(1)"  @touchstart.stop="mouseIn(1)" @touchend.stop="mouseOut(1)">
           <div class="choose-center">
                 <div class="choose-skateimg choose-skateimg1"></div>
                 <div class="choose-skatename choose-skatename1"></div>            
@@ -23,7 +23,7 @@
                 </div>
           </div>
       </div>
-      <div class="choose-box choose-box2" @touchstart.stop="mouseIn(2)" @touchend.stop="mouseOut(2)">
+      <div class="choose-box choose-box2"  @mouseenter="mouseIn(2)" @mouseleave="mouseOut(2)"  @touchstart.stop="mouseIn(2)" @touchend.stop="mouseOut(2)">
           <div class="choose-center">
                 <div class="choose-skateimg choose-skateimg2"></div>
                 <div class="choose-skatename choose-skatename2"></div>            
@@ -33,7 +33,7 @@
                 </div>
           </div>
       </div>
-      <div class="choose-box choose-box3" @touchstart.stop="mouseIn(3)" @touchend.stop="mouseOut(3)">
+      <div class="choose-box choose-box3"  @mouseenter="mouseIn(3)" @mouseleave="mouseOut(3)"  @touchstart.stop="mouseIn(3)" @touchend.stop="mouseOut(3)">
           <div class="choose-center">
                 <div class="choose-skateimg choose-skateimg3"></div>
                 <div class="choose-skatename choose-skatename3"></div>            
@@ -43,7 +43,7 @@
                 </div>
           </div>
       </div>
-      <div class="choose-box choose-box4" @touchstart.stop="mouseIn(4)" @touchend.stop="mouseOut(4)">
+      <div class="choose-box choose-box4"  @mouseenter="mouseIn(4)" @mouseleave="mouseOut(4)"  @touchstart.stop="mouseIn(4)" @touchend.stop="mouseOut(4)">
           <div class="choose-center">
                 <div class="choose-skateimg choose-skateimg4"></div>
                 <div class="choose-skatename choose-skatename4"></div>            
@@ -91,6 +91,7 @@ export default {
             } 
        },
        mouseIn(num){
+           if( document.getElementsByClassName('choose-box')[num-1].style.width === HOVER_WIDTH) return
            let arr = [1,2,3,4]
            arr.splice(num-1, 1)
            document.getElementsByClassName('choose-box')[num-1].style.width = HOVER_WIDTH  
