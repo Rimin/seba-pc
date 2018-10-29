@@ -97,6 +97,7 @@ export const getEmbroidery = function () {
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
+      imgName: '', // 图片名字（先上传后获得图片名字）
       angle: 'front' // 视角
     },
     {
@@ -107,6 +108,7 @@ export const getEmbroidery = function () {
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
+      imgName: '', // 图片名字（先上传后获得图片名字）
       angle: 'side' // 视角
     },
     {
@@ -117,6 +119,7 @@ export const getEmbroidery = function () {
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
+      imgName: '', // 图片名字（先上传后获得图片名字）
       angle: 'front' // 视角
     },
     {
@@ -127,6 +130,7 @@ export const getEmbroidery = function () {
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
+      imgName: '', // 图片名字（先上传后获得图片名字）
       angle: 'side' // 视角
     },
     {
@@ -137,6 +141,7 @@ export const getEmbroidery = function () {
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
+      imgName: '', // 图片名字（先上传后获得图片名字）
       angle: 'front' // 视角
     },
     {
@@ -147,6 +152,7 @@ export const getEmbroidery = function () {
       fontColor: 1, // 字体颜色 id
       photo: '', // 自定义图片名字
       imgBase64: '', // 图片字符串
+      imgName: '', // 图片名字（先上传后获得图片名字）
       angle: 'front' // 视角
     }
   ]

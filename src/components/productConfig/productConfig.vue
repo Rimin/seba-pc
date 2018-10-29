@@ -7,8 +7,8 @@
         <div class="select-row">
             <label class="select-label label1">{{$t('m.Produce.Left_Size')}}</label>
             <select class="select-choices" v-model="leftsize">
-                <option value="32">32</option>
-                <option value="33">33</option>
+                <!-- <option value="32">32</option>
+                <option value="33">33</option> -->
                 <option value="34">34</option>
                 <option value="35">35</option>
                 <option value="36">36</option>
@@ -26,8 +26,8 @@
             </select>
             <label class="select-label label2">{{$t('m.Produce.Right_Size')}}</label>
             <select class="select-choices" v-model="rightsize">
-                <option value="32">32</option>
-                <option value="33">33</option>
+                <!-- <option value="32">32</option>
+                <option value="33">33</option> -->
                 <option value="34">34</option>
                 <option value="35">35</option>
                 <option value="36">36</option>
@@ -51,9 +51,9 @@
                 <option value="pt231">{{$t('m.Produce.Frame')}} 231mm</option>
                 <option value="pt243">{{$t('m.Produce.Frame')}} 243mm</option>
                 <option value="xj219">{{$t('m.Produce.Rockered_Frame')}} 219mm</option>
-                <option value="xj227">{{$t('m.Produce.Rockered_Frame')}} 227mm</option>
+                <!-- <option value="xj227">{{$t('m.Produce.Rockered_Frame')}} 227mm</option> -->
                 <option value="xj231">{{$t('m.Produce.Rockered_Frame')}} 231mm</option>
-                <option value="xj239">{{$t('m.Produce.Rockered_Frame')}} 239mm</option>
+                <!-- <option value="xj239">{{$t('m.Produce.Rockered_Frame')}} 239mm</option> -->
                 <option value="xj243">{{$t('m.Produce.Rockered_Frame')}} 243mm</option>
             </select>
             <label class="select-label label2">{{$t('m.Produce.Wheel_Size')}}</label>
@@ -150,15 +150,15 @@ export default {
         return{
             clothpart: [],
             gluepart: [],
-            leftsize: 32,
-            rightsize: 32,
+            leftsize: 34,
+            rightsize: 34,
             framesize: 'pt219',
             wheelsize: '72mm'
         }
     },
     mounted(){
        this.getConfigList(this.shoe)
-       this.$bus.skateInformation = new skateSize(32, 32, 'pt219', '72mm')
+       this.$bus.skateInformation = new skateSize(34, 34, 'pt219', '72mm')
        // console.log(this.skateInformation)
     },
     computed: {

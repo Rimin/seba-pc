@@ -83,6 +83,7 @@
 import STATIC_PATH from '@/config/staticPath'
 import { imageFileToBase64 } from '@/common/js/fn'
 import { getEmbroideryByShoeStyleId, getFontFamily, getFontColor, getFontColorById } from '@/config/embroidery'
+import { getImgName } from '@/api/order'
 // class EPart{ 
 //   constructor(e){
 //     this.partId = e.partId
@@ -124,6 +125,7 @@ export default {
 
       openStatus: false, // 弹窗1开关
       imgBase64: '',
+      imgName: '',
       imgFlieDom: null, 
       
       photoEmbroidery: false, // 刺绣类型，false文字刺绣，true图片刺绣
@@ -218,6 +220,7 @@ export default {
       this.curPhoto = eParts[index].photo
       this.curFF = eParts[index].fontFamily
       this.imgBase64 = eParts[index].imgBase64
+      this.imgName = eParts[index].imgName
     },
     selectColor(e){
       var t = this
@@ -239,6 +242,7 @@ export default {
     changeOpenStatus(){ // 打开弹窗时，先读取图片
       this.curPhoto = this.eParts[this.curPartIndex].photo
       this.imgBase64 = this.eParts[this.curPartIndex].imgBase64
+      this.imgName = this.eParts[this.curPartIndex].imgName
       this.openStatus = !this.openStatus
       if(this.openStatus) {
         this.error = '1'
@@ -252,9 +256,14 @@ export default {
       t.imgFlieDom.addEventListener('change',function(){
         var file = this.files[0]
         // console.log(file)
+        // 转换base64
         imageFileToBase64(file).then((e)=>{
           t.imgBase64 = e
           t.curPhoto = file.name
+          var formdata = new FormData()
+          formdata.append('image', file)
+          // 上传图片,取得imgName
+          t.uploadImge(formdata)
         }).catch((e) => {
           t.error = e.message
           if(t.error !== '1') {
@@ -263,8 +272,15 @@ export default {
           // } else {
             t.curPhoto = ''
             t.imgBase64 = ''  
+            t.imgName = ''
           }
         })
+       
+      })
+    },
+    uploadImge(file){
+      getImgName(file).then((res) => {
+        this.imgName = res.message
       })
     },
     addClickBox(){
@@ -285,6 +301,7 @@ export default {
         this.photoEmbroidery = true // 刺绣类型改为图片刺绣
         this.eParts[this.curPartIndex].photo = this.curPhoto
         this.eParts[this.curPartIndex].imgBase64 = this.imgBase64
+        this.eParts[this.curPartIndex].imgName = this.imgName
         this.eParts.forEach((e)=>{
           // if(!e.photo || !e.imgBase64) { // 没图片的全部换上当前图片
           //   e.photo = t.curPhoto
@@ -296,6 +313,7 @@ export default {
       }else {
         this.curPhoto = this.eParts[this.curPartIndex].photo
         this.imgBase64 = this.eParts[this.curPartIndex].imgBase64
+        this.imgName = this.eParts[this.curPartIndex].imgName
       }
       this.openStatus = !this.openStatus
     },
@@ -304,12 +322,15 @@ export default {
       // this.photoEmbroidery = false // 刺绣类型改为文字刺绣
       this.eParts[this.curPartIndex].photo = ''// 删除当前部件的图片
       this.eParts[this.curPartIndex].imgBase64 = ''
+      this.eParts[this.curPartIndex].imgName = '' 
       this.eParts.every((e)=>{ return e.photo === '' }) && (this.photoEmbroidery = false) // 判断是否需要改为文字刺绣
       this.setToPart(this.curPartIndex)
       this.update()
     },
     update(){
+    // console.log(this.eParts)
       this.$bus.shoe.embroidery = Object.assign([],this.eParts)
+      console.log(this.$bus.shoe.embroidery)
     },
     setAngle(){
       this.$bus.angle = this.eParts[this.curPartIndex].angle

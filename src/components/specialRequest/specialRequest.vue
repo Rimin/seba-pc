@@ -100,9 +100,14 @@ export default {
           t.imgFormDom.reset()
           return
         }
+        // 转换为base64
         imageFileToBase64(file).then((e)=>{
-          t.photos.push(new RequestPhoto(name, e))
+         // t.photos.push(new RequestPhoto(name, e))
           t.error = ''
+          var formdata = new FormData()
+          formdata.append('image', file)
+          // 上传图片,取得imgName
+          t.uploadImge(formdata, name, e)
           t.imgFormDom.reset()
         }).catch((e)=>{
           if(e.message === '1') {
@@ -114,9 +119,13 @@ export default {
         })
       })
     },
+    uploadImge(file, name, base64){
+      getImgName(file).then((res) => {
+        this.photos.push(new RequestPhoto(name, base64, res.message))
+      })
+    },
     deleteImage(e){
       var t = this
-      // //console.log(e)
       var path = e.path
       for(var i=0; i<path.length; i++){
         var item = path[i]
@@ -133,16 +142,17 @@ export default {
     },
     imgOk(){
       // console.log(this.photos)
-      // 上传图片获得图片名
-      for (let i= 0; i< this.photos.length; i++) {
-         getImgName(this.photos[i].imgBase64).then(res => {
-          // console.log(img)
-            if(res.result === 'success') {
-              this.photos[i].imgName = res.message
-            }
-         })
-      }
-   //  console.log(this.photos)
+      // 上传图片获得图片名 
+      // for (let i= 0; i< this.photos.length; i++) {
+      //    getImgName(this.photos[i].imgBase64).then(res => {
+      //     // console.log(img)
+      //       if(res.result === 'success') {
+      //         this.photos[i].imgName = res.message
+      //       }
+      //    })
+      // }
+      console.log(this.photos)
+      console.log(this.$bus.personalMessage.specialRequestPhoto)
       this.openStatus = false
     }
   }

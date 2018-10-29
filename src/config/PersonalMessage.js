@@ -15,9 +15,10 @@ export class PersonalMessage {
 }
 
 export class RequestPhoto {
-  constructor (photo, imgBase64) {
+  constructor (photo, imgBase64, imgName) {
     this.photo = photo || ''
     this.imgBase64 = imgBase64 || ''
+    this.imgName = imgName || ''
   }
 }
 

@@ -201,8 +201,6 @@ export default {
                 that.status = 0
                 that.error_reason = 6
                 that.isDisabled = false
-                // console.log(this)
-                // console.log(error)
             })
         }
     },
@@ -253,7 +251,7 @@ export default {
             logos: this.getcustomisedLogo()
         }
 
-       // console.log(this.order)
+        console.log(this.order)
     },
     getSpecialImg() {
         let img =  this.personalinfor.specialRequestPhoto.map(x => x.imgName)
@@ -263,13 +261,14 @@ export default {
         let logos = []
         let embroidery = this.shoe.embroidery
         for(var i = 0; i< embroidery.length; i++) {
-            if(embroidery[i].imgBase64) {
-                logos.push(new CustomLogo(1, this.shoe.shoeStyle.id ,embroidery[i].partId, embroidery[i].imgBase64 ))
+            if(embroidery[i].imgName) {
+                logos.push(new CustomLogo(1, this.shoe.shoeStyle.id ,embroidery[i].partId, embroidery[i].imgName))
             } else if(embroidery[i].content) {
                 logos.push(new CustomLogo(0, this.shoe.shoeStyle.id, embroidery[i].partId, embroidery[i].content, embroidery[i].fontFamily, embroidery[i].fontColor, 'en'))
                 logos.push(new CustomLogo(0, this.shoe.shoeStyle.id, embroidery[i].partId, embroidery[i].content, embroidery[i].fontFamily, embroidery[i].fontColor, 'zh'))
             }
         }
+        console.log(logos)
         return logos
     },
     getPartsForExcel(){

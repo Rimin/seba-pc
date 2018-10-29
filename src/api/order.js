@@ -5,13 +5,27 @@ const service = axios.create({
   timeout: 200000
 })
 
-export function getImgName (imgbase) {
+// export function getImgName (imgbase) {
+//   const url = '/seba/uploadRequestImage'
+//   const data = {
+//     image: imgbase
+//   }
+//   return service.post(url, querystring.stringify(data)).then((res) => {
+//     return Promise.resolve(res.data)
+//   })
+// }
+
+export function getImgName (file) {
   const url = '/seba/uploadRequestImage'
-  const data = {
-    image: imgbase
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
   }
-  return service.post(url, querystring.stringify(data)).then((res) => {
+  return service.post(url, file, config).then((res) => {
     return Promise.resolve(res.data)
+  }).catch(function (err) {
+    return Promise.reject(err)
   })
 }
 
