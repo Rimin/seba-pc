@@ -258,12 +258,12 @@ export default {
         // console.log(file)
         // 转换base64
         imageFileToBase64(file).then((e)=>{
-          t.imgBase64 = e
-          t.curPhoto = file.name
           var formdata = new FormData()
           formdata.append('image', file)
           // 上传图片,取得imgName
           t.uploadImge(formdata)
+          t.imgBase64 = e
+          t.curPhoto = file.name
         }).catch((e) => {
           t.error = e.message
           if(t.error !== '1') {
@@ -281,6 +281,13 @@ export default {
     uploadImge(file){
       getImgName(file).then((res) => {
         this.imgName = res.message
+      }).catch((e) =>{
+          this.error = e.message
+          if(this.error !== '1') {
+              this.curPhoto = ''
+              this.imgBase64 = ''  
+              this.imgName = ''
+          }
       })
     },
     addClickBox(){

@@ -16,7 +16,7 @@ const service = axios.create({
 // }
 
 export function getImgName (file) {
-  const url = '/seba/uploadRequestImage'
+  const url = '/seba/uploadImage'
   const config = {
     headers: {
       'Content-Type': 'multipart/form-data'
