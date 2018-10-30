@@ -122,6 +122,13 @@ export default {
     uploadImge(file, name, base64){
       getImgName(file).then((res) => {
         this.photos.push(new RequestPhoto(name, base64, res.message))
+      }).catch((e)=>{
+          if(e.message === '1') {
+            this.error = ''
+          } else {
+            this.error = e.message
+          }
+          this.imgFormDom.reset()
       })
     },
     deleteImage(e){
@@ -151,8 +158,8 @@ export default {
       //       }
       //    })
       // }
-      console.log(this.photos)
-      console.log(this.$bus.personalMessage.specialRequestPhoto)
+      // console.log(this.photos)
+      // console.log(this.$bus.personalMessage.specialRequestPhoto)
       this.openStatus = false
     }
   }

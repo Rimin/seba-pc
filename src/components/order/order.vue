@@ -251,7 +251,7 @@ export default {
             logos: this.getcustomisedLogo()
         }
 
-        console.log(this.order)
+       // console.log(this.order)
     },
     getSpecialImg() {
         let img =  this.personalinfor.specialRequestPhoto.map(x => x.imgName)
@@ -268,7 +268,7 @@ export default {
                 logos.push(new CustomLogo(0, this.shoe.shoeStyle.id, embroidery[i].partId, embroidery[i].content, embroidery[i].fontFamily, embroidery[i].fontColor, 'zh'))
             }
         }
-        console.log(logos)
+       // console.log(logos)
         return logos
     },
     getPartsForExcel(){

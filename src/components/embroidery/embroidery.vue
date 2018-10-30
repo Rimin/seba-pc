@@ -337,7 +337,7 @@ export default {
     update(){
     // console.log(this.eParts)
       this.$bus.shoe.embroidery = Object.assign([],this.eParts)
-      console.log(this.$bus.shoe.embroidery)
+      //console.log(this.$bus.shoe.embroidery)
     },
     setAngle(){
       this.$bus.angle = this.eParts[this.curPartIndex].angle
