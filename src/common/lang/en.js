@@ -15,6 +15,7 @@ export const m = {
   'Add_Images': 'ADD IMAGES',
   'Confirm_Image': 'OK',
   'Cancel_Image': 'Cancel',
+  'Waiting_Upload': 'waiting...',
 
   'Image_Alarm_1': 'PLEASE UPLOAD IMAGE LESS THAN 5M WITH PNG/JPG/JPEG FORMAT.(Maximum 5 Pictures) !',
   'Image_Alarm_2': 'Browser version too low !',

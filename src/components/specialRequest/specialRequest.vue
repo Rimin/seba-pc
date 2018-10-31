@@ -27,7 +27,7 @@
             <form ref="image-form"><input type="file" ref="image-file"></form>
           </div>
           <div class="btn confirm-img" @click="imgOk">
-            {{true?$t('m.Confirm_Image'):$t('m.Cancel_Image')}}
+            {{waitng?$t('m.Waiting_Upload'):$t('m.Confirm_Image')}}
           </div>
         </div>
       </div>
@@ -45,11 +45,11 @@ export default {
       photos: [],
       content: '',
       openStatus: false,
+      waitng: false,
       error: '1',
       maxCount: REQUEST_PHOTO_MAX_COUNT,
     }
   },
-  computed: {},
   watch: {
     content(v){
       this.$bus.personalMessage.specialRequestContent = v
@@ -65,7 +65,6 @@ export default {
       else return this.error = ''
     }
   },
-  created(){},
   mounted(){
     var t = this
     setTimeout(()=>{
@@ -78,6 +77,7 @@ export default {
       var ms = this.$bus.personalMessage
       this.photos = ms.specialRequestPhoto || []
       this.content = ms.specialRequestContent  
+      this.waitng = false
       if(!this.photos.length) {
         this.error = '1'
       } else {
@@ -85,6 +85,7 @@ export default {
       }
     },
     changeOpenStatus(){
+      if(this.waitng) return
       this.openStatus = !this.openStatus
       if(this.openStatus) this.init()
     },
@@ -101,6 +102,7 @@ export default {
           return
         }
         // 转换为base64
+        t.waitng = true
         imageFileToBase64(file).then((e)=>{
          // t.photos.push(new RequestPhoto(name, e))
           t.error = ''
@@ -110,6 +112,7 @@ export default {
           t.uploadImge(formdata, name, e)
           t.imgFormDom.reset()
         }).catch((e)=>{
+          t.waitng = false
           if(e.message === '1') {
             t.error = ''
           } else {
@@ -122,7 +125,9 @@ export default {
     uploadImge(file, name, base64){
       getImgName(file).then((res) => {
         this.photos.push(new RequestPhoto(name, base64, res.message))
+        this.waitng = false
       }).catch((e)=>{
+          this.waitng = false
           if(e.message === '1') {
             this.error = ''
           } else {
@@ -160,6 +165,7 @@ export default {
       // }
       // console.log(this.photos)
       // console.log(this.$bus.personalMessage.specialRequestPhoto)
+      if(this.waitng) return
       this.openStatus = false
     }
   }

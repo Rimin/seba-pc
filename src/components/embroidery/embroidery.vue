@@ -68,7 +68,7 @@
               {{$t('m.Select_Image')}}
               <form ref="image-form"><input type="file" ref="image-file"></form>
             </div>
-            <div class="btn btn-upl-img" @click="imageOk">{{curPhoto?$t('m.Confirm_Image'):$t('m.Cancel_Image')}}</div>
+            <div class="btn btn-upl-img" @click="imageOk">{{imgName?$t('m.Confirm_Image'):(curPhoto?$t('m.Waiting_Upload'):$t('m.Cancel_Image'))}}</div>
           </div>
         </div>
       </div>
@@ -261,8 +261,7 @@ export default {
           var formdata = new FormData()
           formdata.append('image', file)
           // 上传图片,取得imgName
-          t.uploadImge(formdata)
-          t.imgBase64 = e
+          t.uploadImge(formdata, e)
           t.curPhoto = file.name
         }).catch((e) => {
           t.error = e.message
@@ -278,9 +277,10 @@ export default {
        
       })
     },
-    uploadImge(file){
+    uploadImge(file, base64){
       getImgName(file).then((res) => {
         this.imgName = res.message
+        this.imgBase64 = base64
       }).catch((e) =>{
           this.error = e.message
           if(this.error !== '1') {
@@ -303,8 +303,7 @@ export default {
       })
     },
     imageOk(){
-      var t = this
-      if(t.curPhoto) {
+      if(this.curPhoto && this.imgName) {
         this.photoEmbroidery = true // 刺绣类型改为图片刺绣
         this.eParts[this.curPartIndex].photo = this.curPhoto
         this.eParts[this.curPartIndex].imgBase64 = this.imgBase64
@@ -317,10 +316,12 @@ export default {
           e.content = ''
         })
         this.update()
-      }else {
+      }else if(!this.curPhoto){
         this.curPhoto = this.eParts[this.curPartIndex].photo
         this.imgBase64 = this.eParts[this.curPartIndex].imgBase64
         this.imgName = this.eParts[this.curPartIndex].imgName
+      } else if(this.curPhoto && !this.imgName){
+        return
       }
       this.openStatus = !this.openStatus
     },
@@ -337,7 +338,7 @@ export default {
     update(){
     // console.log(this.eParts)
       this.$bus.shoe.embroidery = Object.assign([],this.eParts)
-      //console.log(this.$bus.shoe.embroidery)
+      // console.log(this.$bus.shoe.embroidery)
     },
     setAngle(){
       this.$bus.angle = this.eParts[this.curPartIndex].angle

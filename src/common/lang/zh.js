@@ -15,6 +15,7 @@ export const m = {
   'Add_Images': '添加图片',
   'Confirm_Image': '确定',
   'Cancel_Image': '取消',
+  'Waiting_Upload': '正在上传...',
 
   'Image_Alarm_1': '请使用png、jpg、jpeg格式图片，文件大小小于3MB !',
   'Image_Alarm_2': '浏览器版本过低 !',
