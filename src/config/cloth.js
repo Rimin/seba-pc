@@ -407,18 +407,18 @@ export const getClothes = function () {
     {
       texture: texture[7],
       id: 106, // 布料号码
-      color: '白色', // 颜色
-      zhColor: '白', // 中文颜色名
-      enColor: 'White', // 英文颜色名
-      code: '#fff' // 颜色编码
-    },
-    {
-      texture: texture[7],
-      id: 107, // 布料号码
       color: '黑色', // 颜色
       zhColor: '黑', // 中文颜色名
       enColor: 'Black', // 英文颜色名
       code: '#000' // 颜色编码
+    },
+    {
+      texture: texture[7],
+      id: 107, // 布料号码
+      color: '白色', // 颜色
+      zhColor: '白', // 中文颜色名
+      enColor: 'White', // 英文颜色名
+      code: '#fff' // 颜色编码
     },
     {
       texture: texture[7],

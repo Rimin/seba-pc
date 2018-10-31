@@ -194,6 +194,7 @@ export default {
     },
     methods:{
         getConfigList(shoe) {
+          //  console.log(shoe)
             for(let key in shoe) {  
                 if(shoe[key].partType && shoe[key].partType.type === 1) {
                     this.clothpart.push(new Part(
@@ -216,7 +217,7 @@ export default {
                     )) 
                 }
             }
-            // console.log(this.clothpart)
+           // console.log(this.clothpart)
         },
         _getClothById (id) {
             return getClothById(id)
