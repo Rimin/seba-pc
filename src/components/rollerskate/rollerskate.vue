@@ -71,7 +71,7 @@ export default {
         if(this.$router.app._route.fullPath === '/rollerskate/order') {
             this.$router.push('/rollerskate/edit')
         }
-        console.log(this.$bus.shoe)
+       // console.log(this.$bus.shoe)
     }
   },
   computed:{

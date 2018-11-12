@@ -64,6 +64,7 @@
               <a class="ins" href="http://instagram.com/sebaskates"></a>
           </div>
       </footer>
+    <div id="preload"></div>
   </div>
 </template>
 
@@ -280,4 +281,8 @@ export default {
 .tw{background: url('@{bgimgurl}/index/home_ico_2.png') 0 0 no-repeat; }
 .vim{background: url('@{bgimgurl}/index/home_ico_3.png') 0 0 no-repeat; }
 .ins{background: url('@{bgimgurl}/index/home_ico_4.png') 0 0 no-repeat; }
+#preload{
+    display: none;
+    background: url('@{bgimgurl}/common/common_parts_bg.png');
+}
 </style>
