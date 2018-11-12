@@ -254,6 +254,8 @@ export default {
       var t = this
       if(!t.imgFlieDom) t.imgFlieDom = t.$refs['image-file']
       t.imgFlieDom.addEventListener('change',function(){
+        t.imgName = ''
+        t.curPhoto = ''
         var file = this.files[0]
         // console.log(file)
         // 转换base64
