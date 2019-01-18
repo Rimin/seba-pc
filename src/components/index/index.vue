@@ -49,7 +49,7 @@
                 <div class="choose-skatename choose-skatename4"></div>            
                 <div class="choose-btn-box choose-btn-box4">
                     <div class="choose-btn" :class="[lang==='en-US'?'btn_en':'btn_zh']" @click="selectSkate(4)"></div>
-                    UFS SERIES
+                    STREET
                 </div>
           </div>
       </div>
