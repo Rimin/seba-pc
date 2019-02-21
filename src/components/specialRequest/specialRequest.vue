@@ -124,7 +124,13 @@ export default {
     },
     uploadImge(file, name, base64){
       getImgName(file).then((res) => {
-        this.photos.push(new RequestPhoto(name, base64, res.message))
+        if(res.result === 'success'){
+           this.photos.push(new RequestPhoto(name, base64, res.message))
+        
+        }else{
+          this.error = res.message + ', please try again'
+          this.imgFormDom.reset()
+        }
         this.waitng = false
       }).catch((e)=>{
           this.waitng = false

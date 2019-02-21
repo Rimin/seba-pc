@@ -281,8 +281,15 @@ export default {
     },
     uploadImge(file, base64){
       getImgName(file).then((res) => {
-        this.imgName = res.message
-        this.imgBase64 = base64
+        if(res.result === 'success'){
+          this.imgName = res.message
+          this.imgBase64 = base64
+        } else{
+            this.error = res.message +  ', please try again'
+            t.curPhoto = ''
+            this.imgBase64 = ''  
+            this.imgName = ''
+        }
       }).catch((e) =>{
           this.error = e.message
           if(this.error !== '1') {

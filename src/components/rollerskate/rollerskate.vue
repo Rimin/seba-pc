@@ -135,27 +135,35 @@ export default {
 }
 .nav-item-1{
     background: url("@{bgimgurl}/common/common_head_1_nor.png");
+    background-repeat: no-repeat;
 }
 .nav-item-1-active{
     background: url("@{bgimgurl}/common/common_head_1.png");
+    background-repeat: no-repeat;
 }
 .nav-item-2{
     background: url("@{bgimgurl}/common/common_head_2_nor.png");
+    background-repeat: no-repeat;
 }
 .nav-item-2-active{
     background: url("@{bgimgurl}/common/common_head_2.png");
+    background-repeat: no-repeat;
 } 
 .nav-item-3{
     background: url("@{bgimgurl}/common/common_head_3_nor.png");
+    background-repeat: no-repeat;
 }
 .nav-item-3-active{
     background: url("@{bgimgurl}/common/common_head_3.png");
+    background-repeat: no-repeat;
 } 
 .nav-item-4{
     background: url("@{bgimgurl}/common/common_head_4_nor.png");
+    background-repeat: no-repeat;
 }
 .nav-item-4-active{
     background: url("@{bgimgurl}/common/common_head_4.png");
+    background-repeat: no-repeat;
 } 
 .foot{
     background: #fff;
